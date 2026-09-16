@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:template_test/core/theme/app_theme.dart';
-import 'package:template_test/routes/app_router.dart';
+import 'package:salesysx/core/theme/app_theme.dart';
+import 'package:salesysx/routes/app_router.dart';
 
 import 'core/network/connectivity_banner.dart';
 import 'core/observers/riverpod_logging_observer.dart';

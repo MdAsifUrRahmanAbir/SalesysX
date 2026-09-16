@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:label="template_test"
+        android:label="SalesysX"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

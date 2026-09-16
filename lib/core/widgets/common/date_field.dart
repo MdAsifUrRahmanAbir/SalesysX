@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:template_test/core/constants/app_colors.dart';
-import 'package:template_test/core/constants/app_sizes.dart';
+import 'package:salesysx/core/constants/app_colors.dart';
+import 'package:salesysx/core/constants/app_sizes.dart';
 
 import '../../theme/app_color_scheme.dart';
 
