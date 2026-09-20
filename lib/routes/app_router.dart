@@ -1,3 +1,4 @@
+import 'package:salesysx/features/new_sale_entry/presentation/screens/new_sale_entry_screen.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:salesysx/features/terms_privacy/presentation/screens/terms_privacy_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,8 +14,11 @@ import 'package:salesysx/features/help_support/presentation/screens/help_support
 
 import '../core/network/connectivity_provider.dart';
 import '../core/observers/logging_observer.dart';
+import '../features/salesman_home/presentation/screens/salesman_home_screen.dart';
 
-final hasCompletedInitialNavigationProvider = StateProvider<bool>((ref) => false);
+final hasCompletedInitialNavigationProvider = StateProvider<bool>(
+  (ref) => false,
+);
 
 final routerProvider = Provider<GoRouter>((ref) {
   final connectivityService = ref.watch(connectivityServiceProvider);
@@ -23,7 +27,9 @@ final routerProvider = Provider<GoRouter>((ref) {
     initialLocation: RouteNames.splash,
     errorBuilder: (context, state) => const NotFoundScreen(),
     observers: [LoggingObserver()],
-    refreshListenable: GoRouterRefreshStream(connectivityService.onStatusChange),
+    refreshListenable: GoRouterRefreshStream(
+      connectivityService.onStatusChange,
+    ),
 
     redirect: (context, state) {
       if (state.matchedLocation == RouteNames.splash) return null;
@@ -78,6 +84,14 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RouteNames.termsPrivacy,
         builder: (context, state) => const TermsPrivacyScreen(),
       ),
-  ],
+      GoRoute(
+        path: RouteNames.salesman_home,
+        builder: (context, state) => const SalesmanHomeScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.new_sale_entry,
+        builder: (context, state) => const NewSaleEntryScreen(),
+      ),
+    ],
   );
 });

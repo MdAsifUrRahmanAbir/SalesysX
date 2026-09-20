@@ -11,4 +11,7 @@ class RouteNames {
   static const String maintenance = '/maintenance';
   static const String helpSupport = '/help-support';
   static const String termsPrivacy = '/terms_privacy';
+  static const String home = '/home';
+  static const String salesman_home = '/salesman_home';
+  static const String new_sale_entry = '/new_sale_entry';
 }
