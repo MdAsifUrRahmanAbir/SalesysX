@@ -2,7 +2,14 @@ class RouteNames {
   RouteNames._();
 
   static const String splash = '/';
+  static const String onboarding = '/onboarding';
   static const String welcome = '/welcome';
+  static const String login = '/login';
+
+  static const String settings = '/settings';
+  static const String editProfile = '/edit_profile';
+  static const String changePassword = '/change-password';
+
   static const String mainShell = '/main';
   static const String notifications = '/notifications';
   static const String notFound = '/not-found';

@@ -17,8 +17,15 @@ import 'package:salesysx/features/help_support/presentation/screens/help_support
 
 import '../core/network/connectivity_provider.dart';
 import '../core/observers/logging_observer.dart';
+import '../features/change_password/presentation/screens/change_password_screen.dart';
+import '../features/edit_profile/presentation/screens/edit_profile_screen.dart';
+import '../features/login/presentation/screens/login_screen.dart';
+import '../features/onboarding/presentation/screens/onboarding_screen.dart';
+import '../features/onboarding/presentation/screens/splash_screen.dart';
+import '../features/onboarding/presentation/screens/welcome_screen.dart';
 import '../features/outlets_customers/presentation/screens/outlets_customers_screen.dart';
 import '../features/salesman_home/presentation/screens/salesman_home_screen.dart';
+import '../features/settings/presentation/screens/settings_screen.dart';
 
 final hasCompletedInitialNavigationProvider = StateProvider<bool>(
   (ref) => false,
@@ -59,6 +66,30 @@ final routerProvider = Provider<GoRouter>((ref) {
     },
 
     routes: [
+      GoRoute(path: RouteNames.splash, builder: (_, _) => const SplashScreen()),
+      GoRoute(
+        path: RouteNames.onboarding,
+        builder: (_, _) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.welcome,
+        builder: (_, _) => const WelcomeScreen(),
+      ),
+      GoRoute(path: RouteNames.login, builder: (_, _) => const LoginScreen()),
+
+      GoRoute(
+        path: RouteNames.settings,
+        builder: (_, _) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.editProfile,
+        builder: (context, state) => const EditProfileScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.changePassword,
+        builder: (_, _) => const ChangePasswordScreen(),
+      ),
+
       GoRoute(
         path: RouteNames.mainShell,
         builder: (_, _) => const MainShellScreen(),

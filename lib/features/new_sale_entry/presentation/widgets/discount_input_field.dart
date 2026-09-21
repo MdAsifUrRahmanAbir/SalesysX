@@ -23,7 +23,7 @@ class DiscountInputField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.discountLabel,
+          AppStrings.discountLabel(1),
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,
