@@ -1,3 +1,5 @@
+import 'package:salesysx/features/profile/presentation/screens/profile_screen.dart';
+import 'package:salesysx/features/target_performance/presentation/screens/target_performance_screen.dart';
 import 'package:salesysx/features/new_sale_entry/presentation/screens/new_sale_entry_screen.dart';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:salesysx/features/terms_privacy/presentation/screens/terms_privacy_screen.dart';
@@ -14,6 +16,7 @@ import 'package:salesysx/features/help_support/presentation/screens/help_support
 
 import '../core/network/connectivity_provider.dart';
 import '../core/observers/logging_observer.dart';
+import '../features/outlets_customers/presentation/screens/outlets_customers_screen.dart';
 import '../features/salesman_home/presentation/screens/salesman_home_screen.dart';
 
 final hasCompletedInitialNavigationProvider = StateProvider<bool>(
@@ -24,7 +27,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   final connectivityService = ref.watch(connectivityServiceProvider);
 
   return GoRouter(
-    initialLocation: RouteNames.splash,
+    initialLocation: RouteNames.mainShell,
     errorBuilder: (context, state) => const NotFoundScreen(),
     observers: [LoggingObserver()],
     refreshListenable: GoRouterRefreshStream(
@@ -92,6 +95,9 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RouteNames.new_sale_entry,
         builder: (context, state) => const NewSaleEntryScreen(),
       ),
-    ],
+      GoRoute(path: RouteNames.outlets_customers, builder: (context, state) => const OutletsCustomersScreen()),
+    GoRoute(path: RouteNames.target_performance, builder: (context, state) => const TargetPerformanceScreen()),
+    GoRoute(path: RouteNames.profile, builder: (context, state) => const ProfileScreen()),
+  ],
   );
 });

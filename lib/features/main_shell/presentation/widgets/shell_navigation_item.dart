@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/app_strings.dart';
+
 /// Icon + label data for one bottom-nav tab. Kept as plain data (not
 /// a widget) so the destination list can be built once and reused by
 /// both [ShellTabBody] index lookups and the nav bar itself — add or
 /// reorder a feature here and both the tab content and the nav icons
 /// update together.
+///
+/// Order here must stay in sync with `ShellTabBody._screens`:
+/// 0 Home, 1 Sales, 2 Customers, 3 Target, 4 Profile.
 class ShellNavItemData {
   final IconData icon;
   final IconData selectedIcon;
@@ -18,9 +23,29 @@ class ShellNavItemData {
 }
 
 const List<ShellNavItemData> shellNavItems = [
-  ShellNavItemData(icon: Icons.home_outlined, selectedIcon: Icons.home_rounded, label: 'Home'),
-  ShellNavItemData(icon: Icons.access_time_rounded, selectedIcon: Icons.access_time_filled_rounded, label: 'Activity'),
-  ShellNavItemData(icon: Icons.bar_chart_outlined, selectedIcon: Icons.bar_chart_rounded, label: 'Analytics'),
-  ShellNavItemData(icon: Icons.shopping_bag_outlined, selectedIcon: Icons.shopping_bag_rounded, label: 'Orders'),
-  ShellNavItemData(icon: Icons.person_outline_rounded, selectedIcon: Icons.person_rounded, label: 'Profile'),
+  ShellNavItemData(
+    icon: Icons.home_outlined,
+    selectedIcon: Icons.home_rounded,
+    label: AppStrings.navHome,
+  ),
+  ShellNavItemData(
+    icon: Icons.point_of_sale_outlined,
+    selectedIcon: Icons.point_of_sale_rounded,
+    label: AppStrings.navSales,
+  ),
+  ShellNavItemData(
+    icon: Icons.storefront_outlined,
+    selectedIcon: Icons.storefront_rounded,
+    label: AppStrings.navCustomers,
+  ),
+  ShellNavItemData(
+    icon: Icons.flag_outlined,
+    selectedIcon: Icons.flag_rounded,
+    label: AppStrings.navTarget,
+  ),
+  ShellNavItemData(
+    icon: Icons.person_outline_rounded,
+    selectedIcon: Icons.person_rounded,
+    label: AppStrings.navProfile,
+  ),
 ];

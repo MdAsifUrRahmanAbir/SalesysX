@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
+
   // Brand colors — same across both themes
-  static const Color primary = Color(0xFF6C63FF);
-  static const Color primaryDark = Color(0xFF4B44CC);
+  static const Color primary = Color(0xFF0D9488);
+  static const Color primaryDark = Color(0xFF111827);
+  // Brand colors — same across both themes
+  // static const Color primary = Color(0xFF6C63FF);
+  // static const Color primaryDark = Color(0xFF4B44CC);
   static const Color primaryLight = Color(0xFFEAE9FF);
 
   static const Color accent = Color(0xFF00C896);

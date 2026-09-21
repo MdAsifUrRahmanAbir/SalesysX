@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:salesysx/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:salesysx/features/salesman_home/presentation/screens/salesman_home_screen.dart';
 
 import '../../../new_sale_entry/presentation/screens/new_sale_entry_screen.dart';
-import '../../../terms_privacy/presentation/screens/terms_privacy_screen.dart';
+import '../../../outlets_customers/presentation/screens/outlets_customers_screen.dart';
+import '../../../profile/presentation/screens/profile_screen.dart';
+import '../../../target_performance/presentation/screens/target_performance_screen.dart';
 
 /// Hosts all five bottom-nav destination screens in an [IndexedStack]
 /// so switching tabs preserves each screen's scroll position and
@@ -16,8 +17,10 @@ class ShellTabBody extends StatelessWidget {
   static const _screens = [
     SalesmanHomeScreen(),
     NewSaleEntryScreen(),
-    NotificationsScreen(),
-    TermsPrivacyScreen(),
+    OutletsCustomersScreen(),
+    TargetPerformanceScreen(),
+    ProfileScreen(),
+    // TermsPrivacyScreen(),
   ];
 
   @override

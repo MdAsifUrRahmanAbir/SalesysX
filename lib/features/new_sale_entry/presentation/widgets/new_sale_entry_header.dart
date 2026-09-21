@@ -31,19 +31,19 @@ class NewSaleEntryHeader extends StatelessWidget {
         children: [
           Row(
             children: [
-              InkWell(
-                onTap: onBack,
-                borderRadius: BorderRadius.circular(AppSizes.radiusFull),
-                child: Padding(
-                  padding: EdgeInsets.all(AppSizes.xs),
-                  child: Icon(
-                    Icons.arrow_back_rounded,
-                    color: AppColors.textPrimary,
-                    size: AppSizes.iconMd,
-                  ),
-                ),
-              ),
-              SizedBox(width: AppSizes.xs),
+              // InkWell(
+              //   onTap: onBack,
+              //   borderRadius: BorderRadius.circular(AppSizes.radiusFull),
+              //   child: Padding(
+              //     padding: EdgeInsets.all(AppSizes.xs),
+              //     child: Icon(
+              //       Icons.arrow_back_rounded,
+              //       color: AppColors.textPrimary,
+              //       size: AppSizes.iconMd,
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(width: AppSizes.xs),
               Text(
                 AppStrings.newSaleEntryTitle,
                 style: TextStyle(

@@ -14,4 +14,7 @@ class RouteNames {
   static const String home = '/home';
   static const String salesman_home = '/salesman_home';
   static const String new_sale_entry = '/new_sale_entry';
+  static const String outlets_customers = '/outlets_customers';
+  static const String target_performance = '/target_performance';
+  static const String profile = '/profile';
 }
