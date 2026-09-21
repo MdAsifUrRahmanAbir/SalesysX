@@ -25,4 +25,5 @@ class RouteNames {
   static const String target_performance = '/target_performance';
   static const String profile = '/profile';
   static const String team_overview = '/team_overview';
+  static const String team_member = '/team_member';
 }
