@@ -180,4 +180,19 @@ class AppStrings {
   static const String navCustomers = 'Customers';
   static const String navTarget = 'Target';
   static const String navProfile = 'Profile';
+
+  static const String teamTargetAndPerformance = 'TEAM TARGET & PERFORMANCE';
+  static const String totalTargetLabel = 'TOTAL TARGET';
+  static const String totalMembersLabel = 'Total Members';
+  static const String activeTodayLabel = 'Active Today';
+  static const String memberPerformanceTitle = 'Member Performance';
+  static const String viewAllReports = 'View All Reports';
+  static const String targetCapsLabel = 'TARGET';
+  static const String todaysSaleCapsLabel = "TODAY'S SALE";
+  static const String addMember = 'Add Member';
+
+  static String percentReached(int percent) => '$percent% Reached';
+  static String onlineCountLabel(int count) => '$count Online';
+  static String representativesCount(int count) =>
+      '$count Representative${count == 1 ? '' : 's'}';
 }

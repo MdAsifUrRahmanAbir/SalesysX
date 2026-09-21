@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
+import '../../../../routes/route_names.dart';
 import '../controllers/profile_controller.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/profile_menu_section.dart';
@@ -42,6 +44,9 @@ class ProfileMobileView extends ConsumerWidget {
                   ),
                   SizedBox(height: AppSizes.lg),
                   ProfileMenuSection(
+                    onTeamSalesReportTap: () {
+                      context.push(RouteNames.team_overview);
+                    },
                     onSalesReportTap: () {
                       // TODO: wire to context.push(RouteNames.salesReport)
                     },

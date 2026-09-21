@@ -10,12 +10,14 @@ class ProfileMenuSection extends StatelessWidget {
   const ProfileMenuSection({
     super.key,
     this.onSalesReportTap,
+    this.onTeamSalesReportTap,
     this.onAchievementTap,
     this.onSettingsTap,
     this.onLogoutTap,
   });
 
   final VoidCallback? onSalesReportTap;
+  final VoidCallback? onTeamSalesReportTap;
   final VoidCallback? onAchievementTap;
   final VoidCallback? onSettingsTap;
   final VoidCallback? onLogoutTap;
@@ -24,6 +26,13 @@ class ProfileMenuSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        ProfileMenuItem(
+          icon: Icons.area_chart,
+          title: AppStrings.teamTargetAndPerformance,
+          subtitle: AppStrings.mySalesReportSubtitle,
+          onTap: onTeamSalesReportTap,
+        ),
+        SizedBox(height: AppSizes.sm),
         ProfileMenuItem(
           icon: Icons.bar_chart_rounded,
           title: AppStrings.mySalesReportTitle,

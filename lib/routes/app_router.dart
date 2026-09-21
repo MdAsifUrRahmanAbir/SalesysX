@@ -1,3 +1,4 @@
+import 'package:salesysx/features/team_overview/presentation/screens/team_overview_screen.dart';
 import 'package:salesysx/features/profile/presentation/screens/profile_screen.dart';
 import 'package:salesysx/features/target_performance/presentation/screens/target_performance_screen.dart';
 import 'package:salesysx/features/new_sale_entry/presentation/screens/new_sale_entry_screen.dart';
@@ -98,6 +99,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: RouteNames.outlets_customers, builder: (context, state) => const OutletsCustomersScreen()),
     GoRoute(path: RouteNames.target_performance, builder: (context, state) => const TargetPerformanceScreen()),
     GoRoute(path: RouteNames.profile, builder: (context, state) => const ProfileScreen()),
+    GoRoute(path: RouteNames.team_overview, builder: (context, state) => const TeamOverviewScreen()),
   ],
   );
 });
