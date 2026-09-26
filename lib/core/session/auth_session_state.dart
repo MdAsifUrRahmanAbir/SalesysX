@@ -1,15 +1,17 @@
+import '../../features/login/data/models/user_model.dart';
+
 enum AuthStatus { unknown, authenticated, unauthenticated }
 
 class AuthSessionState {
   final AuthStatus status;
-  final String? accessToken;
+  final UserModel? user;
 
-  const AuthSessionState({this.status = AuthStatus.unknown, this.accessToken});
+  const AuthSessionState({this.status = AuthStatus.unknown, this.user});
 
-  AuthSessionState copyWith({AuthStatus? status, String? accessToken}) {
+  AuthSessionState copyWith({AuthStatus? status, UserModel? user}) {
     return AuthSessionState(
       status: status ?? this.status,
-      accessToken: accessToken ?? this.accessToken,
+      user: user ?? this.user,
     );
   }
 }

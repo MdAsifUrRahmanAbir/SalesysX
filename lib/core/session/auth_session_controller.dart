@@ -1,42 +1,51 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../network/api_client.dart';
-import '../storage/secure_storage_service.dart';
+
+import '../../features/login/data/models/user_model.dart';
+import '../constants/firestore_collections.dart';
+import '../network/firebase_client.dart';
 import '../storage/local_cache_service.dart';
+import '../storage/secure_storage_service.dart';
 import 'auth_session_state.dart';
 
-/// Single source of truth for "is someone logged in right now". Read this
-/// from the splash flow to pick the initial route. Never duplicate a
-/// token check anywhere else — everything routes through here.
 class AuthSessionController extends Notifier<AuthSessionState> {
   SecureStorageService get _secureStorage => ref.read(secureStorageServiceProvider);
-  ApiClient get _apiClient => ref.read(apiClientProvider);
+  FirebaseClient get _client => ref.read(firebaseClientProvider);
 
   @override
   AuthSessionState build() => const AuthSessionState();
 
-  /// Call once at startup. This only checks that a token exists locally —
-  /// pair it with a lightweight `/auth/me` repository call if you need
-  /// server-side validation (expired/revoked tokens), not just presence.
   Future<void> restoreSession() async {
-    final token = await _secureStorage.readAccessToken();
-    if (token == null || token.isEmpty) {
+    final savedEmail = await _secureStorage.readAccessToken();
+    if (savedEmail == null || savedEmail.isEmpty) {
       state = state.copyWith(status: AuthStatus.unauthenticated);
       return;
     }
-    _apiClient.setAuthToken(token);
-    state = AuthSessionState(status: AuthStatus.authenticated, accessToken: token);
+    await _loadProfile(savedEmail);
   }
 
-  Future<void> onLoginSuccess({required String accessToken, String? refreshToken}) async {
-    await _secureStorage.saveAccessToken(accessToken);
-    if (refreshToken != null) await _secureStorage.saveRefreshToken(refreshToken);
-    _apiClient.setAuthToken(accessToken);
-    state = AuthSessionState(status: AuthStatus.authenticated, accessToken: accessToken);
+  Future<void> onLoginSuccess(UserModel user) async {
+    await _secureStorage.saveAccessToken(user.id);
+    state = AuthSessionState(status: AuthStatus.authenticated, user: user);
+  }
+
+  Future<void> _loadProfile(String email) async {
+    try {
+      final data = await _client.getDocument(FirestoreCollections.userDoc(email));
+      final user = data != null ? UserModel.fromMap(data, email) : null;
+
+      if (user == null || !user.isActive) {
+        await _secureStorage.clearAuthTokens();
+        state = const AuthSessionState(status: AuthStatus.unauthenticated);
+        return;
+      }
+      state = AuthSessionState(status: AuthStatus.authenticated, user: user);
+    } catch (_) {
+      state = const AuthSessionState(status: AuthStatus.unauthenticated);
+    }
   }
 
   Future<void> logout() async {
     await _secureStorage.clearAuthTokens();
-    _apiClient.setAuthToken(null);
     await ref.read(localCacheServiceProvider).clearOnLogout();
     state = const AuthSessionState(status: AuthStatus.unauthenticated);
   }

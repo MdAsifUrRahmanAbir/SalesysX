@@ -472,4 +472,30 @@ class AppStrings {
   static const String message = 'Message';
   static const String fullReport = 'Full Report';
   static const String atRiskLabel = 'AT RISK';
+
+  static const String invalidCredentials = 'Incorrect email or password.';
+
+  static const String accountDisabled =
+      'This account has been disabled. Contact your admin.';
+
+  static const String tooManyAttempts =
+      'Too many attempts. Please wait and try again.';
+
+  static const String networkErrorMessage =
+      'No internet connection. Please try again.';
+
+  static const String genericLoginError =
+      'Unable to sign in. Please try again.';
+
+  static const String adminUseWebPanel =
+      'Admin accounts use the Web Admin Panel, not this app.';
+
+  static const String navDashboard = 'Dashboard';
+
+  static const String navReports = 'Reports';
+
+  static const String reportsComingSoonTitle = 'Reports coming soon';
+
+  static const String reportsComingSoonMessage =
+      'Team and company reports will appear here.';
 }

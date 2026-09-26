@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_strings.dart';
-import '../../data/repositories/login_repository.dart';
 
 class LoginFormState {
   final bool rememberMe;
@@ -14,12 +13,9 @@ class LoginFormState {
   }
 }
 
-/*
-final editProfileControllerProvider = NotifierProvider.autoDispose<EditProfileController, EditProfileState>(
-  EditProfileController.new,
-);
- */
-
+/// UI-only form state — text controllers, validators, remember-me.
+/// Business login logic lives in `AuthController` (auth_controller.dart),
+/// a separate file/class on purpose (hard rule §5).
 class LoginController extends Notifier<LoginFormState> {
   final formKey = GlobalKey<FormState>();
 
@@ -28,8 +24,8 @@ class LoginController extends Notifier<LoginFormState> {
 
   @override
   LoginFormState build() {
-    emailController = TextEditingController(text: "user@test.com");
-    passwordController = TextEditingController(text: "12345678");
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
 
     ref.onDispose(() {
       emailController.dispose();
@@ -44,45 +40,22 @@ class LoginController extends Notifier<LoginFormState> {
   }
 
   String? validateEmail(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return AppStrings.emailRequired;
-    }
-
-    if (!value.contains('@')) {
-      return AppStrings.emailInvalid;
-    }
-
+    if (value == null || value.trim().isEmpty) return AppStrings.emailRequired;
+    if (!value.contains('@')) return AppStrings.emailInvalid;
     return null;
   }
 
   String? validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return AppStrings.passwordRequired;
-    }
-
+    if (value == null || value.isEmpty) return AppStrings.passwordRequired;
     return null;
   }
 
-  LoginRepository get _repository => ref.read(loginRepositoryProvider);
-
-  bool submit(
-    void Function(String email, String password, bool rememberMe) onSignIn,
-  ) {
-    if (!(formKey.currentState?.validate() ?? false)) {
-      return false;
-    }
-
-    onSignIn(
-      emailController.text.trim(),
-      passwordController.text,
-      state.rememberMe,
-    );
-
+  bool submit(void Function(String email, String password, bool rememberMe) onSignIn) {
+    if (!(formKey.currentState?.validate() ?? false)) return false;
+    onSignIn(emailController.text.trim(), passwordController.text, state.rememberMe);
     return true;
   }
 }
 
 final loginFormControllerProvider =
-    NotifierProvider.autoDispose<LoginController, LoginFormState>(
-      LoginController.new,
-    );
+NotifierProvider.autoDispose<LoginController, LoginFormState>(LoginController.new);
