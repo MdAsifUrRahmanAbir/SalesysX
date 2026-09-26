@@ -1,8 +1,15 @@
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+import '../firebase_options.dart';
+
 class AppInitialization {
   AppInitialization();
 
   static void init() async{
+
+
 
 
     // SystemChrome.setSystemUIOverlayStyle(
@@ -12,6 +19,5 @@ class AppInitialization {
     //     statusBarBrightness: Brightness.light, // iOS-এর জন্য (Status bar text/icons ডার্ক করবে)
     //   ),
     // );
-
   }
 }

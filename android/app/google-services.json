@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44039483436",
+    "project_id": "salesysx",
+    "storage_bucket": "salesysx.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44039483436:android:3bb4cca35afdea1a3c2189",
+        "android_client_info": {
+          "package_name": "com.abirdev.salesysx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaHzU3xO5Qf7ifRFROJWZXuiqPAsu9U6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
