@@ -22,7 +22,7 @@ class EditProfileTabView extends ConsumerWidget {
       appBar: EditProfileAppBar(
         onDoneTap: () {
           controller.submit((values) {
-            CustomSnackbar.show(context, 'Profile updated successfully');
+            CustomSnackBar.show(context, 'Profile updated successfully');
 
             context.pop();
           });
@@ -38,7 +38,7 @@ class EditProfileTabView extends ConsumerWidget {
                 const EditProfilePhotoSection(name: 'Alex Johnson'),
                 EditProfileForm(
                   onSave: (values) {
-                    CustomSnackbar.show(
+                    CustomSnackBar.show(
                       context,
                       'Profile updated successfully',
                     );

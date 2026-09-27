@@ -14,7 +14,7 @@ class LoginScreen extends ConsumerWidget {
       // appBar: CustomAppBar(title: "", showBack: true,),
       body: Responsive(
         mobile: const LoginMobileView(),
-        tablet: const LoginTabView(),
+        tablet: const LoginMobileView(),
       ),
     );
   }

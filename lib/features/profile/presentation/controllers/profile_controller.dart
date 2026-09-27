@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/session/auth_session_controller.dart';
 import '../states/profile_state.dart';
 
 final profileControllerProvider =
@@ -28,9 +29,9 @@ class ProfileController extends Notifier<ProfileState> {
     );
   }
 
+
   Future<bool> logout() async {
-    // TODO: wire to authRepositoryProvider.logout(), clear secure storage
-    // token, and navigate via context.go(RouteNames.login) from the view.
+    await ref.read(authSessionControllerProvider.notifier).logout();
     return true;
   }
 }

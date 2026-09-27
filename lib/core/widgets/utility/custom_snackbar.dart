@@ -3,8 +3,8 @@ import '../../constants/app_colors.dart';
 import '../../constants/app_sizes.dart';
 
 /// Static helpers for showing consistent snackbars across the app.
-class CustomSnackbar {
-  CustomSnackbar._();
+class CustomSnackBar {
+  CustomSnackBar._();
 
   static void show(BuildContext context, String message, {bool error = false}) {
     ScaffoldMessenger.of(context).showSnackBar(

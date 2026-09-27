@@ -11,8 +11,6 @@ import '../../../../routes/route_names.dart';
 import '../controllers/auth_controller.dart';
 import '../widgets/login_header.dart';
 import '../widgets/login_form.dart';
-import '../widgets/social_login_section.dart';
-import '../widgets/register_prompt.dart';
 
 class LoginMobileView extends ConsumerWidget {
   const LoginMobileView({super.key});
@@ -23,7 +21,7 @@ class LoginMobileView extends ConsumerWidget {
 
     ref.listen(authControllerProvider, (previous, next) {
       next.whenOrNull(
-        error: (error, _) => CustomSnackbar.show(context, getErrorMessage(error)),
+        error: (error, _) => CustomSnackBar.show(context, getErrorMessage(error), error: true),
       );
     });
 
@@ -61,8 +59,8 @@ class LoginMobileView extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: AppSizes.lg),
-                  RegisterPrompt(onRegisterTap: () {}),
+                  // const SizedBox(height: AppSizes.lg),
+                  // RegisterPrompt(onRegisterTap: () {}),
                 ],
               ),
             ),

@@ -25,7 +25,7 @@ class ChangePasswordMobileView extends ConsumerWidget {
                   onSave: (currentPassword, newPassword) {
                     // TODO: wire to changePasswordControllerProvider.save(...)
                     // once the change_password/data/repositories layer is ready.
-                    CustomSnackbar.show(context, 'Password updated');
+                    CustomSnackBar.show(context, 'Password updated');
                     context.pop();
                   },
                 ),

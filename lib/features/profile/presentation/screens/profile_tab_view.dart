@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
+import '../../../../core/constants/app_strings.dart';
+import '../../../../core/widgets/utility/custom_alert_dialog.dart';
+import '../../../../routes/route_names.dart';
 import '../controllers/profile_controller.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/profile_menu_section.dart';
@@ -58,10 +62,18 @@ class ProfileTabView extends ConsumerWidget {
                           // TODO: wire to context.push(RouteNames.settings)
                         },
                         onLogoutTap: () async {
-                          // TODO: show a confirm dialog, then call
-                          // controller.logout() and context.go(
-                          // RouteNames.login) on success.
+                          final confirmed = await CustomAlertDialog.confirm(
+                            context,
+                            title: AppStrings.logoutConfirmTitle,
+                            message: AppStrings.logoutConfirmMessage,
+                            confirmText: AppStrings.logoutTitle,
+                            destructive: true,
+                          );
+                          if (confirmed != true) return;
+
                           await controller.logout();
+                          if (!context.mounted) return;
+                          context.go(RouteNames.login);
                         },
                       ),
                     ],

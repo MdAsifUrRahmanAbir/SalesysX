@@ -38,7 +38,7 @@ class _NoInternetActions {
     if (isConnected) {
       context.go(RouteNames.splash);
     } else {
-      CustomSnackbar.show(
+      CustomSnackBar.show(
         context,
         'Still no internet connection.',
         error: true,

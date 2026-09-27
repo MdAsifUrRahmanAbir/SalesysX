@@ -29,7 +29,7 @@ class ChangePasswordTabView extends ConsumerWidget {
                     child: ChangePasswordForm(
                       onSave: (currentPassword, newPassword) {
                         // TODO: wire to changePasswordControllerProvider.save(...)
-                        CustomSnackbar.show(context, 'Password updated');
+                        CustomSnackBar.show(context, 'Password updated');
                         context.pop();
                       },
                     ),

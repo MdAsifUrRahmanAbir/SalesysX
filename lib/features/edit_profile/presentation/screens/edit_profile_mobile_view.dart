@@ -20,7 +20,7 @@ class EditProfileMobileView extends ConsumerWidget {
       appBar: EditProfileAppBar(
         onDoneTap: () {
           controller.submit((values) {
-            CustomSnackbar.show(context, 'Profile updated successfully');
+            CustomSnackBar.show(context, 'Profile updated successfully');
 
             context.pop();
           });
@@ -34,7 +34,7 @@ class EditProfileMobileView extends ConsumerWidget {
 
             EditProfileForm(
               onSave: (values) {
-                CustomSnackbar.show(context, 'Profile updated successfully');
+                CustomSnackBar.show(context, 'Profile updated successfully');
 
                 context.pop();
               },

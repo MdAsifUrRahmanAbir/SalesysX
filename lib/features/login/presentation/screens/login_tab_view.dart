@@ -47,11 +47,11 @@ class LoginTabView extends ConsumerWidget {
                             ),
                             const SizedBox(height: AppSizes.lg),
                             SocialLoginSection(
-                              onGoogleTap: () => CustomSnackbar.show(
+                              onGoogleTap: () => CustomSnackBar.show(
                                 context,
                                 'Google sign-in coming soon',
                               ),
-                              onAppleTap: () => CustomSnackbar.show(
+                              onAppleTap: () => CustomSnackBar.show(
                                 context,
                                 'Apple sign-in coming soon',
                               ),

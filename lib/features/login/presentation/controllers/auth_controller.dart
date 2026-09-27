@@ -12,6 +12,7 @@ class AuthController extends Notifier<AsyncValue<void>> {
   LoginRepository get _repository => ref.read(loginRepositoryProvider);
 
   Future<bool> login(String email, String password) async {
+    if (state.isLoading) return false; // ignore a second tap while one login is already in flight
     state = const AsyncValue.loading();
     try {
       final user = await _repository.signIn(email: email, password: password);
@@ -28,8 +29,7 @@ class AuthController extends Notifier<AsyncValue<void>> {
       state = AsyncValue.error(e, st);
       return false;
     }
-  }
-}
+  }}
 
 final authControllerProvider =
 NotifierProvider<AuthController, AsyncValue<void>>(AuthController.new);

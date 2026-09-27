@@ -498,4 +498,9 @@ class AppStrings {
 
   static const String reportsComingSoonMessage =
       'Team and company reports will appear here.';
+
+  static const String logoutConfirmTitle = 'Log out?';
+
+  static const String logoutConfirmMessage =
+      'You will need to sign in again to access your account.';
 }
