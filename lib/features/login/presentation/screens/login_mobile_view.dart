@@ -53,11 +53,11 @@ class LoginMobileView extends ConsumerWidget {
                           },
                           onForgotPassword: () {},
                         ),
-                        const SizedBox(height: AppSizes.lg),
-                        SocialLoginSection(
-                          onGoogleTap: () => CustomSnackbar.show(context, 'Google sign-in coming soon'),
-                          onAppleTap: () => CustomSnackbar.show(context, 'Apple sign-in coming soon'),
-                        ),
+                        // const SizedBox(height: AppSizes.lg),
+                        // SocialLoginSection(
+                        //   onGoogleTap: () => CustomSnackbar.show(context, 'Google sign-in coming soon'),
+                        //   onAppleTap: () => CustomSnackbar.show(context, 'Apple sign-in coming soon'),
+                        // ),
                       ],
                     ),
                   ),

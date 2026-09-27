@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_riverpod/legacy.dart';
 
 import 'package:salesysx/features/change_password/presentation/screens/change_password_screen.dart';
 import 'package:salesysx/features/edit_profile/presentation/screens/edit_profile_screen.dart';

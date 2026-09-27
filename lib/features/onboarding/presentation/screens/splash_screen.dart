@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_sizes.dart';
+import '../../../../core/seed/demo_data_seeder.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/session/auth_session_state.dart';
 import '../../../../core/utils/responsive.dart';
@@ -26,6 +27,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   }
 
   Future<void> _bootstrap() async {
+    await ref.read(demoDataSeederProvider).seedIfNeeded();
     await ref.read(authSessionControllerProvider.notifier).restoreSession();
 
     if (!mounted) return;
