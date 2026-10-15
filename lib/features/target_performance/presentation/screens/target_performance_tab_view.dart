@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
+import '../../../../core/widgets/utility/custom_shimmer.dart';
+import '../../../../core/widgets/utility/error_state.dart';
 import '../controllers/target_performance_controller.dart';
 import '../widgets/benchmark_comparisons_card.dart';
 import '../widgets/daily_trend_bar_chart.dart';
@@ -16,6 +19,8 @@ class TargetPerformanceTabView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(targetPerformanceControllerProvider);
+    final controller = ref.read(targetPerformanceControllerProvider.notifier);
+    final isFirstLoad = state.isLoading && state.monthlyTarget == 0 && state.dailyTrend.isEmpty;
 
     return Container(
       color: AppColors.background,
@@ -27,31 +32,44 @@ class TargetPerformanceTabView extends ConsumerWidget {
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 480),
-                  child: ListView(
-                    padding: EdgeInsets.all(AppSizes.md),
-                    children: [
-                      TargetProgressRingCard(
-                        target: state.monthlyTarget,
-                        achieved: state.achievedAmount,
-                        remaining: state.remainingAmount,
-                        achievedPercent: state.achievedPercent,
-                      ),
-                      SizedBox(height: AppSizes.lg),
-                      BenchmarkComparisonsCard(
-                        periodProgressPercent: state.periodProgressPercent,
-                        expectedAchievementPercent:
-                        state.expectedAchievementPercent,
-                        requiredDailySales: state.requiredDailySales,
-                        workingDaysLeft: state.workingDaysLeft,
-                      ),
-                      SizedBox(height: AppSizes.lg),
-                      DailyTrendBarChart(
-                        title: AppStrings.dailyTrendThisWeek,
-                        dailyTargetLabel: state.dailyTargetLabel,
-                        points: state.dailyTrend,
-                      ),
-                    ],
-                  ),
+                  child: isFirstLoad
+                      ? Padding(
+                          padding: EdgeInsets.all(AppSizes.md),
+                          child: CustomShimmer(
+                            height: 400,
+                            borderRadius: BorderRadius.circular(AppSizes.radiusLg),
+                          ),
+                        )
+                      : state.errorMessage != null
+                          ? ErrorState(message: state.errorMessage!, onRetry: controller.refresh)
+                          : CustomRefreshWrapper(
+                              onRefresh: controller.refresh,
+                              child: ListView(
+                                padding: EdgeInsets.all(AppSizes.md),
+                                children: [
+                                  TargetProgressRingCard(
+                                    target: state.monthlyTarget,
+                                    achieved: state.achievedAmount,
+                                    remaining: state.remainingAmount,
+                                    achievedPercent: state.achievedPercent,
+                                  ),
+                                  SizedBox(height: AppSizes.lg),
+                                  BenchmarkComparisonsCard(
+                                    periodProgressPercent: state.periodProgressPercent,
+                                    expectedAchievementPercent:
+                                    state.expectedAchievementPercent,
+                                    requiredDailySales: state.requiredDailySales,
+                                    workingDaysLeft: state.workingDaysLeft,
+                                  ),
+                                  SizedBox(height: AppSizes.lg),
+                                  DailyTrendBarChart(
+                                    title: AppStrings.dailyTrendThisWeek,
+                                    dailyTargetLabel: state.dailyTargetLabel,
+                                    points: state.dailyTrend,
+                                  ),
+                                ],
+                              ),
+                            ),
                 ),
               ),
             ),

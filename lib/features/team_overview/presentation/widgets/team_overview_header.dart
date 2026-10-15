@@ -12,10 +12,12 @@ class TeamOverviewHeader extends StatelessWidget {
     super.key,
     required this.teamName,
     this.onTrailingTap,
+    this.unreadCount = 0,
   });
 
   final String teamName;
   final VoidCallback? onTrailingTap;
+  final int unreadCount;
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +54,38 @@ class TeamOverviewHeader extends StatelessWidget {
           InkWell(
             onTap: onTrailingTap,
             borderRadius: BorderRadius.circular(AppSizes.radiusFull),
-            child: Container(
-              width: AppSizes.xxl,
-              height: AppSizes.xxl,
-              decoration: BoxDecoration(
-                color: context.appColors.surface,
-                shape: BoxShape.circle,
-                border: Border.all(color: context.appColors.border),
-              ),
-              child: Icon(
-                Icons.notifications_none_rounded,
-                size: AppSizes.iconMd,
-                color: context.appColors.textSecondary,
-              ),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  width: AppSizes.xxl,
+                  height: AppSizes.xxl,
+                  decoration: BoxDecoration(
+                    color: context.appColors.surface,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: context.appColors.border),
+                  ),
+                  child: Icon(
+                    Icons.notifications_none_rounded,
+                    size: AppSizes.iconMd,
+                    color: context.appColors.textSecondary,
+                  ),
+                ),
+                if (unreadCount > 0)
+                  Positioned(
+                    top: -2,
+                    right: -2,
+                    child: Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: AppColors.error,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: context.appColors.surface, width: 1.5),
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         ],

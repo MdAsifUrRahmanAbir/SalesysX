@@ -18,6 +18,7 @@ class ProfileHeader extends StatelessWidget {
     required this.employeeId,
     required this.team,
     required this.division,
+    this.roleLabel = AppStrings.profileRoleSalesman,
   });
 
   final String name;
@@ -25,6 +26,7 @@ class ProfileHeader extends StatelessWidget {
   final String employeeId;
   final String team;
   final String division;
+  final String roleLabel;
 
   static const double _avatarSize = 80;
 
@@ -72,7 +74,7 @@ class ProfileHeader extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               StatusBadge(
-                text: AppStrings.profileRoleSalesman,
+                text: roleLabel,
                 type: StatusBadgeType.primary,
                 shape: StatusBadgeShape.square,
                 compact: true,

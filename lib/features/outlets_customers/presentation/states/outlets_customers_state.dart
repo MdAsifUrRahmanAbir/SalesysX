@@ -4,17 +4,23 @@ enum OutletCustomerStatus { active, newCustomer, potential }
 
 @immutable
 class OutletCustomer {
+  final String id;
   final String name;
   final OutletCustomerStatus status;
   final String owner;
+  final String phone;
+  final String address;
   final String areaRoute;
   final String lastVisit;
   final double lastOrderAmount;
 
   const OutletCustomer({
+    this.id = '',
     required this.name,
     required this.status,
     required this.owner,
+    this.phone = '',
+    this.address = '',
     required this.areaRoute,
     required this.lastVisit,
     required this.lastOrderAmount,

@@ -3,14 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/utils/error_mapper.dart';
 import '../../../../core/widgets/common/custom_app_bar.dart';
 import '../../../../core/widgets/common/custom_card.dart';
 import '../../../../core/widgets/utility/custom_snackbar.dart';
 import '../../../../routes/route_names.dart';
+import '../controllers/auth_controller.dart';
 import '../widgets/login_header.dart';
 import '../widgets/login_form.dart';
-import '../widgets/social_login_section.dart';
-import '../widgets/register_prompt.dart';
 
 /// Same content as [LoginMobileView], centered in a fixed-width column
 /// for wider (tablet/web) viewports.
@@ -19,6 +19,14 @@ class LoginTabView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isLoading = ref.watch(authControllerProvider).isLoading;
+
+    ref.listen(authControllerProvider, (previous, next) {
+      next.whenOrNull(
+        error: (error, _) => CustomSnackBar.show(context, getErrorMessage(error), error: true),
+      );
+    });
+
     return SafeArea(
       child: Column(
         children: [
@@ -39,29 +47,17 @@ class LoginTabView extends ConsumerWidget {
                             const LoginHeader(),
                             const SizedBox(height: AppSizes.lg),
                             LoginForm(
-                              onSignIn: (email, password, rememberMe) {
-                                // TODO: wire to authControllerProvider.login(email, password)
+                              loading: isLoading,
+                              onSignIn: (email, password, rememberMe) async {
+                                final success =
+                                await ref.read(authControllerProvider.notifier).login(email, password);
+                                if (!context.mounted || !success) return;
                                 context.go(RouteNames.mainShell);
                               },
                               onForgotPassword: () {},
                             ),
-                            const SizedBox(height: AppSizes.lg),
-                            SocialLoginSection(
-                              onGoogleTap: () => CustomSnackBar.show(
-                                context,
-                                'Google sign-in coming soon',
-                              ),
-                              onAppleTap: () => CustomSnackBar.show(
-                                context,
-                                'Apple sign-in coming soon',
-                              ),
-                            ),
                           ],
                         ),
-                      ),
-                      const SizedBox(height: AppSizes.lg),
-                      RegisterPrompt(
-                        onRegisterTap: () {},
                       ),
                     ],
                   ),

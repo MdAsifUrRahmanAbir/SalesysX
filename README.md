@@ -236,3 +236,14 @@ This makes every unfinished integration point grep-able later
 - [ ] Routes added to `route_names.dart` / `app_router.dart` if needed
 - [ ] TODO comments mark where repository/controller calls will go
 - [ ] Code delivered inline, by file path, new vs. updated clearly labeled
+
+
+
+
+Team Head
+- Email: head@salesysx.demo
+- Name: Nusrat Jahan
+
+Salesmen
+- Email: karim@salesysx.demo — Abdul Karim
+- Email: rahim@salesysx.demo — Abdur Rahim    

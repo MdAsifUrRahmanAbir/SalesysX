@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
 
+import 'package:salesysx/features/common_models/outlet_model.dart';
+import '../../data/models/product_model.dart';
+
 @immutable
 class TodaysSaleEntry {
   final String outletName;
@@ -19,15 +22,16 @@ class TodaysSaleEntry {
 
 @immutable
 class NewSaleEntryState {
+  final bool isLoading;
   final bool isSubmitting;
   final String? errorMessage;
 
-  final String outletName;
-  final List<String> categories;
-  final String selectedCategory;
+  final List<OutletModel> outlets;
+  final String? selectedOutletId;
 
-  final String? productName;
-  final double unitPrice;
+  final List<ProductModel> products;
+  final String selectedCategory;
+  final String? selectedProductId;
 
   final int quantity;
   final double discount;
@@ -35,41 +39,67 @@ class NewSaleEntryState {
   final List<TodaysSaleEntry> todaysEntries;
 
   const NewSaleEntryState({
+    this.isLoading = false,
     this.isSubmitting = false,
     this.errorMessage,
-    this.outletName = '',
-    this.categories = const [],
-    this.selectedCategory = '',
-    this.productName,
-    this.unitPrice = 0,
+    this.outlets = const [],
+    this.selectedOutletId,
+    this.products = const [],
+    this.selectedCategory = 'All',
+    this.selectedProductId,
     this.quantity = 1,
     this.discount = 0,
     this.todaysEntries = const [],
   });
 
-  double get calculatedPrice =>
-      ((quantity * unitPrice) - discount).clamp(0, double.infinity);
+  OutletModel? get selectedOutlet {
+    for (final outlet in outlets) {
+      if (outlet.id == selectedOutletId) return outlet;
+    }
+    return null;
+  }
+
+  ProductModel? get selectedProduct {
+    for (final product in products) {
+      if (product.id == selectedProductId) return product;
+    }
+    return null;
+  }
+
+  String get outletName => selectedOutlet?.name ?? '';
+  String? get productName => selectedProduct?.name;
+  double get unitPrice => selectedProduct?.unitPrice ?? 0;
+
+  List<String> get categories => ['All', ...{for (final p in products) p.category}];
+
+  List<ProductModel> get filteredProducts => selectedCategory == 'All'
+      ? products
+      : products.where((p) => p.category == selectedCategory).toList();
+
+  double get calculatedPrice => ((quantity * unitPrice) - discount).clamp(0, double.infinity);
 
   NewSaleEntryState copyWith({
+    bool? isLoading,
     bool? isSubmitting,
     String? errorMessage,
-    String? outletName,
-    List<String>? categories,
+    List<OutletModel>? outlets,
+    String? selectedOutletId,
+    List<ProductModel>? products,
     String? selectedCategory,
-    String? productName,
-    double? unitPrice,
+    String? selectedProductId,
     int? quantity,
     double? discount,
     List<TodaysSaleEntry>? todaysEntries,
   }) {
     return NewSaleEntryState(
+      isLoading: isLoading ?? this.isLoading,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       errorMessage: errorMessage,
-      outletName: outletName ?? this.outletName,
-      categories: categories ?? this.categories,
+      outlets: outlets ?? this.outlets,
+      selectedOutletId: selectedOutletId ?? this.selectedOutletId,
+      products: products ?? this.products,
       selectedCategory: selectedCategory ?? this.selectedCategory,
-      productName: productName ?? this.productName,
-      unitPrice: unitPrice ?? this.unitPrice,
+      selectedProductId: selectedProductId ?? this.selectedProductId,
       quantity: quantity ?? this.quantity,
       discount: discount ?? this.discount,
       todaysEntries: todaysEntries ?? this.todaysEntries,

@@ -6,6 +6,9 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/utility/custom_alert_dialog.dart';
+import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
+import '../../../../core/widgets/utility/custom_shimmer.dart';
+import '../../../../core/widgets/utility/error_state.dart';
 import '../../../../routes/route_names.dart';
 import '../controllers/profile_controller.dart';
 import '../widgets/profile_header.dart';
@@ -20,16 +23,29 @@ class ProfileMobileView extends ConsumerWidget {
     final state = ref.watch(profileControllerProvider);
     final controller = ref.read(profileControllerProvider.notifier);
 
+    if (state.isLoading && state.name.isEmpty) {
+      return Container(color: AppColors.background, child: SafeArea(child: _buildShimmer()));
+    }
+    if (state.errorMessage != null && state.name.isEmpty) {
+      return Container(
+        color: AppColors.background,
+        child: SafeArea(child: ErrorState(message: state.errorMessage!, onRetry: controller.refresh)),
+      );
+    }
+
     return Container(
       color: AppColors.background,
       child: SafeArea(
-        child: ListView(
+        child: CustomRefreshWrapper(
+          onRefresh: controller.refresh,
+          child: ListView(
           padding: EdgeInsets.zero,
           children: [
             ProfileHeader(
               name: state.name,
               avatarInitials: state.avatarInitials,
               employeeId: state.employeeId,
+              roleLabel: state.roleLabel,
               team: state.team,
               division: state.division,
             ),
@@ -43,21 +59,29 @@ class ProfileMobileView extends ConsumerWidget {
                     monthlyTargetShortLabel: state.monthlyTargetShortLabel,
                     activeOutletCount: state.activeOutletCount,
                     salesTodayCompleted: state.salesTodayCompleted,
+                    middleLabel: state.middleStatLabel,
+                    middleSubtitle: state.middleStatSubtitle,
                   ),
                   SizedBox(height: AppSizes.lg),
                   ProfileMenuSection(
-                    onTeamSalesReportTap: () {
-                      context.push(RouteNames.team_overview);
-                    },
+                    isTeamHead: state.isTeamHead,
                     onSalesReportTap: () {
-                      // TODO: wire to context.push(RouteNames.salesReport)
+                      context.push(RouteNames.new_sale_entry);
                     },
                     onAchievementTap: () {
-                      // TODO: wire to context.push(
-                      // RouteNames.targetPerformance)
+                      context.push(RouteNames.target_performance);
+                    },
+                    onTeamDashboardTap: () {
+                      context.push(RouteNames.team_overview);
+                    },
+                    onTeamSalesLogTap: () {
+                      context.push(RouteNames.team_sales_list);
+                    },
+                    onTeamReportsTap: () {
+                      context.push(RouteNames.team_reports);
                     },
                     onSettingsTap: () {
-                      // TODO: wire to context.push(RouteNames.settings)
+                      context.push(RouteNames.settings);
                     },
                     onLogoutTap: () async {
                       final confirmed = await CustomAlertDialog.confirm(
@@ -77,7 +101,23 @@ class ProfileMobileView extends ConsumerWidget {
               ),
             ),
           ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildShimmer() {
+    return Padding(
+      padding: EdgeInsets.all(AppSizes.md),
+      child: Column(
+        children: [
+          CustomShimmer(height: 180, borderRadius: BorderRadius.circular(AppSizes.radiusLg)),
+          SizedBox(height: AppSizes.lg),
+          CustomShimmer(height: 90, borderRadius: BorderRadius.circular(AppSizes.radiusLg)),
+          SizedBox(height: AppSizes.lg),
+          CustomShimmer(height: 220, borderRadius: BorderRadius.circular(AppSizes.radiusLg)),
+        ],
       ),
     );
   }

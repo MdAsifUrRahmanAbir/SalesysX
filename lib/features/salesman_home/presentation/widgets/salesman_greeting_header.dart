@@ -17,11 +17,13 @@ class SalesmanGreetingHeader extends StatelessWidget {
     required this.name,
     required this.avatarInitials,
     this.onNotificationTap,
+    this.unreadCount = 0,
   });
 
   final String name;
   final String avatarInitials;
   final VoidCallback? onNotificationTap;
+  final int unreadCount;
 
   @override
   Widget build(BuildContext context) {
@@ -72,19 +74,38 @@ class SalesmanGreetingHeader extends StatelessWidget {
         InkWell(
           onTap: onNotificationTap,
           borderRadius: BorderRadius.circular(AppSizes.radiusFull),
-          child: Container(
-            width: AppSizes.xxl,
-            height: AppSizes.xxl,
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              shape: BoxShape.circle,
-              border: Border.all(color: AppColors.border),
-            ),
-            child: Icon(
-              Icons.notifications_none_rounded,
-              size: AppSizes.iconMd,
-              color: AppColors.textSecondary,
-            ),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                width: AppSizes.xxl,
+                height: AppSizes.xxl,
+                decoration: BoxDecoration(
+                  color: AppColors.surface,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: AppColors.border),
+                ),
+                child: Icon(
+                  Icons.notifications_none_rounded,
+                  size: AppSizes.iconMd,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+              if (unreadCount > 0)
+                Positioned(
+                  top: -2,
+                  right: -2,
+                  child: Container(
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      color: AppColors.error,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.surface, width: 1.5),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
       ],

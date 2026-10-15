@@ -19,7 +19,7 @@ class MainShellMobileView extends ConsumerWidget {
         onSelected: (index) => ref.read(mainShellControllerProvider.notifier).selectTab(index),
         indicatorColor: Colors.transparent,
         destinations: [
-          for (final item in shellNavItems)
+          for (final item in shellNavItemsOf(context))
             NavigationDestination(
               icon: Icon(item.icon),
               selectedIcon: Icon(item.selectedIcon),

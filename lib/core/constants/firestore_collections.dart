@@ -7,6 +7,7 @@ class FirestoreCollections {
   static const String targets = 'targets';
   static const String outlets = 'outlets';
   static const String notifications = 'notifications';
+  static const String products = 'products';
 
   static String userDoc(String uid) => '$users/$uid';
   static String teamDoc(String teamId) => '$teams/$teamId';

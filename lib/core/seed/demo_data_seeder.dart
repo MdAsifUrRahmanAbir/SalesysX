@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../constants/firestore_collections.dart';
 import '../network/firebase_client.dart';
 import '../utils/password_hasher.dart';
+import '../utils/working_days.dart';
 
 final demoDataSeederProvider = Provider<DemoDataSeeder>((ref) {
   return DemoDataSeeder(ref.watch(firebaseClientProvider));
@@ -32,7 +33,42 @@ class DemoDataSeeder {
   Future<void> seedIfNeeded() async {
     final existing = await _client.getCollection(FirestoreCollections.users, limit: 1);
     if (existing.isNotEmpty) return;
+    await _seed();
+  }
 
+  /// Wipes every seeded collection and reseeds from scratch with data
+  /// dated relative to "now" — use when the existing demo data has gone
+  /// stale (e.g. its sales/targets are no longer in the current month)
+  /// rather than letting `seedIfNeeded` accumulate duplicates alongside
+  /// old data.
+  Future<void> clearAndReseed() async {
+    for (final collection in [
+      FirestoreCollections.users,
+      FirestoreCollections.teams,
+      FirestoreCollections.outlets,
+      FirestoreCollections.products,
+      FirestoreCollections.targets,
+      FirestoreCollections.sales,
+      FirestoreCollections.notifications,
+    ]) {
+      await _clearCollection(collection);
+    }
+    await _seed();
+  }
+
+  Future<void> _clearCollection(String collection) async {
+    final docs = await _client.getCollection(collection);
+    for (var i = 0; i < docs.length; i += 450) {
+      final chunk = docs.skip(i).take(450);
+      await _client.runBatch((batch) {
+        for (final doc in chunk) {
+          batch.delete('$collection/${doc['id']}');
+        }
+      });
+    }
+  }
+
+  Future<void> _seed() async {
     final passwordHash = PasswordHasher.hash(demoPassword);
     final now = DateTime.now();
     final monthStart = DateTime(now.year, now.month, 1);
@@ -42,9 +78,27 @@ class DemoDataSeeder {
     await _seedUsers(passwordHash);
     await _seedTeam();
     final outletIds = await _seedOutlets();
+    await _seedProducts();
     await _seedTargets(monthKey, monthStart, monthEnd);
     await _seedSales(now, outletIds);
     await _seedNotifications(now, monthKey);
+  }
+
+  static const _products = [
+    {'name': 'Cooking Oil 5L', 'category': 'Grocery', 'unitPrice': 850.0},
+    {'name': 'Rice 25kg', 'category': 'Grocery', 'unitPrice': 1600.0},
+    {'name': 'Detergent Powder 1kg', 'category': 'Household', 'unitPrice': 220.0},
+    {'name': 'Biscuit Carton', 'category': 'Snacks', 'unitPrice': 480.0},
+    {'name': 'Soft Drink Case', 'category': 'Beverage', 'unitPrice': 650.0},
+  ];
+
+  Future<void> _seedProducts() async {
+    for (final product in _products) {
+      await _client.addDocument(FirestoreCollections.products, {
+        ...product,
+        'active': true,
+      });
+    }
   }
 
   Future<void> _seedUsers(String passwordHash) async {
@@ -144,20 +198,13 @@ class DemoDataSeeder {
   }
 
   Future<void> _seedSales(DateTime now, List<String> outletIds) async {
-    final products = [
-      {'name': 'Cooking Oil 5L', 'category': 'Grocery', 'unitPrice': 850.0},
-      {'name': 'Rice 25kg', 'category': 'Grocery', 'unitPrice': 1600.0},
-      {'name': 'Detergent Powder 1kg', 'category': 'Household', 'unitPrice': 220.0},
-      {'name': 'Biscuit Carton', 'category': 'Snacks', 'unitPrice': 480.0},
-      {'name': 'Soft Drink Case', 'category': 'Beverage', 'unitPrice': 650.0},
-    ];
     final salesmen = [salesman1Email, salesman2Email];
     var outletCursor = 0;
 
     for (var dayOffset = 0; dayOffset < 6; dayOffset++) {
       final date = now.subtract(Duration(days: dayOffset));
       for (final salesmanEmail in salesmen) {
-        final product = products[(dayOffset + salesmen.indexOf(salesmanEmail)) % products.length];
+        final product = _products[(dayOffset + salesmen.indexOf(salesmanEmail)) % _products.length];
         final outletId = outletIds[outletCursor % outletIds.length];
         outletCursor++;
 
@@ -194,21 +241,15 @@ class DemoDataSeeder {
     await _client.addDocument(FirestoreCollections.notifications, {
       'title': 'Monthly target published',
       'message': 'Your target for $monthKey has been set. Check the Target tab for details.',
-      'type': 'target',
+      'type': 'TARGET',
       'targetEmail': salesman1Email,
       'isRead': false,
       'createdAt': now.toIso8601String(),
     });
   }
 
-  /// Counts days excluding Friday (Bangladesh's standard weekly holiday).
   /// Flagging this assumption — if your company's weekend is
-  /// Friday+Saturday, exclude `DateTime.saturday` too.
-  int _countWorkingDays(DateTime start, DateTime end) {
-    var count = 0;
-    for (var d = start; !d.isAfter(end); d = d.add(const Duration(days: 1))) {
-      if (d.weekday != DateTime.friday) count++;
-    }
-    return count;
-  }
+  /// Friday+Saturday, `WorkingDays.count` needs to exclude
+  /// `DateTime.saturday` too.
+  int _countWorkingDays(DateTime start, DateTime end) => WorkingDays.count(start, end);
 }

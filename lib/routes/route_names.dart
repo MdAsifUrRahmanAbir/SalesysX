@@ -26,4 +26,6 @@ class RouteNames {
   static const String profile = '/profile';
   static const String team_overview = '/team_overview';
   static const String team_member = '/team_member';
+  static const String team_sales_list = '/team_sales_list';
+  static const String team_reports = '/team_reports';
 }

@@ -203,6 +203,18 @@ class FirebaseBatchScope {
   final FirebaseFirestore _db;
   FirebaseBatchScope._(this._batch, this._db);
 
+  /// Adds a new document with an auto-generated id under [collectionPath]
+  /// as part of this batch, returning that id synchronously (the id is
+  /// generated client-side; the write itself only lands when the batch
+  /// commits). Use for the common "add a doc, then update a related one"
+  /// atomic pattern, e.g. logging a sale and updating the outlet it was
+  /// made at in one commit.
+  String add(String collectionPath, Map<String, dynamic> data) {
+    final ref = _db.collection(collectionPath).doc();
+    _batch.set(ref, data);
+    return ref.id;
+  }
+
   void set(String path, Map<String, dynamic> data, {bool merge = false}) =>
       _batch.set(_db.doc(path), data, SetOptions(merge: merge));
 

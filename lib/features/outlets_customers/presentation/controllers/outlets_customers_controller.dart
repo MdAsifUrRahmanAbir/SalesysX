@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:salesysx/features/common_models/outlet_model.dart';
+import '../../../../core/constants/app_strings.dart';
+import '../../../../core/session/auth_session_controller.dart';
+import '../../../../core/utils/date_formatter.dart';
+import '../../../../core/utils/error_mapper.dart';
 import '../../data/repositories/outlets_customers_repository.dart';
 import '../states/outlets_customers_state.dart';
 
@@ -12,51 +17,53 @@ OutletsCustomersController.new,
 class OutletsCustomersController extends Notifier<OutletsCustomersState> {
   late final TextEditingController searchController;
 
-  // OutletsCustomersRepository get _repository => ref.read(outletsCustomersRepositoryProvider);
+  OutletsCustomersRepository get _repository => ref.read(outletsCustomersRepositoryProvider);
 
   @override
   OutletsCustomersState build() {
     searchController = TextEditingController();
     ref.onDispose(searchController.dispose);
 
-    // TODO: wire to outletsCustomersRepositoryProvider.getOutlets()
-    // once features/outlets_customers/data is ready.
-    // Values below mirror the approved design as placeholders.
-    return const OutletsCustomersState(
-      outlets: [
-        OutletCustomer(
-          name: 'Rahim Store',
-          status: OutletCustomerStatus.active,
-          owner: 'Rahim Uddin',
-          areaRoute: 'Gulshan',
-          lastVisit: '18 Jan 2024',
-          lastOrderAmount: 12500,
-        ),
-        OutletCustomer(
-          name: 'Karim Traders',
-          status: OutletCustomerStatus.active,
-          owner: 'Abdul Karim',
-          areaRoute: 'Mirpur',
-          lastVisit: '20 Jan 2024',
-          lastOrderAmount: 8200,
-        ),
-        OutletCustomer(
-          name: 'Nusrat Mart',
-          status: OutletCustomerStatus.newCustomer,
-          owner: 'Nusrat Jahan',
-          areaRoute: 'Dhanmondi',
-          lastVisit: '22 Jan 2024',
-          lastOrderAmount: 15400,
-        ),
-        OutletCustomer(
-          name: 'Anwar General Store',
-          status: OutletCustomerStatus.potential,
-          owner: 'Anwar Hossain',
-          areaRoute: 'Uttara',
-          lastVisit: '24 Jan 2024',
-          lastOrderAmount: 5600,
-        ),
-      ],
+    Future.microtask(_load);
+    return const OutletsCustomersState(isLoading: true);
+  }
+
+  Future<void> refresh() => _load();
+
+  Future<void> _load() async {
+    state = state.copyWith(isLoading: true, errorMessage: null);
+    try {
+      final user = ref.read(authSessionControllerProvider).user;
+      if (user == null) {
+        state = state.copyWith(isLoading: false, errorMessage: 'Not signed in.');
+        return;
+      }
+
+      final outlets = await _repository.getAssignedOutlets(user.id);
+      state = state.copyWith(
+        isLoading: false,
+        outlets: outlets.map(_toUiModel).toList(),
+      );
+    } catch (e) {
+      state = state.copyWith(isLoading: false, errorMessage: getErrorMessage(e));
+    }
+  }
+
+  OutletCustomer _toUiModel(OutletModel outlet) {
+    return OutletCustomer(
+      id: outlet.id,
+      name: outlet.name,
+      status: switch (outlet.status) {
+        'newCustomer' => OutletCustomerStatus.newCustomer,
+        'potential' => OutletCustomerStatus.potential,
+        _ => OutletCustomerStatus.active,
+      },
+      owner: outlet.ownerName,
+      phone: outlet.phone,
+      address: outlet.address,
+      areaRoute: outlet.areaRoute,
+      lastVisit: outlet.lastVisit == null ? AppStrings.notVisitedYet : DateFormatter.shortDate(outlet.lastVisit!),
+      lastOrderAmount: outlet.lastOrderAmount,
     );
   }
 
@@ -66,8 +73,5 @@ class OutletsCustomersController extends Notifier<OutletsCustomersState> {
 
   void selectFilter(String filter) {
     state = state.copyWith(selectedFilter: filter);
-    // TODO: wire to outletsCustomersRepositoryProvider.getOutlets(filter)
-    // if filtering should happen server-side instead of client-side.
   }
 }
-

@@ -10,10 +10,12 @@ import '../../../../core/widgets/common/app_header_bar.dart';
 import '../../../../core/widgets/common/radio_option.dart';
 import '../../../../core/widgets/utility/custom_alert_dialog.dart';
 import '../../../../core/widgets/utility/custom_bottom_sheet.dart';
+import '../../../../core/widgets/utility/custom_snackbar.dart';
 import '../../../../routes/route_names.dart';
 import '../controllers/settings_controller.dart';
 import '../widgets/settings_toggles_section.dart';
 import '../widgets/settings_security_general_section.dart';
+import '../widgets/settings_developer_section.dart';
 import '../widgets/settings_legal_section.dart';
 import '../widgets/settings_footer_actions.dart';
 
@@ -74,6 +76,29 @@ class SettingsMobileView extends ConsumerWidget {
       await ref.read(authSessionControllerProvider.notifier).logout();
       if (!context.mounted) return;
       context.go(RouteNames.login);
+    }
+  }
+
+  Future<void> _confirmResetDemoData(BuildContext context, WidgetRef ref) async {
+    final confirmed = await CustomAlertDialog.confirm(
+      context,
+      title: AppStrings.resetDemoDataTitle,
+      message: AppStrings.resetDemoDataConfirmMessage,
+      confirmText: AppStrings.resetDemoDataTitle,
+      destructive: true,
+    );
+    if (confirmed != true) return;
+
+    final success = await ref.read(settingsControllerProvider.notifier).resetDemoData();
+    if (!context.mounted) return;
+
+    if (success) {
+      await ref.read(authSessionControllerProvider.notifier).logout();
+      if (!context.mounted) return;
+      CustomSnackBar.show(context, AppStrings.resetDemoDataSuccess);
+      context.go(RouteNames.login);
+    } else {
+      CustomSnackBar.show(context, 'Failed to reset demo data.', error: true);
     }
   }
 
@@ -142,6 +167,12 @@ class SettingsMobileView extends ConsumerWidget {
                   onChangePssword: () {
                     context.push(RouteNames.changePassword);
                   },
+                ),
+
+                const SizedBox(height: AppSizes.lg),
+
+                SettingsDeveloperSection(
+                  onResetDemoDataTap: () => _confirmResetDemoData(context, ref),
                 ),
 
                 const SizedBox(height: AppSizes.lg),

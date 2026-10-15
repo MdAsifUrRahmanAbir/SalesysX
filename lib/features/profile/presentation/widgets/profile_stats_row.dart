@@ -14,12 +14,16 @@ class ProfileStatsRow extends StatelessWidget {
     required this.monthlyTargetShortLabel,
     required this.activeOutletCount,
     required this.salesTodayCompleted,
+    this.middleLabel = AppStrings.customersLabel,
+    this.middleSubtitle = AppStrings.activeOutlets,
   });
 
   final String monthlyAchievedShortLabel;
   final String monthlyTargetShortLabel;
   final int activeOutletCount;
   final int salesTodayCompleted;
+  final String middleLabel;
+  final String middleSubtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +40,10 @@ class ProfileStatsRow extends StatelessWidget {
         SizedBox(width: AppSizes.sm),
         Expanded(
           child: ProfileStatCard(
-            label: AppStrings.customersLabel,
+            label: middleLabel,
             value: '$activeOutletCount',
             valueColor: AppColors.success,
-            subtitle: AppStrings.activeOutlets,
+            subtitle: middleSubtitle,
           ),
         ),
         SizedBox(width: AppSizes.sm),

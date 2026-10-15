@@ -8,6 +8,8 @@ class ProfileState {
   final String name;
   final String avatarInitials;
   final String employeeId;
+  final String roleLabel;
+  final bool isTeamHead;
   final String team;
   final String division;
 
@@ -18,6 +20,8 @@ class ProfileState {
 
   final int activeOutletCount;
   final int salesTodayCompleted;
+  final String middleStatLabel;
+  final String middleStatSubtitle;
 
   const ProfileState({
     this.isLoading = false,
@@ -25,6 +29,8 @@ class ProfileState {
     this.name = '',
     this.avatarInitials = '',
     this.employeeId = '',
+    this.roleLabel = '',
+    this.isTeamHead = false,
     this.team = '',
     this.division = '',
     this.monthlyAchieved = 0,
@@ -33,6 +39,8 @@ class ProfileState {
     this.monthlyTargetShortLabel = '',
     this.activeOutletCount = 0,
     this.salesTodayCompleted = 0,
+    this.middleStatLabel = '',
+    this.middleStatSubtitle = '',
   });
 
   ProfileState copyWith({
@@ -41,6 +49,8 @@ class ProfileState {
     String? name,
     String? avatarInitials,
     String? employeeId,
+    String? roleLabel,
+    bool? isTeamHead,
     String? team,
     String? division,
     double? monthlyAchieved,
@@ -49,6 +59,8 @@ class ProfileState {
     String? monthlyTargetShortLabel,
     int? activeOutletCount,
     int? salesTodayCompleted,
+    String? middleStatLabel,
+    String? middleStatSubtitle,
   }) {
     return ProfileState(
       isLoading: isLoading ?? this.isLoading,
@@ -56,6 +68,8 @@ class ProfileState {
       name: name ?? this.name,
       avatarInitials: avatarInitials ?? this.avatarInitials,
       employeeId: employeeId ?? this.employeeId,
+      roleLabel: roleLabel ?? this.roleLabel,
+      isTeamHead: isTeamHead ?? this.isTeamHead,
       team: team ?? this.team,
       division: division ?? this.division,
       monthlyAchieved: monthlyAchieved ?? this.monthlyAchieved,
@@ -66,6 +80,8 @@ class ProfileState {
       monthlyTargetShortLabel ?? this.monthlyTargetShortLabel,
       activeOutletCount: activeOutletCount ?? this.activeOutletCount,
       salesTodayCompleted: salesTodayCompleted ?? this.salesTodayCompleted,
+      middleStatLabel: middleStatLabel ?? this.middleStatLabel,
+      middleStatSubtitle: middleStatSubtitle ?? this.middleStatSubtitle,
     );
   }
 }

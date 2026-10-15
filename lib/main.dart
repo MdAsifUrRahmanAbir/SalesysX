@@ -1,16 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:salesysx/core/theme/app_theme.dart';
 import 'package:salesysx/routes/app_router.dart';
 
+import 'core/locale/locale_controller.dart';
 import 'core/network/connectivity_banner.dart';
 import 'core/observers/riverpod_logging_observer.dart';
 import 'core/storage/local_cache_service.dart';
 import 'core/storage/secure_storage_service.dart';
 import 'core/theme/theme_controller.dart';
 import 'firebase_options.dart';
+import 'l10n/app_localizations.dart';
 import 'routes/app_initialization.dart';
 
 Future<void> main() async {
@@ -62,8 +65,10 @@ class PosApp extends ConsumerWidget {
       themeControllerProvider,
     );
 
+    final locale = ref.watch(localeControllerProvider);
+
     return MaterialApp.router(
-      title: 'POS System',
+      title: 'SalesysX',
 
       debugShowCheckedModeBanner: false,
 
@@ -72,6 +77,15 @@ class PosApp extends ConsumerWidget {
       darkTheme: AppTheme.darkTheme,
 
       themeMode: themeMode,
+
+      locale: locale,
+      supportedLocales: supportedLocales,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
 
       routerConfig: router,
 

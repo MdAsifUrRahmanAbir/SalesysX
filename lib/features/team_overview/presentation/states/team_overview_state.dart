@@ -4,6 +4,7 @@ enum PerformanceStatus { good, atRisk }
 
 @immutable
 class TeamMemberPerformance {
+  final String email;
   final String name;
   final String initials;
   final String role;
@@ -15,6 +16,7 @@ class TeamMemberPerformance {
   final PerformanceStatus status;
 
   const TeamMemberPerformance({
+    this.email = '',
     required this.name,
     required this.initials,
     required this.role,

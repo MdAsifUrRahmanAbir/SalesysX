@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/widgets/common/app_header_bar.dart';
 import '../../../../core/widgets/utility/custom_alert_dialog.dart';
+import '../../../../core/widgets/utility/custom_snackbar.dart';
+import '../../../../routes/route_names.dart';
 import '../controllers/settings_controller.dart';
 import '../widgets/settings_toggles_section.dart';
 import '../widgets/settings_security_general_section.dart';
+import '../widgets/settings_developer_section.dart';
 import '../widgets/settings_legal_section.dart';
 import '../widgets/settings_footer_actions.dart';
 
@@ -30,6 +35,29 @@ class SettingsTabView extends ConsumerWidget {
 
     if (confirmed == true) {
       await ref.read(settingsControllerProvider.notifier).deleteAccount();
+    }
+  }
+
+  Future<void> _confirmResetDemoData(BuildContext context, WidgetRef ref) async {
+    final confirmed = await CustomAlertDialog.confirm(
+      context,
+      title: AppStrings.resetDemoDataTitle,
+      message: AppStrings.resetDemoDataConfirmMessage,
+      confirmText: AppStrings.resetDemoDataTitle,
+      destructive: true,
+    );
+    if (confirmed != true) return;
+
+    final success = await ref.read(settingsControllerProvider.notifier).resetDemoData();
+    if (!context.mounted) return;
+
+    if (success) {
+      await ref.read(authSessionControllerProvider.notifier).logout();
+      if (!context.mounted) return;
+      CustomSnackBar.show(context, AppStrings.resetDemoDataSuccess);
+      context.go(RouteNames.login);
+    } else {
+      CustomSnackBar.show(context, 'Failed to reset demo data.', error: true);
     }
   }
 
@@ -96,6 +124,12 @@ class SettingsTabView extends ConsumerWidget {
                       onRegionTap: () {
                         // TODO: open region picker
                       },
+                    ),
+
+                    const SizedBox(height: AppSizes.xl),
+
+                    SettingsDeveloperSection(
+                      onResetDemoDataTap: () => _confirmResetDemoData(context, ref),
                     ),
 
                     const SizedBox(height: AppSizes.xl),

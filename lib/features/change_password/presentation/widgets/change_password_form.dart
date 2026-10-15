@@ -9,14 +9,11 @@ import '../../../../core/widgets/common/primary_button.dart';
 import '../controllers/change_password_controller.dart';
 
 class ChangePasswordForm extends ConsumerWidget {
-  final bool loading;
-
   final void Function(String currentPassword, String newPassword) onSave;
 
   const ChangePasswordForm({
     super.key,
     required this.onSave,
-    this.loading = false,
   });
 
   @override
@@ -61,7 +58,7 @@ class ChangePasswordForm extends ConsumerWidget {
 
           PrimaryButton(
             label: AppStrings.saveChanges,
-            loading: loading,
+            loading: state.isSaving,
             onPressed: () {
               controller.submit(onSave);
             },

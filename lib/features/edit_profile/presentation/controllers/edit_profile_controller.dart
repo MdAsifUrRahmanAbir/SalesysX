@@ -2,9 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/session/auth_session_controller.dart';
+import '../../../../core/utils/error_mapper.dart';
+import '../../data/repositories/edit_profile_repository.dart';
 
 class EditProfileState {
-  const EditProfileState();
+  final bool isSaving;
+  final String? errorMessage;
+
+  const EditProfileState({this.isSaving = false, this.errorMessage});
+
+  EditProfileState copyWith({bool? isSaving, String? errorMessage}) {
+    return EditProfileState(
+      isSaving: isSaving ?? this.isSaving,
+      errorMessage: errorMessage,
+    );
+  }
 }
 
 class EditProfileController extends Notifier<EditProfileState> {
@@ -13,90 +26,56 @@ class EditProfileController extends Notifier<EditProfileState> {
   late final TextEditingController nameController;
   late final TextEditingController emailController;
   late final TextEditingController phoneController;
-  late final TextEditingController designationController;
-  late final TextEditingController bioController;
+
+  EditProfileRepository get _repository => ref.read(editProfileRepositoryProvider);
 
   @override
   EditProfileState build() {
-    nameController = TextEditingController();
-    emailController = TextEditingController();
-    phoneController = TextEditingController();
-    designationController = TextEditingController();
-    bioController = TextEditingController();
-    initialize();
+    final user = ref.read(authSessionControllerProvider).user;
+    nameController = TextEditingController(text: user?.name ?? '');
+    emailController = TextEditingController(text: user?.email ?? '');
+    phoneController = TextEditingController(text: user?.phone ?? '');
     ref.onDispose(() {
       nameController.dispose();
       emailController.dispose();
       phoneController.dispose();
-      designationController.dispose();
-      bioController.dispose();
     });
 
     return const EditProfileState();
-  }
-
-  /// Call this when profile data is loaded.
-  void initialize({
-    String name = 'Alex Johnson',
-    String email = 'alex.johnson@enterprise.com',
-    String phone = '555-0199',
-    String designation = 'Workspace Admin',
-    String bio =
-        'Responsible for managing the enterprise cluster databases, '
-        'orchestrating deployments, and setting access token '
-        'permissions for the department nodes.',
-  }) {
-    nameController.text = name;
-    emailController.text = email;
-    phoneController.text = phone;
-    designationController.text = designation;
-    bioController.text = bio;
   }
 
   String? validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return AppStrings.fullNameRequired;
     }
-
     return null;
   }
 
-  String? validateEmail(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return AppStrings.emailRequired;
+  bool validate() => formKey.currentState?.validate() ?? false;
+
+  Future<void> submit(void Function(Map<String, String> values) onSave) async {
+    if (!validate() || state.isSaving) return;
+
+    final user = ref.read(authSessionControllerProvider).user;
+    if (user == null) return;
+
+    state = state.copyWith(isSaving: true, errorMessage: null);
+    try {
+      await _repository.updateProfile(
+        email: user.id,
+        name: nameController.text.trim(),
+        phone: phoneController.text.trim(),
+      );
+      await ref.read(authSessionControllerProvider.notifier).restoreSession();
+      state = state.copyWith(isSaving: false);
+      onSave({'name': nameController.text.trim(), 'phone': phoneController.text.trim()});
+    } catch (e) {
+      state = state.copyWith(isSaving: false, errorMessage: getErrorMessage(e));
     }
-
-    if (!value.contains('@')) {
-      return AppStrings.emailInvalid;
-    }
-
-    return null;
-  }
-
-  Map<String, String> get values {
-    return {
-      'name': nameController.text.trim(),
-      'email': emailController.text.trim(),
-      'phone': phoneController.text.trim(),
-      'designation': designationController.text.trim(),
-      'bio': bioController.text.trim(),
-    };
-  }
-
-  bool validate() {
-    return formKey.currentState?.validate() ?? false;
-  }
-
-  void submit(void Function(Map<String, String> values) onSave) {
-    if (!validate()) {
-      return;
-    }
-
-    onSave(values);
   }
 }
 
 final editProfileControllerProvider =
-    NotifierProvider.autoDispose<EditProfileController, EditProfileState>(
-      EditProfileController.new,
-    );
+NotifierProvider.autoDispose<EditProfileController, EditProfileState>(
+  EditProfileController.new,
+);

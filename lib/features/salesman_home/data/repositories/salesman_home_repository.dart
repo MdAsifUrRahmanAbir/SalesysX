@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/firestore_collections.dart';
 import '../../../../core/network/firebase_client.dart';
-import 'package:salesysx/features/lib/features/common_models/sale_model.dart';
-import 'package:salesysx/features/lib/features/common_models/target_model.dart';
+import 'package:salesysx/features/common_models/sale_model.dart';
+import 'package:salesysx/features/common_models/target_model.dart';
 
 final salesmanHomeRepositoryProvider = Provider<SalesmanHomeRepository>((ref) {
   return SalesmanHomeRepository(ref.watch(firebaseClientProvider));

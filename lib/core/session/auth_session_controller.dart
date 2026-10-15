@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../features/login/data/models/user_model.dart';
+import '../../features/common_models/user_model.dart';
 import '../constants/firestore_collections.dart';
 import '../network/firebase_client.dart';
 import '../storage/local_cache_service.dart';

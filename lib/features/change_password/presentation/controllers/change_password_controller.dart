@@ -2,16 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/session/auth_session_controller.dart';
+import '../../../../core/utils/error_mapper.dart';
 import '../../../../core/widgets/common/password_strength_meter.dart';
+import '../../data/repositories/change_password_repository.dart';
 
 class ChangePasswordState {
   final PasswordStrength passwordStrength;
+  final bool isSaving;
+  final String? errorMessage;
 
-  const ChangePasswordState({this.passwordStrength = PasswordStrength.weak});
+  const ChangePasswordState({
+    this.passwordStrength = PasswordStrength.weak,
+    this.isSaving = false,
+    this.errorMessage,
+  });
 
-  ChangePasswordState copyWith({PasswordStrength? passwordStrength}) {
+  ChangePasswordState copyWith({
+    PasswordStrength? passwordStrength,
+    bool? isSaving,
+    String? errorMessage,
+  }) {
     return ChangePasswordState(
       passwordStrength: passwordStrength ?? this.passwordStrength,
+      isSaving: isSaving ?? this.isSaving,
+      errorMessage: errorMessage,
     );
   }
 }
@@ -98,14 +113,28 @@ class ChangePasswordController extends Notifier<ChangePasswordState> {
     return formKey.currentState?.validate() ?? false;
   }
 
-  void submit(
-    void Function(String currentPassword, String newPassword) onSave,
-  ) {
-    if (!validate()) {
-      return;
-    }
+  ChangePasswordRepository get _repository => ref.read(changePasswordRepositoryProvider);
 
-    onSave(currentPasswordController.text, newPasswordController.text);
+  Future<void> submit(
+    void Function(String currentPassword, String newPassword) onSave,
+  ) async {
+    if (!validate() || state.isSaving) return;
+
+    final user = ref.read(authSessionControllerProvider).user;
+    if (user == null) return;
+
+    state = state.copyWith(isSaving: true, errorMessage: null);
+    try {
+      await _repository.changePassword(
+        email: user.id,
+        currentPassword: currentPasswordController.text,
+        newPassword: newPasswordController.text,
+      );
+      state = state.copyWith(isSaving: false);
+      onSave(currentPasswordController.text, newPasswordController.text);
+    } catch (e) {
+      state = state.copyWith(isSaving: false, errorMessage: getErrorMessage(e));
+    }
   }
 }
 

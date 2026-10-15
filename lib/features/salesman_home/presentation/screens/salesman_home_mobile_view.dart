@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import 'package:salesysx/routes/route_names.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/custom_shimmer.dart';
 import '../../../../core/widgets/utility/error_state.dart';
+import '../../../notifications/presentation/controllers/notification_controller.dart';
 import '../controllers/salesman_home_controller.dart';
 import '../widgets/create_sale_entry_button.dart';
 import '../widgets/daily_run_rate_card.dart';
@@ -38,15 +41,12 @@ class SalesmanHomeMobileView extends ConsumerWidget {
               SalesmanGreetingHeader(
                 name: state.salesmanName,
                 avatarInitials: state.avatarInitials,
-                onNotificationTap: () {
-                  // TODO: wire to context.push(RouteNames.notifications)
-                },
+                unreadCount: ref.watch(notificationControllerProvider).unreadCount,
+                onNotificationTap: () => context.push(RouteNames.notifications),
               ),
               SizedBox(height: AppSizes.md),
               CreateSaleEntryButton(
-                onPressed: () {
-                  // TODO: wire to context.push(RouteNames.new_sale_entry)
-                },
+                onPressed: () => context.push(RouteNames.new_sale_entry),
               ),
               SizedBox(height: AppSizes.md),
               MonthlyTargetCard(

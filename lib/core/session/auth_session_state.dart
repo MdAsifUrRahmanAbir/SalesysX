@@ -1,4 +1,4 @@
-import '../../features/login/data/models/user_model.dart';
+import '../../features/common_models/user_model.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated }
 

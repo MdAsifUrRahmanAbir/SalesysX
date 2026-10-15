@@ -22,6 +22,8 @@ import 'package:salesysx/features/system/presentation/screens/not_found_screen.d
 import 'package:salesysx/features/target_performance/presentation/screens/target_performance_screen.dart';
 import 'package:salesysx/features/team_member/presentation/screens/team_member_screen.dart';
 import 'package:salesysx/features/team_overview/presentation/screens/team_overview_screen.dart';
+import 'package:salesysx/features/team_reports/presentation/screens/team_reports_screen.dart';
+import 'package:salesysx/features/team_sales_list/presentation/screens/team_sales_list_screen.dart';
 import 'package:salesysx/features/terms_privacy/presentation/screens/terms_privacy_screen.dart';
 
 import 'package:salesysx/routes/route_names.dart';
@@ -138,7 +140,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RouteNames.new_sale_entry,
         builder: (context, state) {
-          return const NewSaleEntryScreen();
+          return NewSaleEntryScreen(preselectedOutletId: state.extra as String?);
         },
       ),
 
@@ -174,7 +176,21 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RouteNames.team_member,
         builder: (context, state) {
-          return const TeamMemberScreen();
+          return TeamMemberScreen(email: state.uri.queryParameters['email'] ?? '');
+        },
+      ),
+
+      GoRoute(
+        path: RouteNames.team_sales_list,
+        builder: (context, state) {
+          return const TeamSalesListScreen();
+        },
+      ),
+
+      GoRoute(
+        path: RouteNames.team_reports,
+        builder: (context, state) {
+          return const TeamReportsScreen();
         },
       ),
 

@@ -72,6 +72,8 @@ class AppStrings {
 
   static const String currentPasswordRequired = 'Current password is required';
 
+  static const String currentPasswordIncorrect = 'Current password is incorrect.';
+
   static const String newPasswordSameAsCurrent =
       'New password must be different from current password';
 
@@ -118,6 +120,17 @@ class AppStrings {
   static const String securitySection = 'SECURITY';
 
   static const String generalSection = 'GENERAL';
+
+  static const String developerSection = 'DEVELOPER';
+
+  static const String resetDemoDataTitle = 'Reset Demo Data';
+
+  static const String resetDemoDataConfirmMessage =
+      'This wipes all users, teams, outlets, products, targets, sales, and '
+      'notifications, then reseeds fresh demo data dated to the current '
+      'month. This cannot be undone.';
+
+  static const String resetDemoDataSuccess = 'Demo data reset. Please sign in again.';
 
   static const String legalSection = 'LEGAL';
 
@@ -343,6 +356,12 @@ class AppStrings {
 
   static const String submitSaleEntry = 'Submit Sale Entry';
 
+  static const String saleRecordedSuccess = 'Sale recorded successfully.';
+
+  static const String saleEntryHelpText =
+      'Pick the outlet and product, set quantity and discount, then submit. '
+      'The amount is quantity × price minus discount.';
+
   static const String todaysEntries = "Today's Entries";
 
   static String calculatedPriceBreakdown(
@@ -372,6 +391,49 @@ class AppStrings {
   static const String lastVisitLabel = 'Last Visit:';
 
   static const String lastOrderAmountLabel = 'Last Order Amount:';
+
+  static const String addressLabel = 'Address:';
+
+  static const String phoneLabel = 'Phone:';
+
+  static const String recentSalesTitle = 'Recent Sales';
+
+  static const String noRecentSalesYet = 'No sales recorded at this outlet yet.';
+
+  static const String notVisitedYet = 'Not visited yet';
+
+  static const String recordSaleAction = 'Record Sale';
+
+  static const String callAction = 'Call';
+
+  static const String managedFromAdminPanel =
+      'Managed from the Web Admin Panel by your company Admin.';
+
+  static const String addOutletTitle = 'Add New Outlet';
+
+  static const String addNewOutletOption = '+ Add New Outlet / Shop';
+
+  static const String outletNameLabel = 'Shop Name';
+
+  static const String ownerNameLabel = 'Owner Name';
+
+  static const String addressFieldLabel = 'Address';
+
+  static const String areaRouteFieldLabel = 'Area / Route';
+
+  static const String addOutletAction = 'Add Outlet';
+
+  static const String outletAddedSuccess = 'Outlet added.';
+
+  static const String newSaleAction = 'New Sale';
+
+  static const String teamSalesTitle = 'Team Sales';
+
+  static const String teamReportsTitle = 'Reports';
+
+  static const String salesmanRankingTitle = 'Salesman Ranking';
+
+  static const String salesByCategoryTitle = 'Sales by Category';
 
   static const String targetPerformanceTitle = 'Target Performance';
 
@@ -423,7 +485,23 @@ class AppStrings {
   static const String logoutSubtitle = 'Sign out of device';
 
   static String teamAndDivision(String team, String division) =>
-      '$team • $division';
+      division.isEmpty ? team : '$team • $division';
+
+  static const String teamSizeLabel = 'Team Size';
+
+  static const String teamDashboardMenuTitle = 'Team Dashboard';
+
+  static const String teamDashboardMenuSubtitle = 'Target, achievement & roster';
+
+  static const String teamSalesLogMenuTitle = 'Team Sales Log';
+
+  static const String teamSalesLogMenuSubtitle = "Every team member's recorded sales";
+
+  static const String teamReportsMenuTitle = 'Team Reports';
+
+  static const String teamReportsMenuSubtitle = 'Ranking & sales by category';
+
+  static const String membersSuffix = 'Members';
 
   static const String navHome = 'Home';
 

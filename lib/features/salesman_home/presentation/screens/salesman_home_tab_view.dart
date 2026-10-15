@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import 'package:salesysx/routes/route_names.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../notifications/presentation/controllers/notification_controller.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../controllers/salesman_home_controller.dart';
 import '../widgets/create_sale_entry_button.dart';
@@ -32,16 +35,12 @@ class SalesmanHomeTabView extends ConsumerWidget {
                 SalesmanGreetingHeader(
                   name: state.salesmanName,
                   avatarInitials: state.avatarInitials,
-                  onNotificationTap: () {
-                    // TODO: wire to context.push(RouteNames.notifications)
-                  },
+                  unreadCount: ref.watch(notificationControllerProvider).unreadCount,
+                  onNotificationTap: () => context.push(RouteNames.notifications),
                 ),
                 SizedBox(height: AppSizes.md),
                 CreateSaleEntryButton(
-                  onPressed: () {
-                    // TODO: wire to context.push(RouteNames.newSale)
-                    // once the sales entry route is ready.
-                  },
+                  onPressed: () => context.push(RouteNames.new_sale_entry),
                 ),
                 SizedBox(height: AppSizes.md),
                 MonthlyTargetCard(

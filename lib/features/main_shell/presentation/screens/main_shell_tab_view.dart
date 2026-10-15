@@ -30,7 +30,7 @@ class MainShellTabView extends ConsumerWidget {
             selectedLabelTextStyle: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w600),
             unselectedLabelTextStyle: TextStyle(color: context.appColors.textSecondary),
             destinations: [
-              for (final item in shellNavItems)
+              for (final item in shellNavItemsOf(context))
                 NavigationRailDestination(
                   icon: Icon(item.icon),
                   selectedIcon: Icon(item.selectedIcon),

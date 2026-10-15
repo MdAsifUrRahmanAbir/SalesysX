@@ -6,6 +6,7 @@ import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/custom_app_bar.dart';
 import '../../../../core/widgets/common/custom_card.dart';
 import '../../../../core/widgets/utility/custom_snackbar.dart';
+import '../controllers/change_password_controller.dart';
 import '../widgets/change_password_form.dart';
 
 /// Same content as [ChangePasswordMobileView], centered in a
@@ -15,6 +16,12 @@ class ChangePasswordTabView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(changePasswordControllerProvider, (previous, next) {
+      if (next.errorMessage != null && next.errorMessage != previous?.errorMessage) {
+        CustomSnackBar.show(context, next.errorMessage!, error: true);
+      }
+    });
+
     return SafeArea(
       child: Column(
         children: [
@@ -28,7 +35,7 @@ class ChangePasswordTabView extends ConsumerWidget {
                   child: CustomCard(
                     child: ChangePasswordForm(
                       onSave: (currentPassword, newPassword) {
-                        // TODO: wire to changePasswordControllerProvider.save(...)
+                        if (!context.mounted) return;
                         CustomSnackBar.show(context, 'Password updated');
                         context.pop();
                       },

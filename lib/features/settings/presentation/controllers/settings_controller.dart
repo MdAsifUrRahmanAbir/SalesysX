@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/seed/demo_data_seeder.dart';
+
 class SettingsState {
   final bool darkMode;
   final bool pushNotifications;
@@ -59,6 +61,17 @@ class SettingsController extends Notifier<SettingsState> {
   }
 
   Future<void> deleteAccount() async {}
+
+  /// Dev utility: wipes and reseeds all demo data dated to the current
+  /// month. Returns true on success.
+  Future<bool> resetDemoData() async {
+    try {
+      await ref.read(demoDataSeederProvider).clearAndReseed();
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 }
 
 final settingsControllerProvider =

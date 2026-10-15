@@ -4,7 +4,7 @@ import '../../../../core/constants/app_strings.dart';
 import '../../../../core/constants/firestore_collections.dart';
 import '../../../../core/network/firebase_client.dart';
 import '../../../../core/utils/password_hasher.dart';
-import '../models/user_model.dart';
+import '../../../common_models/user_model.dart';
 
 final loginRepositoryProvider = Provider<LoginRepository>((ref) {
   return LoginRepository(ref.watch(firebaseClientProvider));

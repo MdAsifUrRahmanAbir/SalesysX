@@ -1,119 +1,141 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
+import '../../../../core/utils/currency_formatter.dart';
+import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
+import '../../../../core/widgets/utility/custom_shimmer.dart';
+import '../../../../core/widgets/utility/custom_snackbar.dart';
+import '../../../../core/widgets/utility/empty_state.dart';
+import '../../../../core/widgets/utility/error_state.dart';
+import '../controllers/team_member_controller.dart';
+import '../widgets/sales_activity_item.dart';
+import '../widgets/team_member_action_bar.dart';
+import '../widgets/team_member_daily_stat_card.dart';
 import '../widgets/team_member_detail_app_bar.dart';
 import '../widgets/team_member_profile_card.dart';
 import '../widgets/team_member_target_card.dart';
-import '../widgets/team_member_daily_stat_card.dart';
-import '../widgets/sales_activity_item.dart';
-import '../widgets/team_member_action_bar.dart';
 
-/// Same content as [TeamMemberDetailMobileView], centered in a
-/// fixed-width column for wider (tablet/web) viewports.
+/// Same content as [TeamMemberMobileView], centered in a fixed-width
+/// column for wider (tablet/web) viewports.
 class TeamMemberTabView extends ConsumerWidget {
   const TeamMemberTabView({super.key});
 
-  static const _activity = [
-    SalesActivityItem(
-      outletName: 'Anowar Kirana, Mirpur',
-      detailLine: 'Mango Juice 250ml x 12 • Today, 02:45 PM',
-      amount: '৳370',
-    ),
-    SalesActivityItem(
-      outletName: 'Mayer Doa Enterprise, Uttara',
-      detailLine: 'Orange Drink 500ml x 24 • Today, 11:30 AM',
-      amount: '৳1,200',
-    ),
-    SalesActivityItem(
-      outletName: 'Dhaka Mart, Banani',
-      detailLine: 'Potato Chips x 50 • Yesterday, 04:15 PM',
-      amount: '৳800',
-    ),
-    SalesActivityItem(
-      outletName: 'Popular Store, Dhanmondi',
-      detailLine: 'Drinking Water 1L x 120 • 24 Oct, 10:10 AM',
-      amount: '৳1,500',
-    ),
-  ];
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(teamMemberControllerProvider);
+    final controller = ref.read(teamMemberControllerProvider.notifier);
+    final isFirstLoad = state.isInitialLoading && state.name.isEmpty;
+
     return Scaffold(
-      appBar: const TeamMemberDetailAppBar(memberName: 'Rahim Uddin'),
+      appBar: TeamMemberDetailAppBar(
+        memberName: state.name.isEmpty ? '...' : state.name,
+        riskLabel: state.isOnTrack ? AppStrings.statusOnTrack : AppStrings.atRiskLabel,
+        riskType: state.riskBadgeType,
+      ),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 640),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(AppSizes.xl),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TeamMemberProfileCard(
-                  name: 'Rahim Uddin',
-                  initials: 'RU',
-                  roleLabel: 'Role: Salesman • EMP-0042',
-                  email: 'rahim.uddin@company.com',
-                ),
-                const SizedBox(height: AppSizes.lg),
-                const TeamMemberTargetCard(
-                  achievedPercent: 68,
-                  monthlyTarget: '৳5,00,000',
-                  achievedAmount: '৳3,40,000',
-                  remainingAmount: '৳1,60,000',
-                ),
-                const SizedBox(height: AppSizes.lg),
-                Row(
-                  children: [
-                    Expanded(
-                      child: TeamMemberDailyStatCard(
-                        label: AppStrings.todaysTargetLabel,
-                        value: '৳15,000',
-                        note: AppStrings.dailyAssignment,
-                        valueColor: context.appColors.textPrimary,
-                        noteColor: context.appColors.textSecondary,
+          child: isFirstLoad
+              ? _buildShimmer()
+              : state.errorMessage != null && state.name.isEmpty
+                  ? ErrorState(message: state.errorMessage!, onRetry: controller.refresh)
+                  : CustomRefreshWrapper(
+                      onRefresh: controller.refresh,
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.all(AppSizes.xl),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TeamMemberProfileCard(
+                              name: state.name,
+                              initials: state.initials,
+                              roleLabel: state.roleLabel,
+                              email: state.email,
+                            ),
+                            const SizedBox(height: AppSizes.lg),
+                            TeamMemberTargetCard(
+                              achievedPercent: state.achievedPercent,
+                              monthlyTarget: CurrencyFormatter.format(state.monthlyTarget),
+                              achievedAmount: CurrencyFormatter.format(state.achievedAmount),
+                              remainingAmount: CurrencyFormatter.format(state.remainingAmount),
+                            ),
+                            const SizedBox(height: AppSizes.lg),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TeamMemberDailyStatCard(
+                                    label: AppStrings.todaysTargetLabel,
+                                    value: CurrencyFormatter.format(state.todaysTarget),
+                                    note: AppStrings.dailyAssignment,
+                                    valueColor: context.appColors.textPrimary,
+                                    noteColor: context.appColors.textSecondary,
+                                  ),
+                                ),
+                                const SizedBox(width: AppSizes.sm + AppSizes.xs),
+                                Expanded(
+                                  child: TeamMemberDailyStatCard(
+                                    label: AppStrings.todaysSalesLabel,
+                                    value: CurrencyFormatter.format(state.todaysSales),
+                                    note: state.todaysGap > 0
+                                        ? '${CurrencyFormatter.format(state.todaysGap)} deficit today'
+                                        : 'Target met today',
+                                    valueColor: state.todaysGap > 0 ? AppColors.error : context.appColors.textPrimary,
+                                    noteColor: state.todaysGap > 0 ? AppColors.error : context.appColors.textSecondary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: AppSizes.lg),
+                            Text(
+                              AppStrings.recentSalesActivity,
+                              style: TextStyle(fontSize: AppSizes.fontMd, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
+                            ),
+                            const SizedBox(height: AppSizes.md),
+                            if (state.recentSales.isEmpty)
+                              const EmptyState(title: 'No sales recorded yet')
+                            else
+                              for (final item in state.recentSales) ...[
+                                SalesActivityItem(
+                                  outletName: item.outletName,
+                                  detailLine: item.detailLine,
+                                  amount: item.amountLabel,
+                                ),
+                                if (item != state.recentSales.last) const SizedBox(height: AppSizes.sm),
+                              ],
+                            const SizedBox(height: AppSizes.xl),
+                            TeamMemberActionBar(
+                              onCallTap: state.phone.isEmpty
+                                  ? null
+                                  : () => launchUrl(Uri(scheme: 'tel', path: state.phone)),
+                              onMessageTap: state.phone.isEmpty
+                                  ? null
+                                  : () => launchUrl(Uri(scheme: 'sms', path: state.phone)),
+                              onFullReportTap: () =>
+                                  CustomSnackBar.show(context, AppStrings.reportsComingSoonTitle),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    const SizedBox(width: AppSizes.sm + AppSizes.xs),
-                    Expanded(
-                      child: TeamMemberDailyStatCard(
-                        label: AppStrings.todaysSalesLabel,
-                        value: '৳8,500',
-                        note: '৳6,500 deficit today',
-                        valueColor: AppColors.error,
-                        noteColor: AppColors.error,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: AppSizes.lg),
-                Text(
-                  AppStrings.recentSalesActivity,
-                  style: TextStyle(fontSize: AppSizes.fontMd, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
-                ),
-                const SizedBox(height: AppSizes.md),
-                for (final item in _activity) ...[
-                  item,
-                  if (item != _activity.last) const SizedBox(height: AppSizes.sm),
-                ],
-                const SizedBox(height: AppSizes.xl),
-                TeamMemberActionBar(
-                  onCallTap: () {
-                    // TODO: launch dialer via url_launcher once wired
-                  },
-                  onMessageTap: () {
-                    // TODO: launch messaging flow once wired
-                  },
-                  onFullReportTap: () {
-                    // TODO: navigate to a full staff report route once it exists
-                  },
-                ),
-              ],
-            ),
-          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildShimmer() {
+    return Padding(
+      padding: const EdgeInsets.all(AppSizes.xl),
+      child: Column(
+        children: [
+          CustomShimmer(height: 80, borderRadius: BorderRadius.circular(AppSizes.radiusLg)),
+          const SizedBox(height: AppSizes.lg),
+          CustomShimmer(height: 140, borderRadius: BorderRadius.circular(AppSizes.radiusLg)),
+        ],
       ),
     );
   }

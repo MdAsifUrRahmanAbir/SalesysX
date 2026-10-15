@@ -6,9 +6,10 @@ import '../../../outlets_customers/presentation/screens/outlets_customers_screen
 import '../../../profile/presentation/screens/profile_screen.dart';
 import '../../../target_performance/presentation/screens/target_performance_screen.dart';
 
-/// Hosts all five bottom-nav destination screens in an [IndexedStack]
-/// so switching tabs preserves each screen's scroll position and
-/// state instead of rebuilding it from scratch every time.
+/// Hosts the five bottom-nav destination screens — same set for every
+/// role — in an [IndexedStack] so switching tabs preserves each
+/// screen's scroll position and state instead of rebuilding it from
+/// scratch every time. Tab order must stay in sync with `shellNavItems`.
 class ShellTabBody extends StatelessWidget {
   final int selectedIndex;
 
@@ -20,7 +21,6 @@ class ShellTabBody extends StatelessWidget {
     OutletsCustomersScreen(),
     TargetPerformanceScreen(),
     ProfileScreen(),
-    // TermsPrivacyScreen(),
   ];
 
   @override
