@@ -1,0 +1,448 @@
+{
+  "@@locale": "en",
+  "appTagline": "Next-Gen Business Platform",
+  "connectingToServers": "Connecting to secure servers...",
+  "appName": "SalesysX",
+  "getStarted": "Get Started",
+  "login": "Login",
+  "skip": "Skip",
+  "next": "Next",
+  "welcomeToApp": "Welcome to Advance POS Sales",
+  "welcomeToAppSubtitle": "Scan products, search inventory, view stock reports, and invoice history with ease.",
+  "signIn": "Sign In",
+  "welcomeBack": "Welcome Back",
+  "emailAddress": "Email Address",
+  "emailHint": "admin@enterprise.com",
+  "password": "Password",
+  "passwordHint": "secret_password",
+  "rememberMe": "Remember Me",
+  "forgotPassword": "Forgot Password?",
+  "orContinueWith": "or continue with",
+  "google": "Google",
+  "apple": "Apple",
+  "dontHaveAccount": "Don't have an account? ",
+  "register": "Register",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Enter a valid email",
+  "passwordRequired": "Password is required",
+  "fullName": "Full Name",
+  "confirmPassword": "Confirm Password",
+  "fullNameRequired": "Full name is required",
+  "confirmPasswordRequired": "Please confirm your password",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "changePasswordTitle": "Change Password",
+  "currentPassword": "Current Password",
+  "newPassword": "New Password",
+  "saveChanges": "Save Changes",
+  "currentPasswordRequired": "Current password is required",
+  "currentPasswordIncorrect": "Current password is incorrect.",
+  "newPasswordSameAsCurrent": "New password must be different from current password",
+  "privacyTitle": "Privacy",
+  "settingsTitle": "Settings",
+  "settingsSubtitle": "App preferences, account management & security",
+  "editProfileTitle": "Edit Profile",
+  "done": "Done",
+  "changeProfilePhoto": "Change Profile Photo",
+  "phoneNumber": "Phone Number",
+  "designationTitle2": "Designation / Title",
+  "bio": "Bio",
+  "filterToday": "Today",
+  "filterThisWeek": "This Week",
+  "filterThisMonth": "This Month",
+  "notificationsTitle": "Notifications",
+  "markAllAsRead": "Mark All as Read",
+  "filterAll": "All",
+  "filterUnread": "Unread",
+  "notificationsTip": "Tip: Swipe left on a notification to archive or configure triggers.",
+  "appearanceSection": "APPEARANCE",
+  "notificationsSection": "NOTIFICATIONS",
+  "securitySection": "SECURITY",
+  "generalSection": "GENERAL",
+  "developerSection": "DEVELOPER",
+  "resetDemoDataTitle": "Reset Demo Data",
+  "resetDemoDataConfirmMessage": "This wipes all users, teams, outlets, products, targets, sales, and notifications, then reseeds fresh demo data dated to the current month. This cannot be undone.",
+  "resetDemoDataSuccess": "Demo data reset. Please sign in again.",
+  "legalSection": "LEGAL",
+  "darkMode": "Dark Mode",
+  "appTheme": "App Theme",
+  "pushNotifications": "Push Notifications",
+  "emailNotifications": "Email Notifications",
+  "smsAlerts": "SMS Alerts",
+  "biometricAuth": "Biometric Auth",
+  "twoFactorAuth": "Two-Factor Auth",
+  "activeSessions": "Active Sessions",
+  "language": "Language",
+  "region": "Region",
+  "termsOfService": "Terms of Service",
+  "openSourceLicenses": "Open Source Licenses",
+  "logOut": "Log Out",
+  "deleteAccount": "Delete Account",
+  "termsPrivacyTitle": "Terms & Privacy",
+  "termsLastUpdated": "Last updated: January 15, 2026",
+  "termsSection1Title": "1. Introduction",
+  "termsSection1Body": "Welcome to EnterpriseSuite. By accessing, deploying, or utilizing our cloud platform and integrated services, you agree to be bound by these unified terms. Please read this agreement carefully.",
+  "termsSection2Title": "2. Data Collection",
+  "termsSection2Body": "To provision high-performance node servers, maintain container security, and optimize query latency, our system architecture collects secure operational metadata:",
+  "termsSection3Title": "3. Usage Rights",
+  "termsSection3Body": "EnterpriseSuite grants you a restricted, non-exclusive, revocable license to access our platform solely for authorized business operations. All dashboard templates, metadata pipelines, and user provisioning are governed by your subscription agreement tiers.",
+  "termsSection4Title": "4. Privacy",
+  "termsSection4Body": "We operate on a zero-trust architecture. All client properties, custom parameters, database schema descriptions, and system integrations remain your proprietary data. EnterpriseSuite does not sell, lease, or monetize organizational usage patterns.",
+  "termsSection5Title": "5. Contact Us",
+  "termsSection5Body": "For policy concerns, data extraction requests, or server security auditing parameters, please contact our specialized compliance division:",
+  "termsContactName": "EnterpriseSuite Compliance",
+  "termsContactEmail": "Email: legal@enterprisesuite.com",
+  "termsContactSla": "Response SLA: Within 2 business days",
+  "helpSupportTitle": "Help & Support",
+  "searchFaqsHint": "Search FAQs...",
+  "faqSectionTitle": "Frequently Asked Questions",
+  "submitTicket": "Submit a Ticket",
+  "contactSupportTitle": "Contact Support",
+  "liveChat": "Live Chat",
+  "chatNow": "Chat Now",
+  "emailContact": "Email",
+  "callContact": "Call",
+  "notFoundCode": "404",
+  "notFoundTitle": "Page Not Found",
+  "notFoundSubtitle": "The page you're looking for doesn't exist or has been moved.",
+  "backToHome": "Back to Home",
+  "noInternetTitle": "No Internet Connection",
+  "noInternetSubtitle": "Please check your network settings and try again.",
+  "checkConnection": "Check Connection",
+  "workOffline": "Work Offline",
+  "maintenanceTitle": "Under Maintenance",
+  "maintenanceSubtitle": "We're performing scheduled maintenance to improve your experience.",
+  "notifyMeWhenReady": "Notify Me When Ready",
+  "errorTitle": "Something Went Wrong",
+  "errorSubtitle": "An unexpected error occurred. Please try again.",
+  "retry": "Retry",
+  "reportIssue": "Report Issue",
+  "appearance": "Appearance",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "exitAppTitle": "Exit App?",
+  "exitAppMessage": "Are you sure you want to exit the app?",
+  "exitAppConfirm": "Exit",
+  "exitAppCancel": "Cancel",
+  "noInternetBannerMessage": "No internet connection",
+  "dailyTargetSubtitle": "{achieved} of {target} target achieved",
+  "@dailyTargetSubtitle": {
+    "placeholders": {
+      "achieved": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "unitsSoldLabel": "{units} units sold",
+  "@unitsSoldLabel": {
+    "placeholders": {
+      "units": {
+        "type": "int"
+      }
+    }
+  },
+  "saleMetaLabel": "{items} items • {timeAgo}",
+  "@saleMetaLabel": {
+    "placeholders": {
+      "items": {
+        "type": "int"
+      },
+      "timeAgo": {
+        "type": "String"
+      }
+    }
+  },
+  "skuLabel": "SKU: {sku}",
+  "@skuLabel": {
+    "placeholders": {
+      "sku": {
+        "type": "String"
+      }
+    }
+  },
+  "viewCartLabel": "View Cart — {total}",
+  "@viewCartLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "discountLabel": "Discount ({percent}%)",
+  "@discountLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "vatTaxLabel": "VAT / Tax ({percent}%)",
+  "@vatTaxLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "eachPriceLabel": "{price} each",
+  "@eachPriceLabel": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentCollectedSubtitle": "Amount received: {amount}",
+  "@paymentCollectedSubtitle": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "stockPcsLabel": "{stock} pcs",
+  "@stockPcsLabel": {
+    "placeholders": {
+      "stock": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddedMessage": "Added: {name}",
+  "@productAddedMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productOutOfStockMessage": "Out of stock: {name}",
+  "@productOutOfStockMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productNotFoundMessage": "No product found for code {code}",
+  "@productNotFoundMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "salesmanGreeting": "Assalamu Alaikum,",
+  "createNewSaleEntry": "Create New Sale Entry",
+  "monthlyTarget": "MONTHLY TARGET",
+  "achievedLabel": "ACHIEVED",
+  "achieved": "Achieved",
+  "remaining": "Remaining",
+  "todaysSales": "Today's Sales",
+  "fromYesterdaySuffix": "from yesterday",
+  "toReachTarget": "To reach 100%",
+  "dailyRunRate": "Daily Run Rate",
+  "targetRunRateRequired": "Target Run Rate Required:",
+  "currentAvgRunRate": "Current Avg Run Rate:",
+  "onTrackToAchieveTarget": "On track to achieve target this month",
+  "offTrackForTarget": "Behind pace to reach target this month",
+  "perDaySuffix": "/day",
+  "daysLeft": "{days} Days Left",
+  "@daysLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "newSaleEntryTitle": "New Sales Entry",
+  "selectOutlet": "Select Outlet",
+  "selectCategory": "Select Category",
+  "selectProduct": "Select Product",
+  "selectProductPlaceholder": "Select a product",
+  "quantityUnits": "Quantity (Units)",
+  "calculatedPriceLabel": "CALCULATED PRICE",
+  "submitSaleEntry": "Submit Sale Entry",
+  "saleRecordedSuccess": "Sale recorded successfully.",
+  "saleEntryHelpText": "Pick the outlet and product, set quantity and discount, then submit. The amount is quantity × price minus discount.",
+  "todaysEntries": "Today's Entries",
+  "calculatedPriceBreakdown": "{quantity} Units × {unitPriceFormatted} - {discountFormatted} discount",
+  "@calculatedPriceBreakdown": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      },
+      "unitPriceFormatted": {
+        "type": "String"
+      },
+      "discountFormatted": {
+        "type": "String"
+      }
+    }
+  },
+  "entryMetaLine": "{location} • {itemCount} Items • {time}",
+  "@entryMetaLine": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "itemCount": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "outletsAndCustomersTitle": "Outlets & Customers",
+  "searchOutletsPlaceholder": "Search outlets, owner name...",
+  "filterActive": "Active",
+  "filterNew": "New",
+  "filterPotential": "Potential",
+  "ownerLabel": "Owner:",
+  "areaRouteLabel": "Area / Route:",
+  "lastVisitLabel": "Last Visit:",
+  "lastOrderAmountLabel": "Last Order Amount:",
+  "addressLabel": "Address:",
+  "phoneLabel": "Phone:",
+  "recentSalesTitle": "Recent Sales",
+  "noRecentSalesYet": "No sales recorded at this outlet yet.",
+  "notVisitedYet": "Not visited yet",
+  "recordSaleAction": "Record Sale",
+  "callAction": "Call",
+  "managedFromAdminPanel": "Managed from the Web Admin Panel by your company Admin.",
+  "addOutletTitle": "Add New Outlet",
+  "addNewOutletOption": "+ Add New Outlet / Shop",
+  "outletNameLabel": "Shop Name",
+  "ownerNameLabel": "Owner Name",
+  "addressFieldLabel": "Address",
+  "areaRouteFieldLabel": "Area / Route",
+  "addOutletAction": "Add Outlet",
+  "outletAddedSuccess": "Outlet added.",
+  "newSaleAction": "New Sale",
+  "teamSalesTitle": "Team Sales",
+  "teamReportsTitle": "Reports",
+  "salesmanRankingTitle": "Salesman Ranking",
+  "salesByCategoryTitle": "Sales by Category",
+  "targetPerformanceTitle": "Target Performance",
+  "statusAtRisk": "At Risk",
+  "statusOnTrack": "On Track",
+  "benchmarkComparisons": "Benchmark Comparisons",
+  "periodProgress": "Period Progress:",
+  "expectedAchievement": "Expected Achievement:",
+  "requiredDailySales": "Required Daily Sales:",
+  "dailyTrendThisWeek": "Daily Trend (This Week)",
+  "workingDaysLeftWarning": "⚠️ {days} Working Days Left. Run-rate adjustment recommended.",
+  "@workingDaysLeftWarning": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyTargetLabel": "Target: {amount}/day",
+  "@dailyTargetLabel": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "profileRoleSalesman": "Salesman",
+  "employeeIdPrefix": "ID:",
+  "thisMonthLabel": "THIS MONTH",
+  "customersLabel": "CUSTOMERS",
+  "salesTodayLabel": "SALES TODAY",
+  "targetShort": "Target",
+  "activeOutlets": "Active Outlets",
+  "completed": "Completed",
+  "mySalesReportTitle": "My Sales Report",
+  "mySalesReportSubtitle": "View daily orders and stats",
+  "myAchievementTitle": "My Achievement",
+  "myAchievementSubtitle": "Detailed target history",
+  "logoutTitle": "Logout",
+  "logoutSubtitle": "Sign out of device",
+  "teamAndDivision": "{team} • {division}",
+  "@teamAndDivision": {
+    "placeholders": {
+      "team": {
+        "type": "String"
+      },
+      "division": {
+        "type": "String"
+      }
+    }
+  },
+  "teamSizeLabel": "Team Size",
+  "teamDashboardMenuTitle": "Team Dashboard",
+  "teamDashboardMenuSubtitle": "Target, achievement & roster",
+  "teamSalesLogMenuTitle": "Team Sales Log",
+  "teamSalesLogMenuSubtitle": "Every team member's recorded sales",
+  "teamReportsMenuTitle": "Team Reports",
+  "teamReportsMenuSubtitle": "Ranking & sales by category",
+  "membersSuffix": "Members",
+  "navHome": "Home",
+  "navSales": "Sales",
+  "navCustomers": "Customers",
+  "navTarget": "Target",
+  "navProfile": "Profile",
+  "teamTargetAndPerformance": "TEAM TARGET & PERFORMANCE",
+  "totalTargetLabel": "TOTAL TARGET",
+  "totalMembersLabel": "Total Members",
+  "activeTodayLabel": "Active Today",
+  "memberPerformanceTitle": "Member Performance",
+  "viewAllReports": "View All Reports",
+  "targetCapsLabel": "TARGET",
+  "todaysSaleCapsLabel": "TODAY'S SALE",
+  "addMember": "Add Member",
+  "percentReached": "{percent}% Reached",
+  "@percentReached": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "onlineCountLabel": "{count} Online",
+  "@onlineCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "representativesCount": "{count, plural, =1{{count} Representative} other{{count} Representatives}}",
+  "@representativesCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "recentSalesActivity": "Recent Sales Activity",
+  "monthlyTargetLabel": "MONTHLY TARGET",
+  "remainingLabel": "Remaining",
+  "achievedBadge": "ACHIEVED",
+  "todaysTargetLabel": "TODAY'S TARGET",
+  "todaysSalesLabel": "TODAY'S SALES",
+  "dailyAssignment": "Daily assignment",
+  "call": "Call",
+  "message": "Message",
+  "fullReport": "Full Report",
+  "atRiskLabel": "AT RISK",
+  "invalidCredentials": "Incorrect email or password.",
+  "accountDisabled": "This account has been disabled. Contact your admin.",
+  "tooManyAttempts": "Too many attempts. Please wait and try again.",
+  "networkErrorMessage": "No internet connection. Please try again.",
+  "genericLoginError": "Unable to sign in. Please try again.",
+  "adminUseWebPanel": "Admin accounts use the Web Admin Panel, not this app.",
+  "navDashboard": "Dashboard",
+  "navReports": "Reports",
+  "reportsComingSoonTitle": "Reports coming soon",
+  "reportsComingSoonMessage": "Team and company reports will appear here.",
+  "logoutConfirmTitle": "Log out?",
+  "logoutConfirmMessage": "You will need to sign in again to access your account."
+}

@@ -1,0 +1,448 @@
+{
+  "@@locale": "bn",
+  "appTagline": "নেক্সট-জেন বিজনেস প্ল্যাটফর্ম",
+  "connectingToServers": "নিরাপদ সার্ভারের সাথে সংযুক্ত হচ্ছে...",
+  "appName": "SalesysX",
+  "getStarted": "শুরু করুন",
+  "login": "লগইন",
+  "skip": "এড়িয়ে যান",
+  "next": "পরবর্তী",
+  "welcomeToApp": "অ্যাডভান্স POS সেলস-এ স্বাগতম",
+  "welcomeToAppSubtitle": "সহজেই পণ্য স্ক্যান করুন, ইনভেন্টরি খুঁজুন, স্টক রিপোর্ট ও ইনভয়েস ইতিহাস দেখুন।",
+  "signIn": "সাইন ইন",
+  "welcomeBack": "স্বাগতম",
+  "emailAddress": "ইমেইল ঠিকানা",
+  "emailHint": "admin@enterprise.com",
+  "password": "পাসওয়ার্ড",
+  "passwordHint": "secret_password",
+  "rememberMe": "মনে রাখুন",
+  "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?",
+  "orContinueWith": "অথবা চালিয়ে যান",
+  "google": "Google",
+  "apple": "Apple",
+  "dontHaveAccount": "অ্যাকাউন্ট নেই? ",
+  "register": "নিবন্ধন করুন",
+  "emailRequired": "ইমেইল আবশ্যক",
+  "emailInvalid": "একটি সঠিক ইমেইল দিন",
+  "passwordRequired": "পাসওয়ার্ড আবশ্যক",
+  "fullName": "পূর্ণ নাম",
+  "confirmPassword": "পাসওয়ার্ড নিশ্চিত করুন",
+  "fullNameRequired": "পূর্ণ নাম আবশ্যক",
+  "confirmPasswordRequired": "অনুগ্রহ করে পাসওয়ার্ড নিশ্চিত করুন",
+  "passwordsDoNotMatch": "পাসওয়ার্ড মিলছে না",
+  "changePasswordTitle": "পাসওয়ার্ড পরিবর্তন করুন",
+  "currentPassword": "বর্তমান পাসওয়ার্ড",
+  "newPassword": "নতুন পাসওয়ার্ড",
+  "saveChanges": "পরিবর্তন সংরক্ষণ করুন",
+  "currentPasswordRequired": "বর্তমান পাসওয়ার্ড আবশ্যক",
+  "currentPasswordIncorrect": "বর্তমান পাসওয়ার্ডটি সঠিক নয়।",
+  "newPasswordSameAsCurrent": "নতুন পাসওয়ার্ড অবশ্যই বর্তমান পাসওয়ার্ড থেকে ভিন্ন হতে হবে",
+  "privacyTitle": "গোপনীয়তা",
+  "settingsTitle": "সেটিংস",
+  "settingsSubtitle": "অ্যাপ পছন্দ, অ্যাকাউন্ট ব্যবস্থাপনা ও নিরাপত্তা",
+  "editProfileTitle": "প্রোফাইল সম্পাদনা করুন",
+  "done": "সম্পন্ন",
+  "changeProfilePhoto": "প্রোফাইল ছবি পরিবর্তন করুন",
+  "phoneNumber": "ফোন নম্বর",
+  "designationTitle2": "পদবি / শিরোনাম",
+  "bio": "পরিচিতি",
+  "filterToday": "আজ",
+  "filterThisWeek": "এই সপ্তাহ",
+  "filterThisMonth": "এই মাস",
+  "notificationsTitle": "নোটিফিকেশন",
+  "markAllAsRead": "সব পঠিত হিসেবে চিহ্নিত করুন",
+  "filterAll": "সব",
+  "filterUnread": "অপঠিত",
+  "notificationsTip": "টিপ: আর্কাইভ বা ট্রিগার কনফিগার করতে নোটিফিকেশনে বামে সোয়াইপ করুন।",
+  "appearanceSection": "চেহারা",
+  "notificationsSection": "নোটিফিকেশন",
+  "securitySection": "নিরাপত্তা",
+  "generalSection": "সাধারণ",
+  "developerSection": "ডেভেলপার",
+  "resetDemoDataTitle": "ডেমো ডেটা রিসেট করুন",
+  "resetDemoDataConfirmMessage": "এটি সকল ইউজার, টিম, আউটলেট, পণ্য, টার্গেট, বিক্রয় ও নোটিফিকেশন মুছে ফেলে চলতি মাসের তারিখযুক্ত নতুন ডেমো ডেটা তৈরি করবে। এটি ফিরিয়ে আনা যাবে না।",
+  "resetDemoDataSuccess": "ডেমো ডেটা রিসেট হয়েছে। অনুগ্রহ করে আবার সাইন ইন করুন।",
+  "legalSection": "আইনি",
+  "darkMode": "ডার্ক মোড",
+  "appTheme": "অ্যাপ থিম",
+  "pushNotifications": "পুশ নোটিফিকেশন",
+  "emailNotifications": "ইমেইল নোটিফিকেশন",
+  "smsAlerts": "এসএমএস সতর্কতা",
+  "biometricAuth": "বায়োমেট্রিক যাচাই",
+  "twoFactorAuth": "দ্বি-ধাপ যাচাই",
+  "activeSessions": "সক্রিয় সেশন",
+  "language": "ভাষা",
+  "region": "অঞ্চল",
+  "termsOfService": "সেবার শর্তাবলী",
+  "openSourceLicenses": "ওপেন সোর্স লাইসেন্স",
+  "logOut": "লগ আউট",
+  "deleteAccount": "অ্যাকাউন্ট মুছুন",
+  "termsPrivacyTitle": "শর্তাবলী ও গোপনীয়তা",
+  "termsLastUpdated": "সর্বশেষ হালনাগাদ: জানুয়ারি ১৫, ২০২৬",
+  "termsSection1Title": "১. ভূমিকা",
+  "termsSection1Body": "EnterpriseSuite-এ স্বাগতম। আমাদের ক্লাউড প্ল্যাটফর্ম ও সংযুক্ত সেবাসমূহ ব্যবহার করে আপনি এই একীভূত শর্তাবলী মেনে চলতে সম্মত হচ্ছেন। অনুগ্রহ করে এই চুক্তিটি মনোযোগ সহকারে পড়ুন।",
+  "termsSection2Title": "২. তথ্য সংগ্রহ",
+  "termsSection2Body": "উচ্চ-কার্যক্ষমতার নোড সার্ভার প্রস্তুত, কন্টেইনার নিরাপত্তা বজায় ও কোয়েরি লেটেন্সি অপ্টিমাইজ করতে আমাদের সিস্টেম নিরাপদ অপারেশনাল মেটাডেটা সংগ্রহ করে:",
+  "termsSection3Title": "৩. ব্যবহারের অধিকার",
+  "termsSection3Body": "EnterpriseSuite আপনাকে একটি সীমিত, অ-একচেটিয়া, প্রত্যাহারযোগ্য লাইসেন্স প্রদান করে যা শুধুমাত্র অনুমোদিত ব্যবসায়িক কার্যক্রমের জন্য প্রযোজ্য। সকল ড্যাশবোর্ড টেমপ্লেট, মেটাডেটা পাইপলাইন ও ইউজার প্রভিশনিং আপনার সাবস্ক্রিপশন চুক্তি স্তর দ্বারা নিয়ন্ত্রিত।",
+  "termsSection4Title": "৪. গোপনীয়তা",
+  "termsSection4Body": "আমরা জিরো-ট্রাস্ট আর্কিটেকচারে পরিচালিত হই। সকল ক্লায়েন্ট প্রোপার্টি, কাস্টম প্যারামিটার, ডেটাবেস স্কিমা বিবরণ ও সিস্টেম ইন্টিগ্রেশন আপনার নিজস্ব মালিকানাধীন ডেটা থাকে। EnterpriseSuite প্রাতিষ্ঠানিক ব্যবহারের ধরন বিক্রি, লিজ বা অর্থায়ন করে না।",
+  "termsSection5Title": "৫. যোগাযোগ করুন",
+  "termsSection5Body": "নীতিগত উদ্বেগ, ডেটা উত্তোলনের অনুরোধ বা সার্ভার নিরাপত্তা অডিট সম্পর্কিত বিষয়ে, অনুগ্রহ করে আমাদের নির্দিষ্ট কমপ্লায়েন্স বিভাগে যোগাযোগ করুন:",
+  "termsContactName": "EnterpriseSuite কমপ্লায়েন্স",
+  "termsContactEmail": "ইমেইল: legal@enterprisesuite.com",
+  "termsContactSla": "প্রতিক্রিয়ার সময়সীমা: ২ কার্যদিবসের মধ্যে",
+  "helpSupportTitle": "সহায়তা ও সাপোর্ট",
+  "searchFaqsHint": "FAQ অনুসন্ধান করুন...",
+  "faqSectionTitle": "সচরাচর জিজ্ঞাসিত প্রশ্ন",
+  "submitTicket": "টিকিট জমা দিন",
+  "contactSupportTitle": "সাপোর্টে যোগাযোগ করুন",
+  "liveChat": "লাইভ চ্যাট",
+  "chatNow": "এখনই চ্যাট করুন",
+  "emailContact": "ইমেইল",
+  "callContact": "কল করুন",
+  "notFoundCode": "৪০৪",
+  "notFoundTitle": "পৃষ্ঠা পাওয়া যায়নি",
+  "notFoundSubtitle": "আপনি যে পৃষ্ঠাটি খুঁজছেন তা নেই বা সরানো হয়েছে।",
+  "backToHome": "হোমে ফিরে যান",
+  "noInternetTitle": "ইন্টারনেট সংযোগ নেই",
+  "noInternetSubtitle": "অনুগ্রহ করে আপনার নেটওয়ার্ক সেটিংস পরীক্ষা করে আবার চেষ্টা করুন।",
+  "checkConnection": "সংযোগ পরীক্ষা করুন",
+  "workOffline": "অফলাইনে কাজ করুন",
+  "maintenanceTitle": "রক্ষণাবেক্ষণ চলছে",
+  "maintenanceSubtitle": "আপনার অভিজ্ঞতা উন্নত করতে আমরা নির্ধারিত রক্ষণাবেক্ষণ করছি।",
+  "notifyMeWhenReady": "প্রস্তুত হলে জানান",
+  "errorTitle": "কিছু একটা ভুল হয়েছে",
+  "errorSubtitle": "একটি অপ্রত্যাশিত ত্রুটি ঘটেছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+  "retry": "আবার চেষ্টা করুন",
+  "reportIssue": "সমস্যা রিপোর্ট করুন",
+  "appearance": "চেহারা",
+  "themeSystem": "সিস্টেম",
+  "themeLight": "হালকা",
+  "themeDark": "গাঢ়",
+  "exitAppTitle": "অ্যাপ থেকে বের হবেন?",
+  "exitAppMessage": "আপনি কি নিশ্চিত যে অ্যাপ থেকে বের হতে চান?",
+  "exitAppConfirm": "বের হন",
+  "exitAppCancel": "বাতিল",
+  "noInternetBannerMessage": "ইন্টারনেট সংযোগ নেই",
+  "dailyTargetSubtitle": "{target}-এর মধ্যে {achieved} অর্জিত",
+  "@dailyTargetSubtitle": {
+    "placeholders": {
+      "achieved": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "unitsSoldLabel": "{units}টি ইউনিট বিক্রি হয়েছে",
+  "@unitsSoldLabel": {
+    "placeholders": {
+      "units": {
+        "type": "int"
+      }
+    }
+  },
+  "saleMetaLabel": "{items}টি পণ্য • {timeAgo}",
+  "@saleMetaLabel": {
+    "placeholders": {
+      "items": {
+        "type": "int"
+      },
+      "timeAgo": {
+        "type": "String"
+      }
+    }
+  },
+  "skuLabel": "SKU: {sku}",
+  "@skuLabel": {
+    "placeholders": {
+      "sku": {
+        "type": "String"
+      }
+    }
+  },
+  "viewCartLabel": "কার্ট দেখুন — {total}",
+  "@viewCartLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "discountLabel": "ছাড় ({percent}%)",
+  "@discountLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "vatTaxLabel": "ভ্যাট / ট্যাক্স ({percent}%)",
+  "@vatTaxLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "eachPriceLabel": "প্রতিটি {price}",
+  "@eachPriceLabel": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentCollectedSubtitle": "প্রাপ্ত পরিমাণ: {amount}",
+  "@paymentCollectedSubtitle": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "stockPcsLabel": "{stock} পিস",
+  "@stockPcsLabel": {
+    "placeholders": {
+      "stock": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddedMessage": "যোগ হয়েছে: {name}",
+  "@productAddedMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productOutOfStockMessage": "স্টক শেষ: {name}",
+  "@productOutOfStockMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productNotFoundMessage": "{code} কোডের জন্য কোনো পণ্য পাওয়া যায়নি",
+  "@productNotFoundMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "salesmanGreeting": "আসসালামু আলাইকুম,",
+  "createNewSaleEntry": "নতুন বিক্রয় এন্ট্রি তৈরি করুন",
+  "monthlyTarget": "মাসিক টার্গেট",
+  "achievedLabel": "অর্জিত",
+  "achieved": "অর্জিত",
+  "remaining": "অবশিষ্ট",
+  "todaysSales": "আজকের বিক্রয়",
+  "fromYesterdaySuffix": "গতকালের তুলনায়",
+  "toReachTarget": "১০০% পৌঁছাতে",
+  "dailyRunRate": "দৈনিক রান রেট",
+  "targetRunRateRequired": "প্রয়োজনীয় টার্গেট রান রেট:",
+  "currentAvgRunRate": "বর্তমান গড় রান রেট:",
+  "onTrackToAchieveTarget": "এই মাসের টার্গেট অর্জনের পথে আছেন",
+  "offTrackForTarget": "এই মাসের টার্গেট থেকে পিছিয়ে আছেন",
+  "perDaySuffix": "/দিন",
+  "daysLeft": "{days} দিন বাকি",
+  "@daysLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "newSaleEntryTitle": "নতুন বিক্রয় এন্ট্রি",
+  "selectOutlet": "আউটলেট নির্বাচন করুন",
+  "selectCategory": "ক্যাটাগরি নির্বাচন করুন",
+  "selectProduct": "পণ্য নির্বাচন করুন",
+  "selectProductPlaceholder": "একটি পণ্য নির্বাচন করুন",
+  "quantityUnits": "পরিমাণ (ইউনিট)",
+  "calculatedPriceLabel": "হিসাবকৃত মূল্য",
+  "submitSaleEntry": "বিক্রয় এন্ট্রি জমা দিন",
+  "saleRecordedSuccess": "বিক্রয় সফলভাবে রেকর্ড হয়েছে।",
+  "saleEntryHelpText": "আউটলেট ও পণ্য নির্বাচন করুন, পরিমাণ ও ছাড় নির্ধারণ করুন, তারপর জমা দিন। মোট পরিমাণ = পরিমাণ × মূল্য − ছাড়।",
+  "todaysEntries": "আজকের এন্ট্রি",
+  "calculatedPriceBreakdown": "{quantity} ইউনিট × {unitPriceFormatted} - {discountFormatted} ছাড়",
+  "@calculatedPriceBreakdown": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      },
+      "unitPriceFormatted": {
+        "type": "String"
+      },
+      "discountFormatted": {
+        "type": "String"
+      }
+    }
+  },
+  "entryMetaLine": "{location} • {itemCount}টি পণ্য • {time}",
+  "@entryMetaLine": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "itemCount": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "outletsAndCustomersTitle": "আউটলেট ও গ্রাহক",
+  "searchOutletsPlaceholder": "আউটলেট, মালিকের নাম খুঁজুন...",
+  "filterActive": "সক্রিয়",
+  "filterNew": "নতুন",
+  "filterPotential": "সম্ভাব্য",
+  "ownerLabel": "মালিক:",
+  "areaRouteLabel": "এলাকা / রুট:",
+  "lastVisitLabel": "সর্বশেষ পরিদর্শন:",
+  "lastOrderAmountLabel": "সর্বশেষ অর্ডারের পরিমাণ:",
+  "addressLabel": "ঠিকানা:",
+  "phoneLabel": "ফোন:",
+  "recentSalesTitle": "সাম্প্রতিক বিক্রয়",
+  "noRecentSalesYet": "এই আউটলেটে এখনো কোনো বিক্রয় রেকর্ড হয়নি।",
+  "notVisitedYet": "এখনো পরিদর্শন করা হয়নি",
+  "recordSaleAction": "বিক্রয় রেকর্ড করুন",
+  "callAction": "কল করুন",
+  "managedFromAdminPanel": "আপনার কোম্পানির অ্যাডমিন ওয়েব অ্যাডমিন প্যানেল থেকে এটি পরিচালনা করেন।",
+  "addOutletTitle": "নতুন আউটলেট যোগ করুন",
+  "addNewOutletOption": "+ নতুন আউটলেট / দোকান যোগ করুন",
+  "outletNameLabel": "দোকানের নাম",
+  "ownerNameLabel": "মালিকের নাম",
+  "addressFieldLabel": "ঠিকানা",
+  "areaRouteFieldLabel": "এলাকা / রুট",
+  "addOutletAction": "আউটলেট যোগ করুন",
+  "outletAddedSuccess": "আউটলেট যোগ করা হয়েছে।",
+  "newSaleAction": "নতুন বিক্রয়",
+  "teamSalesTitle": "টিম বিক্রয়",
+  "teamReportsTitle": "রিপোর্ট",
+  "salesmanRankingTitle": "সেলসম্যান র‍্যাঙ্কিং",
+  "salesByCategoryTitle": "ক্যাটাগরি অনুযায়ী বিক্রয়",
+  "targetPerformanceTitle": "টার্গেট পারফরম্যান্স",
+  "statusAtRisk": "ঝুঁকিতে",
+  "statusOnTrack": "সঠিক পথে",
+  "benchmarkComparisons": "বেঞ্চমার্ক তুলনা",
+  "periodProgress": "সময়কাল অগ্রগতি:",
+  "expectedAchievement": "প্রত্যাশিত অর্জন:",
+  "requiredDailySales": "প্রয়োজনীয় দৈনিক বিক্রয়:",
+  "dailyTrendThisWeek": "দৈনিক প্রবণতা (এই সপ্তাহ)",
+  "workingDaysLeftWarning": "⚠️ {days} কর্মদিবস বাকি। রান-রেট সমন্বয়ের পরামর্শ দেওয়া হচ্ছে।",
+  "@workingDaysLeftWarning": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyTargetLabel": "টার্গেট: {amount}/দিন",
+  "@dailyTargetLabel": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "profileRoleSalesman": "সেলসম্যান",
+  "employeeIdPrefix": "আইডি:",
+  "thisMonthLabel": "এই মাস",
+  "customersLabel": "গ্রাহক",
+  "salesTodayLabel": "আজকের বিক্রয়",
+  "targetShort": "টার্গেট",
+  "activeOutlets": "সক্রিয় আউটলেট",
+  "completed": "সম্পন্ন",
+  "mySalesReportTitle": "আমার বিক্রয় রিপোর্ট",
+  "mySalesReportSubtitle": "দৈনিক অর্ডার ও পরিসংখ্যান দেখুন",
+  "myAchievementTitle": "আমার অর্জন",
+  "myAchievementSubtitle": "বিস্তারিত টার্গেট ইতিহাস",
+  "logoutTitle": "লগআউট",
+  "logoutSubtitle": "ডিভাইস থেকে সাইন আউট করুন",
+  "teamAndDivision": "{team} • {division}",
+  "@teamAndDivision": {
+    "placeholders": {
+      "team": {
+        "type": "String"
+      },
+      "division": {
+        "type": "String"
+      }
+    }
+  },
+  "teamSizeLabel": "টিমের আকার",
+  "teamDashboardMenuTitle": "টিম ড্যাশবোর্ড",
+  "teamDashboardMenuSubtitle": "টার্গেট, অর্জন ও সদস্য তালিকা",
+  "teamSalesLogMenuTitle": "টিম বিক্রয় লগ",
+  "teamSalesLogMenuSubtitle": "প্রতিটি টিম সদস্যের রেকর্ডকৃত বিক্রয়",
+  "teamReportsMenuTitle": "টিম রিপোর্ট",
+  "teamReportsMenuSubtitle": "র‍্যাঙ্কিং ও ক্যাটাগরি অনুযায়ী বিক্রয়",
+  "membersSuffix": "সদস্য",
+  "navHome": "হোম",
+  "navSales": "বিক্রয়",
+  "navCustomers": "গ্রাহক",
+  "navTarget": "টার্গেট",
+  "navProfile": "প্রোফাইল",
+  "teamTargetAndPerformance": "টিম টার্গেট ও পারফরম্যান্স",
+  "totalTargetLabel": "মোট টার্গেট",
+  "totalMembersLabel": "মোট সদস্য",
+  "activeTodayLabel": "আজ সক্রিয়",
+  "memberPerformanceTitle": "সদস্যের পারফরম্যান্স",
+  "viewAllReports": "সব রিপোর্ট দেখুন",
+  "targetCapsLabel": "টার্গেট",
+  "todaysSaleCapsLabel": "আজকের বিক্রয়",
+  "addMember": "সদস্য যোগ করুন",
+  "percentReached": "{percent}% পৌঁছেছে",
+  "@percentReached": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "onlineCountLabel": "{count} জন অনলাইনে",
+  "@onlineCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "representativesCount": "{count, plural, =1{{count} জন প্রতিনিধি} other{{count} জন প্রতিনিধি}}",
+  "@representativesCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "recentSalesActivity": "সাম্প্রতিক বিক্রয় কার্যক্রম",
+  "monthlyTargetLabel": "মাসিক টার্গেট",
+  "remainingLabel": "অবশিষ্ট",
+  "achievedBadge": "অর্জিত",
+  "todaysTargetLabel": "আজকের টার্গেট",
+  "todaysSalesLabel": "আজকের বিক্রয়",
+  "dailyAssignment": "দৈনিক নির্ধারিত কাজ",
+  "call": "কল",
+  "message": "বার্তা",
+  "fullReport": "সম্পূর্ণ রিপোর্ট",
+  "atRiskLabel": "ঝুঁকিতে",
+  "invalidCredentials": "ভুল ইমেইল বা পাসওয়ার্ড।",
+  "accountDisabled": "এই অ্যাকাউন্টটি নিষ্ক্রিয় করা হয়েছে। আপনার অ্যাডমিনের সাথে যোগাযোগ করুন।",
+  "tooManyAttempts": "অনেকবার চেষ্টা করা হয়েছে। অনুগ্রহ করে অপেক্ষা করে আবার চেষ্টা করুন।",
+  "networkErrorMessage": "ইন্টারনেট সংযোগ নেই। অনুগ্রহ করে আবার চেষ্টা করুন।",
+  "genericLoginError": "সাইন ইন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।",
+  "adminUseWebPanel": "অ্যাডমিন অ্যাকাউন্ট এই অ্যাপের পরিবর্তে ওয়েব অ্যাডমিন প্যানেল ব্যবহার করে।",
+  "navDashboard": "ড্যাশবোর্ড",
+  "navReports": "রিপোর্ট",
+  "reportsComingSoonTitle": "রিপোর্ট শীঘ্রই আসছে",
+  "reportsComingSoonMessage": "টিম ও কোম্পানির রিপোর্ট এখানে দেখা যাবে।",
+  "logoutConfirmTitle": "লগ আউট করবেন?",
+  "logoutConfirmMessage": "আপনার অ্যাকাউন্ট অ্যাক্সেস করতে আবার সাইন ইন করতে হবে।"
+}

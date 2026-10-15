@@ -1,0 +1,448 @@
+{
+  "@@locale": "ur",
+  "appTagline": "نیکسٹ-جین بزنس پلیٹ فارم",
+  "connectingToServers": "محفوظ سرورز سے منسلک ہو رہا ہے...",
+  "appName": "SalesysX",
+  "getStarted": "شروع کریں",
+  "login": "لاگ ان",
+  "skip": "نظر انداز کریں",
+  "next": "اگلا",
+  "welcomeToApp": "ایڈوانس POS سیلز میں خوش آمدید",
+  "welcomeToAppSubtitle": "آسانی سے پروڈکٹس اسکین کریں، انوینٹری تلاش کریں، اسٹاک رپورٹس اور انوائس ہسٹری دیکھیں۔",
+  "signIn": "سائن ان کریں",
+  "welcomeBack": "واپسی پر خوش آمدید",
+  "emailAddress": "ای میل ایڈریس",
+  "emailHint": "admin@enterprise.com",
+  "password": "پاس ورڈ",
+  "passwordHint": "secret_password",
+  "rememberMe": "مجھے یاد رکھیں",
+  "forgotPassword": "پاس ورڈ بھول گئے؟",
+  "orContinueWith": "یا اس کے ساتھ جاری رکھیں",
+  "google": "Google",
+  "apple": "Apple",
+  "dontHaveAccount": "اکاؤنٹ نہیں ہے؟ ",
+  "register": "رجسٹر کریں",
+  "emailRequired": "ای میل درکار ہے",
+  "emailInvalid": "ایک درست ای میل درج کریں",
+  "passwordRequired": "پاس ورڈ درکار ہے",
+  "fullName": "پورا نام",
+  "confirmPassword": "پاس ورڈ کی تصدیق کریں",
+  "fullNameRequired": "پورا نام درکار ہے",
+  "confirmPasswordRequired": "براہ کرم اپنے پاس ورڈ کی تصدیق کریں",
+  "passwordsDoNotMatch": "پاس ورڈ مماثل نہیں ہیں",
+  "changePasswordTitle": "پاس ورڈ تبدیل کریں",
+  "currentPassword": "موجودہ پاس ورڈ",
+  "newPassword": "نیا پاس ورڈ",
+  "saveChanges": "تبدیلیاں محفوظ کریں",
+  "currentPasswordRequired": "موجودہ پاس ورڈ درکار ہے",
+  "currentPasswordIncorrect": "موجودہ پاس ورڈ غلط ہے۔",
+  "newPasswordSameAsCurrent": "نیا پاس ورڈ موجودہ پاس ورڈ سے مختلف ہونا چاہیے",
+  "privacyTitle": "رازداری",
+  "settingsTitle": "ترتیبات",
+  "settingsSubtitle": "ایپ کی ترجیحات، اکاؤنٹ کا انتظام اور سیکیورٹی",
+  "editProfileTitle": "پروفائل میں ترمیم کریں",
+  "done": "مکمل",
+  "changeProfilePhoto": "پروفائل تصویر تبدیل کریں",
+  "phoneNumber": "فون نمبر",
+  "designationTitle2": "عہدہ / ٹائٹل",
+  "bio": "تعارف",
+  "filterToday": "آج",
+  "filterThisWeek": "اس ہفتے",
+  "filterThisMonth": "اس مہینے",
+  "notificationsTitle": "اطلاعات",
+  "markAllAsRead": "سب کو پڑھا ہوا نشان زد کریں",
+  "filterAll": "تمام",
+  "filterUnread": "غیر پڑھا گیا",
+  "notificationsTip": "تجویز: آرکائیو کرنے یا ٹرگرز ترتیب دینے کے لیے اطلاع کو بائیں طرف سوائپ کریں۔",
+  "appearanceSection": "ظاہری شکل",
+  "notificationsSection": "اطلاعات",
+  "securitySection": "سیکیورٹی",
+  "generalSection": "عمومی",
+  "developerSection": "ڈویلپر",
+  "resetDemoDataTitle": "ڈیمو ڈیٹا ری سیٹ کریں",
+  "resetDemoDataConfirmMessage": "اس سے تمام صارفین، ٹیمیں، آؤٹ لیٹس، پروڈکٹس، اہداف، فروخت اور اطلاعات مٹ جائیں گی، پھر موجودہ مہینے کی تاریخ والا نیا ڈیمو ڈیٹا بنے گا۔ اسے واپس نہیں لیا جا سکتا۔",
+  "resetDemoDataSuccess": "ڈیمو ڈیٹا ری سیٹ ہو گیا۔ براہ کرم دوبارہ سائن ان کریں۔",
+  "legalSection": "قانونی",
+  "darkMode": "ڈارک موڈ",
+  "appTheme": "ایپ تھیم",
+  "pushNotifications": "پش اطلاعات",
+  "emailNotifications": "ای میل اطلاعات",
+  "smsAlerts": "ایس ایم ایس الرٹس",
+  "biometricAuth": "بایومیٹرک تصدیق",
+  "twoFactorAuth": "دو مرحلہ تصدیق",
+  "activeSessions": "فعال سیشنز",
+  "language": "زبان",
+  "region": "خطہ",
+  "termsOfService": "سروس کی شرائط",
+  "openSourceLicenses": "اوپن سورس لائسنس",
+  "logOut": "لاگ آؤٹ",
+  "deleteAccount": "اکاؤنٹ حذف کریں",
+  "termsPrivacyTitle": "شرائط و رازداری",
+  "termsLastUpdated": "آخری تازہ کاری: 15 جنوری 2026",
+  "termsSection1Title": "1. تعارف",
+  "termsSection1Body": "EnterpriseSuite میں خوش آمدید۔ ہمارے کلاؤڈ پلیٹ فارم اور مربوط خدمات تک رسائی، تعیناتی یا استعمال کرتے ہوئے آپ ان متحدہ شرائط کے پابند ہونے پر رضامند ہوتے ہیں۔ براہ کرم اس معاہدے کو غور سے پڑھیں۔",
+  "termsSection2Title": "2. ڈیٹا اکٹھا کرنا",
+  "termsSection2Body": "اعلیٰ کارکردگی والے نوڈ سرورز فراہم کرنے، کنٹینر سیکیورٹی برقرار رکھنے اور کوئری لیٹینسی کو بہتر بنانے کے لیے، ہمارا سسٹم محفوظ آپریشنل میٹا ڈیٹا اکٹھا کرتا ہے:",
+  "termsSection3Title": "3. استعمال کے حقوق",
+  "termsSection3Body": "EnterpriseSuite آپ کو صرف مجاز کاروباری کارروائیوں کے لیے ہمارے پلیٹ فارم تک رسائی کا ایک محدود، غیر خصوصی، قابل منسوخ لائسنس دیتا ہے۔ تمام ڈیش بورڈ ٹیمپلیٹس، میٹا ڈیٹا پائپ لائنز اور صارف پروویژننگ آپ کی سبسکرپشن معاہدے کی سطحوں کے تابع ہیں۔",
+  "termsSection4Title": "4. رازداری",
+  "termsSection4Body": "ہم زیرو-ٹرسٹ آرکیٹیکچر پر کام کرتے ہیں۔ تمام کلائنٹ پراپرٹیز، کسٹم پیرامیٹرز، ڈیٹابیس اسکیما تفصیلات اور سسٹم انٹیگریشنز آپ کا ملکیتی ڈیٹا رہتے ہیں۔ EnterpriseSuite تنظیمی استعمال کے پیٹرن فروخت، لیز یا کمرشلائز نہیں کرتا۔",
+  "termsSection5Title": "5. ہم سے رابطہ کریں",
+  "termsSection5Body": "پالیسی خدشات، ڈیٹا نکالنے کی درخواستوں، یا سرور سیکیورٹی آڈیٹنگ کے معاملات کے لیے، براہ کرم ہمارے مخصوص تعمیل شعبہ سے رابطہ کریں:",
+  "termsContactName": "EnterpriseSuite تعمیل شعبہ",
+  "termsContactEmail": "ای میل: legal@enterprisesuite.com",
+  "termsContactSla": "جوابی وقت: 2 کاروباری دنوں کے اندر",
+  "helpSupportTitle": "مدد و معاونت",
+  "searchFaqsHint": "FAQs تلاش کریں...",
+  "faqSectionTitle": "اکثر پوچھے جانے والے سوالات",
+  "submitTicket": "ٹکٹ جمع کرائیں",
+  "contactSupportTitle": "معاونت سے رابطہ کریں",
+  "liveChat": "لائیو چیٹ",
+  "chatNow": "ابھی چیٹ کریں",
+  "emailContact": "ای میل",
+  "callContact": "کال کریں",
+  "notFoundCode": "404",
+  "notFoundTitle": "صفحہ نہیں ملا",
+  "notFoundSubtitle": "جو صفحہ آپ تلاش کر رہے ہیں وہ موجود نہیں یا منتقل کر دیا گیا ہے۔",
+  "backToHome": "ہوم پر واپس جائیں",
+  "noInternetTitle": "انٹرنیٹ کنکشن نہیں ہے",
+  "noInternetSubtitle": "براہ کرم اپنی نیٹ ورک ترتیبات چیک کریں اور دوبارہ کوشش کریں۔",
+  "checkConnection": "کنکشن چیک کریں",
+  "workOffline": "آف لائن کام کریں",
+  "maintenanceTitle": "دیکھ بھال جاری ہے",
+  "maintenanceSubtitle": "آپ کے تجربے کو بہتر بنانے کے لیے ہم طے شدہ دیکھ بھال کر رہے ہیں۔",
+  "notifyMeWhenReady": "تیار ہونے پر مطلع کریں",
+  "errorTitle": "کچھ غلط ہو گیا",
+  "errorSubtitle": "ایک غیر متوقع خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔",
+  "retry": "دوبارہ کوشش کریں",
+  "reportIssue": "مسئلہ رپورٹ کریں",
+  "appearance": "ظاہری شکل",
+  "themeSystem": "سسٹم",
+  "themeLight": "ہلکا",
+  "themeDark": "گہرا",
+  "exitAppTitle": "ایپ سے باہر نکلیں؟",
+  "exitAppMessage": "کیا آپ واقعی ایپ سے باہر نکلنا چاہتے ہیں؟",
+  "exitAppConfirm": "باہر نکلیں",
+  "exitAppCancel": "منسوخ کریں",
+  "noInternetBannerMessage": "انٹرنیٹ کنکشن نہیں ہے",
+  "dailyTargetSubtitle": "{target} میں سے {achieved} حاصل ہوا",
+  "@dailyTargetSubtitle": {
+    "placeholders": {
+      "achieved": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "unitsSoldLabel": "{units} یونٹس فروخت ہوئیں",
+  "@unitsSoldLabel": {
+    "placeholders": {
+      "units": {
+        "type": "int"
+      }
+    }
+  },
+  "saleMetaLabel": "{items} اشیاء • {timeAgo}",
+  "@saleMetaLabel": {
+    "placeholders": {
+      "items": {
+        "type": "int"
+      },
+      "timeAgo": {
+        "type": "String"
+      }
+    }
+  },
+  "skuLabel": "SKU: {sku}",
+  "@skuLabel": {
+    "placeholders": {
+      "sku": {
+        "type": "String"
+      }
+    }
+  },
+  "viewCartLabel": "کارٹ دیکھیں — {total}",
+  "@viewCartLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "discountLabel": "رعایت ({percent}%)",
+  "@discountLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "vatTaxLabel": "ویٹ / ٹیکس ({percent}%)",
+  "@vatTaxLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "eachPriceLabel": "فی {price}",
+  "@eachPriceLabel": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentCollectedSubtitle": "موصولہ رقم: {amount}",
+  "@paymentCollectedSubtitle": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "stockPcsLabel": "{stock} عدد",
+  "@stockPcsLabel": {
+    "placeholders": {
+      "stock": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddedMessage": "شامل کیا گیا: {name}",
+  "@productAddedMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productOutOfStockMessage": "اسٹاک ختم: {name}",
+  "@productOutOfStockMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productNotFoundMessage": "کوڈ {code} کے لیے کوئی پروڈکٹ نہیں ملی",
+  "@productNotFoundMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "salesmanGreeting": "السلام علیکم،",
+  "createNewSaleEntry": "نئی سیل انٹری بنائیں",
+  "monthlyTarget": "ماہانہ ہدف",
+  "achievedLabel": "حاصل شدہ",
+  "achieved": "حاصل شدہ",
+  "remaining": "باقی",
+  "todaysSales": "آج کی فروخت",
+  "fromYesterdaySuffix": "گزشتہ روز کے مقابلے میں",
+  "toReachTarget": "100% تک پہنچنے کے لیے",
+  "dailyRunRate": "روزانہ رن ریٹ",
+  "targetRunRateRequired": "مطلوبہ ہدف رن ریٹ:",
+  "currentAvgRunRate": "موجودہ اوسط رن ریٹ:",
+  "onTrackToAchieveTarget": "اس ماہ کا ہدف حاصل کرنے کے راستے پر",
+  "offTrackForTarget": "اس ماہ کے ہدف سے پیچھے",
+  "perDaySuffix": "/دن",
+  "daysLeft": "{days} دن باقی",
+  "@daysLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "newSaleEntryTitle": "نئی سیل انٹری",
+  "selectOutlet": "آؤٹ لیٹ منتخب کریں",
+  "selectCategory": "قسم منتخب کریں",
+  "selectProduct": "پروڈکٹ منتخب کریں",
+  "selectProductPlaceholder": "ایک پروڈکٹ منتخب کریں",
+  "quantityUnits": "مقدار (یونٹس)",
+  "calculatedPriceLabel": "حساب شدہ قیمت",
+  "submitSaleEntry": "سیل انٹری جمع کرائیں",
+  "saleRecordedSuccess": "فروخت کامیابی سے درج ہو گئی۔",
+  "saleEntryHelpText": "آؤٹ لیٹ اور پروڈکٹ منتخب کریں، مقدار اور رعایت مقرر کریں، پھر جمع کرائیں۔ رقم = مقدار × قیمت − رعایت۔",
+  "todaysEntries": "آج کی انٹریز",
+  "calculatedPriceBreakdown": "{quantity} یونٹس × {unitPriceFormatted} - {discountFormatted} رعایت",
+  "@calculatedPriceBreakdown": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      },
+      "unitPriceFormatted": {
+        "type": "String"
+      },
+      "discountFormatted": {
+        "type": "String"
+      }
+    }
+  },
+  "entryMetaLine": "{location} • {itemCount} اشیاء • {time}",
+  "@entryMetaLine": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "itemCount": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "outletsAndCustomersTitle": "آؤٹ لیٹس و گاہک",
+  "searchOutletsPlaceholder": "آؤٹ لیٹ، مالک کا نام تلاش کریں...",
+  "filterActive": "فعال",
+  "filterNew": "نیا",
+  "filterPotential": "ممکنہ",
+  "ownerLabel": "مالک:",
+  "areaRouteLabel": "علاقہ / روٹ:",
+  "lastVisitLabel": "آخری وزٹ:",
+  "lastOrderAmountLabel": "آخری آرڈر کی رقم:",
+  "addressLabel": "پتہ:",
+  "phoneLabel": "فون:",
+  "recentSalesTitle": "حالیہ فروخت",
+  "noRecentSalesYet": "اس آؤٹ لیٹ پر ابھی تک کوئی فروخت درج نہیں ہوئی۔",
+  "notVisitedYet": "ابھی تک وزٹ نہیں کیا گیا",
+  "recordSaleAction": "فروخت درج کریں",
+  "callAction": "کال کریں",
+  "managedFromAdminPanel": "اسے آپ کی کمپنی کا ایڈمن ویب ایڈمن پینل سے منظم کرتا ہے۔",
+  "addOutletTitle": "نیا آؤٹ لیٹ شامل کریں",
+  "addNewOutletOption": "+ نیا آؤٹ لیٹ / دکان شامل کریں",
+  "outletNameLabel": "دکان کا نام",
+  "ownerNameLabel": "مالک کا نام",
+  "addressFieldLabel": "پتہ",
+  "areaRouteFieldLabel": "علاقہ / روٹ",
+  "addOutletAction": "آؤٹ لیٹ شامل کریں",
+  "outletAddedSuccess": "آؤٹ لیٹ شامل ہو گیا۔",
+  "newSaleAction": "نئی فروخت",
+  "teamSalesTitle": "ٹیم فروخت",
+  "teamReportsTitle": "رپورٹس",
+  "salesmanRankingTitle": "سیلز مین درجہ بندی",
+  "salesByCategoryTitle": "قسم کے لحاظ سے فروخت",
+  "targetPerformanceTitle": "ہدف کی کارکردگی",
+  "statusAtRisk": "خطرے میں",
+  "statusOnTrack": "صحیح راستے پر",
+  "benchmarkComparisons": "بینچ مارک موازنہ",
+  "periodProgress": "مدت کی پیش رفت:",
+  "expectedAchievement": "متوقع حصول:",
+  "requiredDailySales": "مطلوبہ روزانہ فروخت:",
+  "dailyTrendThisWeek": "روزانہ رجحان (اس ہفتے)",
+  "workingDaysLeftWarning": "⚠️ {days} کام کے دن باقی۔ رن ریٹ ایڈجسٹمنٹ کی سفارش کی جاتی ہے۔",
+  "@workingDaysLeftWarning": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyTargetLabel": "ہدف: {amount}/دن",
+  "@dailyTargetLabel": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "profileRoleSalesman": "سیلز مین",
+  "employeeIdPrefix": "آئی ڈی:",
+  "thisMonthLabel": "اس مہینے",
+  "customersLabel": "گاہک",
+  "salesTodayLabel": "آج کی فروخت",
+  "targetShort": "ہدف",
+  "activeOutlets": "فعال آؤٹ لیٹس",
+  "completed": "مکمل",
+  "mySalesReportTitle": "میری سیلز رپورٹ",
+  "mySalesReportSubtitle": "روزانہ آرڈرز اور اعداد و شمار دیکھیں",
+  "myAchievementTitle": "میرا حصول",
+  "myAchievementSubtitle": "تفصیلی ہدف کی تاریخ",
+  "logoutTitle": "لاگ آؤٹ",
+  "logoutSubtitle": "ڈیوائس سے سائن آؤٹ کریں",
+  "teamAndDivision": "{team} • {division}",
+  "@teamAndDivision": {
+    "placeholders": {
+      "team": {
+        "type": "String"
+      },
+      "division": {
+        "type": "String"
+      }
+    }
+  },
+  "teamSizeLabel": "ٹیم کا سائز",
+  "teamDashboardMenuTitle": "ٹیم ڈیش بورڈ",
+  "teamDashboardMenuSubtitle": "ہدف، حصول و اراکین کی فہرست",
+  "teamSalesLogMenuTitle": "ٹیم سیلز لاگ",
+  "teamSalesLogMenuSubtitle": "ہر ٹیم رکن کی درج شدہ فروخت",
+  "teamReportsMenuTitle": "ٹیم رپورٹس",
+  "teamReportsMenuSubtitle": "درجہ بندی و قسم کے لحاظ سے فروخت",
+  "membersSuffix": "اراکین",
+  "navHome": "ہوم",
+  "navSales": "فروخت",
+  "navCustomers": "گاہک",
+  "navTarget": "ہدف",
+  "navProfile": "پروفائل",
+  "teamTargetAndPerformance": "ٹیم ہدف و کارکردگی",
+  "totalTargetLabel": "کل ہدف",
+  "totalMembersLabel": "کل اراکین",
+  "activeTodayLabel": "آج فعال",
+  "memberPerformanceTitle": "رکن کی کارکردگی",
+  "viewAllReports": "تمام رپورٹس دیکھیں",
+  "targetCapsLabel": "ہدف",
+  "todaysSaleCapsLabel": "آج کی فروخت",
+  "addMember": "رکن شامل کریں",
+  "percentReached": "{percent}% حاصل ہوا",
+  "@percentReached": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "onlineCountLabel": "{count} آن لائن",
+  "@onlineCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "representativesCount": "{count, plural, =1{{count} نمائندہ} other{{count} نمائندے}}",
+  "@representativesCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "recentSalesActivity": "حالیہ سیلز سرگرمی",
+  "monthlyTargetLabel": "ماہانہ ہدف",
+  "remainingLabel": "باقی",
+  "achievedBadge": "حاصل شدہ",
+  "todaysTargetLabel": "آج کا ہدف",
+  "todaysSalesLabel": "آج کی فروخت",
+  "dailyAssignment": "روزانہ تفویض",
+  "call": "کال",
+  "message": "پیغام",
+  "fullReport": "مکمل رپورٹ",
+  "atRiskLabel": "خطرے میں",
+  "invalidCredentials": "غلط ای میل یا پاس ورڈ۔",
+  "accountDisabled": "یہ اکاؤنٹ غیر فعال کر دیا گیا ہے۔ اپنے ایڈمن سے رابطہ کریں۔",
+  "tooManyAttempts": "بہت زیادہ کوششیں۔ براہ کرم انتظار کریں اور دوبارہ کوشش کریں۔",
+  "networkErrorMessage": "انٹرنیٹ کنکشن نہیں ہے۔ براہ کرم دوبارہ کوشش کریں۔",
+  "genericLoginError": "سائن ان نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔",
+  "adminUseWebPanel": "ایڈمن اکاؤنٹس اس ایپ کی بجائے ویب ایڈمن پینل استعمال کرتے ہیں۔",
+  "navDashboard": "ڈیش بورڈ",
+  "navReports": "رپورٹس",
+  "reportsComingSoonTitle": "رپورٹس جلد آ رہی ہیں",
+  "reportsComingSoonMessage": "ٹیم اور کمپنی کی رپورٹس یہاں دکھائی دیں گی۔",
+  "logoutConfirmTitle": "لاگ آؤٹ کریں؟",
+  "logoutConfirmMessage": "اپنے اکاؤنٹ تک رسائی کے لیے آپ کو دوبارہ سائن ان کرنا ہوگا۔"
+}

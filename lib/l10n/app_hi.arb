@@ -1,0 +1,448 @@
+{
+  "@@locale": "hi",
+  "appTagline": "नेक्स्ट-जेन बिज़नेस प्लेटफ़ॉर्म",
+  "connectingToServers": "सुरक्षित सर्वर से जुड़ रहे हैं...",
+  "appName": "SalesysX",
+  "getStarted": "शुरू करें",
+  "login": "लॉगिन",
+  "skip": "छोड़ें",
+  "next": "अगला",
+  "welcomeToApp": "एडवांस POS सेल्स में आपका स्वागत है",
+  "welcomeToAppSubtitle": "आसानी से उत्पाद स्कैन करें, इन्वेंटरी खोजें, स्टॉक रिपोर्ट और इनवॉइस इतिहास देखें।",
+  "signIn": "साइन इन करें",
+  "welcomeBack": "वापसी पर स्वागत है",
+  "emailAddress": "ईमेल पता",
+  "emailHint": "admin@enterprise.com",
+  "password": "पासवर्ड",
+  "passwordHint": "secret_password",
+  "rememberMe": "मुझे याद रखें",
+  "forgotPassword": "पासवर्ड भूल गए?",
+  "orContinueWith": "या इसके साथ जारी रखें",
+  "google": "Google",
+  "apple": "Apple",
+  "dontHaveAccount": "खाता नहीं है? ",
+  "register": "रजिस्टर करें",
+  "emailRequired": "ईमेल आवश्यक है",
+  "emailInvalid": "एक मान्य ईमेल दर्ज करें",
+  "passwordRequired": "पासवर्ड आवश्यक है",
+  "fullName": "पूरा नाम",
+  "confirmPassword": "पासवर्ड की पुष्टि करें",
+  "fullNameRequired": "पूरा नाम आवश्यक है",
+  "confirmPasswordRequired": "कृपया अपने पासवर्ड की पुष्टि करें",
+  "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते",
+  "changePasswordTitle": "पासवर्ड बदलें",
+  "currentPassword": "वर्तमान पासवर्ड",
+  "newPassword": "नया पासवर्ड",
+  "saveChanges": "परिवर्तन सहेजें",
+  "currentPasswordRequired": "वर्तमान पासवर्ड आवश्यक है",
+  "currentPasswordIncorrect": "वर्तमान पासवर्ड गलत है।",
+  "newPasswordSameAsCurrent": "नया पासवर्ड वर्तमान पासवर्ड से अलग होना चाहिए",
+  "privacyTitle": "गोपनीयता",
+  "settingsTitle": "सेटिंग्स",
+  "settingsSubtitle": "ऐप प्राथमिकताएं, खाता प्रबंधन और सुरक्षा",
+  "editProfileTitle": "प्रोफ़ाइल संपादित करें",
+  "done": "पूर्ण",
+  "changeProfilePhoto": "प्रोफ़ाइल फ़ोटो बदलें",
+  "phoneNumber": "फ़ोन नंबर",
+  "designationTitle2": "पदनाम / शीर्षक",
+  "bio": "परिचय",
+  "filterToday": "आज",
+  "filterThisWeek": "इस सप्ताह",
+  "filterThisMonth": "इस महीने",
+  "notificationsTitle": "सूचनाएं",
+  "markAllAsRead": "सभी को पढ़ा हुआ चिह्नित करें",
+  "filterAll": "सभी",
+  "filterUnread": "अपठित",
+  "notificationsTip": "सुझाव: संग्रहित करने या ट्रिगर कॉन्फ़िगर करने के लिए सूचना को बाईं ओर स्वाइप करें।",
+  "appearanceSection": "रूप-रंग",
+  "notificationsSection": "सूचनाएं",
+  "securitySection": "सुरक्षा",
+  "generalSection": "सामान्य",
+  "developerSection": "डेवलपर",
+  "resetDemoDataTitle": "डेमो डेटा रीसेट करें",
+  "resetDemoDataConfirmMessage": "इससे सभी उपयोगकर्ता, टीमें, आउटलेट, उत्पाद, लक्ष्य, बिक्री और सूचनाएं मिट जाएंगी, फिर चालू महीने की तारीख़ वाला नया डेमो डेटा बनेगा। इसे पूर्ववत नहीं किया जा सकता।",
+  "resetDemoDataSuccess": "डेमो डेटा रीसेट हो गया। कृपया फिर से साइन इन करें।",
+  "legalSection": "कानूनी",
+  "darkMode": "डार्क मोड",
+  "appTheme": "ऐप थीम",
+  "pushNotifications": "पुश सूचनाएं",
+  "emailNotifications": "ईमेल सूचनाएं",
+  "smsAlerts": "एसएमएस अलर्ट",
+  "biometricAuth": "बायोमेट्रिक सत्यापन",
+  "twoFactorAuth": "द्वि-कारक सत्यापन",
+  "activeSessions": "सक्रिय सत्र",
+  "language": "भाषा",
+  "region": "क्षेत्र",
+  "termsOfService": "सेवा की शर्तें",
+  "openSourceLicenses": "ओपन सोर्स लाइसेंस",
+  "logOut": "लॉग आउट",
+  "deleteAccount": "खाता हटाएं",
+  "termsPrivacyTitle": "शर्तें व गोपनीयता",
+  "termsLastUpdated": "अंतिम अद्यतन: 15 जनवरी, 2026",
+  "termsSection1Title": "1. परिचय",
+  "termsSection1Body": "EnterpriseSuite में आपका स्वागत है। हमारे क्लाउड प्लेटफ़ॉर्म और एकीकृत सेवाओं तक पहुंच, उपयोग करके आप इन एकीकृत शर्तों से बंधे रहने के लिए सहमत होते हैं। कृपया इस समझौते को ध्यान से पढ़ें।",
+  "termsSection2Title": "2. डेटा संग्रह",
+  "termsSection2Body": "उच्च-प्रदर्शन नोड सर्वर प्रदान करने, कंटेनर सुरक्षा बनाए रखने और क्वेरी लेटेंसी को अनुकूलित करने के लिए, हमारा सिस्टम सुरक्षित परिचालन मेटाडेटा एकत्र करता है:",
+  "termsSection3Title": "3. उपयोग अधिकार",
+  "termsSection3Body": "EnterpriseSuite आपको केवल अधिकृत व्यावसायिक कार्यों के लिए हमारे प्लेटफ़ॉर्म तक पहुंचने हेतु एक सीमित, गैर-अनन्य, वापस लिया जा सकने वाला लाइसेंस प्रदान करता है। सभी डैशबोर्ड टेम्पलेट, मेटाडेटा पाइपलाइन और उपयोगकर्ता प्रावधान आपकी सदस्यता अनुबंध श्रेणियों द्वारा नियंत्रित होते हैं।",
+  "termsSection4Title": "4. गोपनीयता",
+  "termsSection4Body": "हम ज़ीरो-ट्रस्ट आर्किटेक्चर पर काम करते हैं। सभी क्लाइंट गुण, कस्टम पैरामीटर, डेटाबेस स्कीमा विवरण और सिस्टम एकीकरण आपका स्वामित्व वाला डेटा बना रहता है। EnterpriseSuite संगठनात्मक उपयोग पैटर्न को बेचता, पट्टे पर नहीं देता या मुद्रीकृत नहीं करता।",
+  "termsSection5Title": "5. संपर्क करें",
+  "termsSection5Body": "नीति संबंधी चिंताओं, डेटा निष्कर्षण अनुरोधों, या सर्वर सुरक्षा ऑडिटिंग मापदंडों के लिए, कृपया हमारे विशेष अनुपालन प्रभाग से संपर्क करें:",
+  "termsContactName": "EnterpriseSuite अनुपालन",
+  "termsContactEmail": "ईमेल: legal@enterprisesuite.com",
+  "termsContactSla": "प्रतिक्रिया समय: 2 कार्यदिवसों के भीतर",
+  "helpSupportTitle": "सहायता व समर्थन",
+  "searchFaqsHint": "FAQ खोजें...",
+  "faqSectionTitle": "अक्सर पूछे जाने वाले प्रश्न",
+  "submitTicket": "टिकट सबमिट करें",
+  "contactSupportTitle": "सहायता से संपर्क करें",
+  "liveChat": "लाइव चैट",
+  "chatNow": "अभी चैट करें",
+  "emailContact": "ईमेल",
+  "callContact": "कॉल करें",
+  "notFoundCode": "404",
+  "notFoundTitle": "पृष्ठ नहीं मिला",
+  "notFoundSubtitle": "आप जिस पृष्ठ की तलाश कर रहे हैं वह मौजूद नहीं है या स्थानांतरित कर दिया गया है।",
+  "backToHome": "होम पर वापस जाएं",
+  "noInternetTitle": "इंटरनेट कनेक्शन नहीं है",
+  "noInternetSubtitle": "कृपया अपनी नेटवर्क सेटिंग जांचें और फिर से प्रयास करें।",
+  "checkConnection": "कनेक्शन जांचें",
+  "workOffline": "ऑफ़लाइन कार्य करें",
+  "maintenanceTitle": "रखरखाव जारी है",
+  "maintenanceSubtitle": "आपके अनुभव को बेहतर बनाने के लिए हम निर्धारित रखरखाव कर रहे हैं।",
+  "notifyMeWhenReady": "तैयार होने पर सूचित करें",
+  "errorTitle": "कुछ गलत हो गया",
+  "errorSubtitle": "एक अप्रत्याशित त्रुटि हुई। कृपया फिर से प्रयास करें।",
+  "retry": "पुनः प्रयास करें",
+  "reportIssue": "समस्या की रिपोर्ट करें",
+  "appearance": "रूप-रंग",
+  "themeSystem": "सिस्टम",
+  "themeLight": "हल्का",
+  "themeDark": "गहरा",
+  "exitAppTitle": "ऐप से बाहर निकलें?",
+  "exitAppMessage": "क्या आप वाकई ऐप से बाहर निकलना चाहते हैं?",
+  "exitAppConfirm": "बाहर निकलें",
+  "exitAppCancel": "रद्द करें",
+  "noInternetBannerMessage": "इंटरनेट कनेक्शन नहीं है",
+  "dailyTargetSubtitle": "{target} में से {achieved} प्राप्त",
+  "@dailyTargetSubtitle": {
+    "placeholders": {
+      "achieved": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "unitsSoldLabel": "{units} यूनिट बिकीं",
+  "@unitsSoldLabel": {
+    "placeholders": {
+      "units": {
+        "type": "int"
+      }
+    }
+  },
+  "saleMetaLabel": "{items} आइटम • {timeAgo}",
+  "@saleMetaLabel": {
+    "placeholders": {
+      "items": {
+        "type": "int"
+      },
+      "timeAgo": {
+        "type": "String"
+      }
+    }
+  },
+  "skuLabel": "SKU: {sku}",
+  "@skuLabel": {
+    "placeholders": {
+      "sku": {
+        "type": "String"
+      }
+    }
+  },
+  "viewCartLabel": "कार्ट देखें — {total}",
+  "@viewCartLabel": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "discountLabel": "छूट ({percent}%)",
+  "@discountLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "vatTaxLabel": "वैट / कर ({percent}%)",
+  "@vatTaxLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "eachPriceLabel": "प्रति {price}",
+  "@eachPriceLabel": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentCollectedSubtitle": "प्राप्त राशि: {amount}",
+  "@paymentCollectedSubtitle": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "stockPcsLabel": "{stock} पीस",
+  "@stockPcsLabel": {
+    "placeholders": {
+      "stock": {
+        "type": "int"
+      }
+    }
+  },
+  "productAddedMessage": "जोड़ा गया: {name}",
+  "@productAddedMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productOutOfStockMessage": "स्टॉक खत्म: {name}",
+  "@productOutOfStockMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "productNotFoundMessage": "कोड {code} के लिए कोई उत्पाद नहीं मिला",
+  "@productNotFoundMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "salesmanGreeting": "अस्सलामु अलैकुम,",
+  "createNewSaleEntry": "नई बिक्री प्रविष्टि बनाएं",
+  "monthlyTarget": "मासिक लक्ष्य",
+  "achievedLabel": "प्राप्त",
+  "achieved": "प्राप्त",
+  "remaining": "शेष",
+  "todaysSales": "आज की बिक्री",
+  "fromYesterdaySuffix": "कल की तुलना में",
+  "toReachTarget": "100% तक पहुंचने के लिए",
+  "dailyRunRate": "दैनिक रन रेट",
+  "targetRunRateRequired": "आवश्यक लक्ष्य रन रेट:",
+  "currentAvgRunRate": "वर्तमान औसत रन रेट:",
+  "onTrackToAchieveTarget": "इस महीने का लक्ष्य प्राप्त करने की राह पर",
+  "offTrackForTarget": "इस महीने के लक्ष्य से पीछे",
+  "perDaySuffix": "/दिन",
+  "daysLeft": "{days} दिन शेष",
+  "@daysLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "newSaleEntryTitle": "नई बिक्री प्रविष्टि",
+  "selectOutlet": "आउटलेट चुनें",
+  "selectCategory": "श्रेणी चुनें",
+  "selectProduct": "उत्पाद चुनें",
+  "selectProductPlaceholder": "एक उत्पाद चुनें",
+  "quantityUnits": "मात्रा (यूनिट)",
+  "calculatedPriceLabel": "गणना की गई कीमत",
+  "submitSaleEntry": "बिक्री प्रविष्टि सबमिट करें",
+  "saleRecordedSuccess": "बिक्री सफलतापूर्वक दर्ज हुई।",
+  "saleEntryHelpText": "आउटलेट और उत्पाद चुनें, मात्रा व छूट सेट करें, फिर सबमिट करें। राशि = मात्रा × कीमत − छूट।",
+  "todaysEntries": "आज की प्रविष्टियां",
+  "calculatedPriceBreakdown": "{quantity} यूनिट × {unitPriceFormatted} - {discountFormatted} छूट",
+  "@calculatedPriceBreakdown": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      },
+      "unitPriceFormatted": {
+        "type": "String"
+      },
+      "discountFormatted": {
+        "type": "String"
+      }
+    }
+  },
+  "entryMetaLine": "{location} • {itemCount} आइटम • {time}",
+  "@entryMetaLine": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      },
+      "itemCount": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "outletsAndCustomersTitle": "आउटलेट व ग्राहक",
+  "searchOutletsPlaceholder": "आउटलेट, मालिक का नाम खोजें...",
+  "filterActive": "सक्रिय",
+  "filterNew": "नया",
+  "filterPotential": "संभावित",
+  "ownerLabel": "मालिक:",
+  "areaRouteLabel": "क्षेत्र / रूट:",
+  "lastVisitLabel": "अंतिम विज़िट:",
+  "lastOrderAmountLabel": "अंतिम ऑर्डर राशि:",
+  "addressLabel": "पता:",
+  "phoneLabel": "फ़ोन:",
+  "recentSalesTitle": "हालिया बिक्री",
+  "noRecentSalesYet": "इस आउटलेट पर अभी तक कोई बिक्री दर्ज नहीं हुई।",
+  "notVisitedYet": "अभी तक विज़िट नहीं किया गया",
+  "recordSaleAction": "बिक्री दर्ज करें",
+  "callAction": "कॉल करें",
+  "managedFromAdminPanel": "इसे आपकी कंपनी के एडमिन द्वारा वेब एडमिन पैनल से प्रबंधित किया जाता है।",
+  "addOutletTitle": "नया आउटलेट जोड़ें",
+  "addNewOutletOption": "+ नया आउटलेट / दुकान जोड़ें",
+  "outletNameLabel": "दुकान का नाम",
+  "ownerNameLabel": "मालिक का नाम",
+  "addressFieldLabel": "पता",
+  "areaRouteFieldLabel": "क्षेत्र / रूट",
+  "addOutletAction": "आउटलेट जोड़ें",
+  "outletAddedSuccess": "आउटलेट जोड़ा गया।",
+  "newSaleAction": "नई बिक्री",
+  "teamSalesTitle": "टीम बिक्री",
+  "teamReportsTitle": "रिपोर्ट",
+  "salesmanRankingTitle": "सेल्समैन रैंकिंग",
+  "salesByCategoryTitle": "श्रेणी अनुसार बिक्री",
+  "targetPerformanceTitle": "लक्ष्य प्रदर्शन",
+  "statusAtRisk": "जोखिम में",
+  "statusOnTrack": "सही राह पर",
+  "benchmarkComparisons": "बेंचमार्क तुलना",
+  "periodProgress": "अवधि प्रगति:",
+  "expectedAchievement": "अपेक्षित उपलब्धि:",
+  "requiredDailySales": "आवश्यक दैनिक बिक्री:",
+  "dailyTrendThisWeek": "दैनिक रुझान (इस सप्ताह)",
+  "workingDaysLeftWarning": "⚠️ {days} कार्यदिवस शेष। रन-रेट समायोजन की सलाह दी जाती है।",
+  "@workingDaysLeftWarning": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyTargetLabel": "लक्ष्य: {amount}/दिन",
+  "@dailyTargetLabel": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "profileRoleSalesman": "सेल्समैन",
+  "employeeIdPrefix": "आईडी:",
+  "thisMonthLabel": "इस महीने",
+  "customersLabel": "ग्राहक",
+  "salesTodayLabel": "आज की बिक्री",
+  "targetShort": "लक्ष्य",
+  "activeOutlets": "सक्रिय आउटलेट",
+  "completed": "पूर्ण",
+  "mySalesReportTitle": "मेरी बिक्री रिपोर्ट",
+  "mySalesReportSubtitle": "दैनिक ऑर्डर व आंकड़े देखें",
+  "myAchievementTitle": "मेरी उपलब्धि",
+  "myAchievementSubtitle": "विस्तृत लक्ष्य इतिहास",
+  "logoutTitle": "लॉगआउट",
+  "logoutSubtitle": "डिवाइस से साइन आउट करें",
+  "teamAndDivision": "{team} • {division}",
+  "@teamAndDivision": {
+    "placeholders": {
+      "team": {
+        "type": "String"
+      },
+      "division": {
+        "type": "String"
+      }
+    }
+  },
+  "teamSizeLabel": "टीम का आकार",
+  "teamDashboardMenuTitle": "टीम डैशबोर्ड",
+  "teamDashboardMenuSubtitle": "लक्ष्य, उपलब्धि व सदस्य सूची",
+  "teamSalesLogMenuTitle": "टीम बिक्री लॉग",
+  "teamSalesLogMenuSubtitle": "हर टीम सदस्य की दर्ज बिक्री",
+  "teamReportsMenuTitle": "टीम रिपोर्ट",
+  "teamReportsMenuSubtitle": "रैंकिंग व श्रेणी अनुसार बिक्री",
+  "membersSuffix": "सदस्य",
+  "navHome": "होम",
+  "navSales": "बिक्री",
+  "navCustomers": "ग्राहक",
+  "navTarget": "लक्ष्य",
+  "navProfile": "प्रोफ़ाइल",
+  "teamTargetAndPerformance": "टीम लक्ष्य व प्रदर्शन",
+  "totalTargetLabel": "कुल लक्ष्य",
+  "totalMembersLabel": "कुल सदस्य",
+  "activeTodayLabel": "आज सक्रिय",
+  "memberPerformanceTitle": "सदस्य प्रदर्शन",
+  "viewAllReports": "सभी रिपोर्ट देखें",
+  "targetCapsLabel": "लक्ष्य",
+  "todaysSaleCapsLabel": "आज की बिक्री",
+  "addMember": "सदस्य जोड़ें",
+  "percentReached": "{percent}% पूरा हुआ",
+  "@percentReached": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "onlineCountLabel": "{count} ऑनलाइन",
+  "@onlineCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "representativesCount": "{count, plural, =1{{count} प्रतिनिधि} other{{count} प्रतिनिधि}}",
+  "@representativesCount": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "recentSalesActivity": "हालिया बिक्री गतिविधि",
+  "monthlyTargetLabel": "मासिक लक्ष्य",
+  "remainingLabel": "शेष",
+  "achievedBadge": "प्राप्त",
+  "todaysTargetLabel": "आज का लक्ष्य",
+  "todaysSalesLabel": "आज की बिक्री",
+  "dailyAssignment": "दैनिक कार्य",
+  "call": "कॉल",
+  "message": "संदेश",
+  "fullReport": "पूरी रिपोर्ट",
+  "atRiskLabel": "जोखिम में",
+  "invalidCredentials": "गलत ईमेल या पासवर्ड।",
+  "accountDisabled": "यह खाता निष्क्रिय कर दिया गया है। अपने एडमिन से संपर्क करें।",
+  "tooManyAttempts": "बहुत अधिक प्रयास। कृपया प्रतीक्षा करें और फिर से प्रयास करें।",
+  "networkErrorMessage": "इंटरनेट कनेक्शन नहीं है। कृपया फिर से प्रयास करें।",
+  "genericLoginError": "साइन इन नहीं हो सका। कृपया फिर से प्रयास करें।",
+  "adminUseWebPanel": "एडमिन खाते इस ऐप की बजाय वेब एडमिन पैनल का उपयोग करते हैं।",
+  "navDashboard": "डैशबोर्ड",
+  "navReports": "रिपोर्ट",
+  "reportsComingSoonTitle": "रिपोर्ट जल्द आ रही है",
+  "reportsComingSoonMessage": "टीम व कंपनी की रिपोर्ट यहां दिखाई देगी।",
+  "logoutConfirmTitle": "लॉग आउट करें?",
+  "logoutConfirmMessage": "अपने खाते तक पहुंचने के लिए आपको फिर से साइन इन करना होगा।"
+}
