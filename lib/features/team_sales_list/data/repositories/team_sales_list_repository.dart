@@ -52,6 +52,6 @@ class TeamSalesListRepository {
       FirestoreCollections.sales,
       filters: [FirestoreFilter('teamId', FirestoreOp.isEqualTo, teamId)],
     );
-    return docs.map(SaleModel.fromMap).toList();
+    return SaleModel.completedFrom(docs);
   }
 }

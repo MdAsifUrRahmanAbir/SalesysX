@@ -31,10 +31,6 @@ class ThemeSelector extends ConsumerWidget {
           ThemeMode.system => ThemeMode.light,
           ThemeMode.light => ThemeMode.dark,
           ThemeMode.dark => ThemeMode.system,
-          // TODO: Handle this case.
-          Object() => throw UnimplementedError(),
-          // // TODO: Handle this case.
-          // null => throw UnimplementedError(),
         };
         controller.setThemeMode(next);
       },

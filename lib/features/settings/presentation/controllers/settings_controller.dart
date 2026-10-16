@@ -1,74 +1,49 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/seed/demo_data_seeder.dart';
+import '../../../../core/push/push_notification_service.dart';
+import '../../../../core/session/auth_session_controller.dart';
 
 class SettingsState {
-  final bool darkMode;
   final bool pushNotifications;
-  final bool emailNotifications;
-  final bool smsAlerts;
-  final bool biometricAuth;
+  final bool isUpdatingPush;
 
-  const SettingsState({
-    this.darkMode = false,
-    this.pushNotifications = true,
-    this.emailNotifications = true,
-    this.smsAlerts = false,
-    this.biometricAuth = true,
-  });
+  const SettingsState({this.pushNotifications = true, this.isUpdatingPush = false});
 
-  SettingsState copyWith({
-    bool? darkMode,
-    bool? pushNotifications,
-    bool? emailNotifications,
-    bool? smsAlerts,
-    bool? biometricAuth,
-  }) {
+  SettingsState copyWith({bool? pushNotifications, bool? isUpdatingPush}) {
     return SettingsState(
-      darkMode: darkMode ?? this.darkMode,
       pushNotifications: pushNotifications ?? this.pushNotifications,
-      emailNotifications: emailNotifications ?? this.emailNotifications,
-      smsAlerts: smsAlerts ?? this.smsAlerts,
-      biometricAuth: biometricAuth ?? this.biometricAuth,
+      isUpdatingPush: isUpdatingPush ?? this.isUpdatingPush,
     );
   }
 }
 
 class SettingsController extends Notifier<SettingsState> {
+  PushNotificationService get _push => ref.read(pushNotificationServiceProvider);
+
   @override
   SettingsState build() {
+    Future.microtask(_loadPushPreference);
     return const SettingsState();
   }
 
-  void setDarkMode(bool value) {
-    state = state.copyWith(darkMode: value);
+  Future<void> _loadPushPreference() async {
+    final enabled = await _push.isEnabled();
+    if (ref.mounted) state = state.copyWith(pushNotifications: enabled);
   }
 
-  void setPushNotifications(bool value) {
-    state = state.copyWith(pushNotifications: value);
-  }
-
-  void setEmailNotifications(bool value) {
-    state = state.copyWith(emailNotifications: value);
-  }
-
-  void setSmsAlerts(bool value) {
-    state = state.copyWith(smsAlerts: value);
-  }
-
-  void setBiometricAuth(bool value) {
-    state = state.copyWith(biometricAuth: value);
-  }
-
-  Future<void> deleteAccount() async {}
-
-  /// Dev utility: wipes and reseeds all demo data dated to the current
-  /// month. Returns true on success.
-  Future<bool> resetDemoData() async {
+  /// Turns push notifications on or off for this device. Returns false
+  /// when turning on failed (e.g. the OS permission was denied).
+  Future<bool> setPushNotifications(bool value) async {
+    final email = ref.read(authSessionControllerProvider).user?.id;
+    if (email == null || state.isUpdatingPush) return false;
+    state = state.copyWith(pushNotifications: value, isUpdatingPush: true);
     try {
-      await ref.read(demoDataSeederProvider).clearAndReseed();
-      return true;
+      final registered = await _push.setEnabled(value, email);
+      if (!ref.mounted) return true;
+      state = state.copyWith(isUpdatingPush: false);
+      return !value || registered;
     } catch (_) {
+      if (ref.mounted) state = state.copyWith(pushNotifications: !value, isUpdatingPush: false);
       return false;
     }
   }

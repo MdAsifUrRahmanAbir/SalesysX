@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -7,6 +9,9 @@ import 'package:salesysx/core/theme/app_theme.dart';
 import 'package:salesysx/routes/app_router.dart';
 
 import 'core/locale/locale_controller.dart';
+import 'core/network/firebase_client.dart';
+import 'core/push/push_notification_service.dart';
+import 'core/push/push_open_listener.dart';
 import 'core/network/connectivity_banner.dart';
 import 'core/observers/riverpod_logging_observer.dart';
 import 'core/storage/local_cache_service.dart';
@@ -23,6 +28,14 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // Local development against the Firebase emulators:
+  //   flutter run --dart-define=USE_EMULATORS=true --dart-define=EMULATOR_HOST=10.0.2.2
+  if (const bool.fromEnvironment('USE_EMULATORS')) {
+    const host = String.fromEnvironment('EMULATOR_HOST', defaultValue: 'localhost');
+    FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
+    await FirebaseAuth.instance.useAuthEmulator(host, 9099);
+  }
+
   AppInitialization.init();
 
   final secureStorage = SecureStorageService();
@@ -33,6 +46,14 @@ Future<void> main() async {
 
   await localCache.init();
 
+  final firebaseClient = FirebaseClient();
+  final pushService = PushNotificationService(firebaseClient);
+  try {
+    await pushService.init();
+  } catch (e) {
+    debugPrint('Push notifications unavailable: $e');
+  }
+
   runApp(
     ProviderScope(
       overrides: [
@@ -42,6 +63,8 @@ Future<void> main() async {
         localCacheServiceProvider.overrideWithValue(
           localCache,
         ),
+        firebaseClientProvider.overrideWithValue(firebaseClient),
+        pushNotificationServiceProvider.overrideWithValue(pushService),
       ],
       observers: [
         RiverpodLoggingObserver(),
@@ -90,11 +113,13 @@ class PosApp extends ConsumerWidget {
       routerConfig: router,
 
       builder: (context, child) {
-        return Stack(
-          children: [
-            child ?? const SizedBox.shrink(),
-            const ConnectivityBanner(),
-          ],
+        return PushOpenListener(
+          child: Stack(
+            children: [
+              child ?? const SizedBox.shrink(),
+              const ConnectivityBanner(),
+            ],
+          ),
         );
       },
     );

@@ -30,11 +30,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get next => 'अगला';
 
   @override
-  String get welcomeToApp => 'एडवांस POS सेल्स में आपका स्वागत है';
+  String get welcomeToApp => 'Welcome to SalesysX';
 
   @override
   String get welcomeToAppSubtitle =>
-      'आसानी से उत्पाद स्कैन करें, इन्वेंटरी खोजें, स्टॉक रिपोर्ट और इनवॉइस इतिहास देखें।';
+      'Record sales, manage your outlets and track your monthly target, all in one place.';
 
   @override
   String get signIn => 'साइन इन करें';
@@ -46,13 +46,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get emailAddress => 'ईमेल पता';
 
   @override
-  String get emailHint => 'admin@enterprise.com';
+  String get emailHint => 'name@company.com';
 
   @override
   String get password => 'पासवर्ड';
 
   @override
-  String get passwordHint => 'secret_password';
+  String get passwordHint => 'Enter your password';
 
   @override
   String get rememberMe => 'मुझे याद रखें';
@@ -248,51 +248,52 @@ class AppLocalizationsHi extends AppLocalizations {
   String get termsPrivacyTitle => 'शर्तें व गोपनीयता';
 
   @override
-  String get termsLastUpdated => 'अंतिम अद्यतन: 15 जनवरी, 2026';
+  String get termsLastUpdated => 'Last updated: October 16, 2026';
 
   @override
-  String get termsSection1Title => '1. परिचय';
+  String get termsSection1Title => '1. About SalesysX';
 
   @override
   String get termsSection1Body =>
-      'EnterpriseSuite में आपका स्वागत है। हमारे क्लाउड प्लेटफ़ॉर्म और एकीकृत सेवाओं तक पहुंच, उपयोग करके आप इन एकीकृत शर्तों से बंधे रहने के लिए सहमत होते हैं। कृपया इस समझौते को ध्यान से पढ़ें।';
+      'SalesysX is provided by your employer for recording field sales and tracking targets. By signing in you agree to use it only for your work and to keep your password private.';
 
   @override
-  String get termsSection2Title => '2. डेटा संग्रह';
+  String get termsSection2Title => '2. Data we collect';
 
   @override
-  String get termsSection2Body =>
-      'उच्च-प्रदर्शन नोड सर्वर प्रदान करने, कंटेनर सुरक्षा बनाए रखने और क्वेरी लेटेंसी को अनुकूलित करने के लिए, हमारा सिस्टम सुरक्षित परिचालन मेटाडेटा एकत्र करता है:';
+  String get termsSection2Body => 'To run the app, SalesysX stores:';
 
   @override
-  String get termsSection3Title => '3. उपयोग अधिकार';
+  String get termsSection3Title => '3. Who can see it';
 
   @override
   String get termsSection3Body =>
-      'EnterpriseSuite आपको केवल अधिकृत व्यावसायिक कार्यों के लिए हमारे प्लेटफ़ॉर्म तक पहुंचने हेतु एक सीमित, गैर-अनन्य, वापस लिया जा सकने वाला लाइसेंस प्रदान करता है। सभी डैशबोर्ड टेम्पलेट, मेटाडेटा पाइपलाइन और उपयोगकर्ता प्रावधान आपकी सदस्यता अनुबंध श्रेणियों द्वारा नियंत्रित होते हैं।';
+      'Your Team Head and your company\'s administrators can see your profile, sales and outlets. Colleagues may see team totals and rankings. Your data is not sold or shared with advertisers.';
 
   @override
-  String get termsSection4Title => '4. गोपनीयता';
+  String get termsSection4Title => '4. Security and retention';
 
   @override
   String get termsSection4Body =>
-      'हम ज़ीरो-ट्रस्ट आर्किटेक्चर पर काम करते हैं। सभी क्लाइंट गुण, कस्टम पैरामीटर, डेटाबेस स्कीमा विवरण और सिस्टम एकीकरण आपका स्वामित्व वाला डेटा बना रहता है। EnterpriseSuite संगठनात्मक उपयोग पैटर्न को बेचता, पट्टे पर नहीं देता या मुद्रीकृत नहीं करता।';
+      'Data is stored in Google Firebase with access limited by your role. Sales records are kept for your company\'s reporting; if you leave, your administrator deactivates your account instead of deleting its history.';
 
   @override
-  String get termsSection5Title => '5. संपर्क करें';
+  String get termsSection5Title => '5. Contact';
 
   @override
   String get termsSection5Body =>
-      'नीति संबंधी चिंताओं, डेटा निष्कर्षण अनुरोधों, या सर्वर सुरक्षा ऑडिटिंग मापदंडों के लिए, कृपया हमारे विशेष अनुपालन प्रभाग से संपर्क करें:';
+      'For questions about your data or to request a copy or correction, contact your company administrator.';
 
   @override
-  String get termsContactName => 'EnterpriseSuite अनुपालन';
+  String get termsContactName => 'Your company administrator';
 
   @override
-  String get termsContactEmail => 'ईमेल: legal@enterprisesuite.com';
+  String get termsContactEmail =>
+      'Reach them through your Team Head or the Help & Support page.';
 
   @override
-  String get termsContactSla => 'प्रतिक्रिया समय: 2 कार्यदिवसों के भीतर';
+  String get termsContactSla =>
+      'Account changes are made from the SalesysX Admin Panel.';
 
   @override
   String get helpSupportTitle => 'सहायता व समर्थन';
@@ -905,4 +906,128 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get logoutConfirmMessage =>
       'अपने खाते तक पहुंचने के लिए आपको फिर से साइन इन करना होगा।';
+
+  @override
+  String get sessionExpired =>
+      'Your session has expired. Please sign in again.';
+
+  @override
+  String get networkError =>
+      'Can\'t reach the server. Check your internet connection.';
+
+  @override
+  String get passwordTooWeak =>
+      'Password is too weak. Use at least 8 characters.';
+
+  @override
+  String get serverUnavailable =>
+      'The server couldn\'t complete this request. Please try again.';
+
+  @override
+  String get pushPermissionDenied =>
+      'Notifications are blocked. Allow them for SalesysX in your phone settings.';
+
+  @override
+  String get unitPriceInvalid => 'Enter a unit price greater than zero.';
+
+  @override
+  String get unitPriceEditable => 'Unit price';
+
+  @override
+  String get couldNotOpenApp => 'Couldn\'t open an app for this.';
+
+  @override
+  String get noFaqMatches => 'No questions match your search.';
+
+  @override
+  String get contactAdminHint =>
+      'For account, password or target questions, contact your company\'s SalesysX administrator.';
+
+  @override
+  String yourTeamHead(String name) {
+    return 'Your Team Head: $name';
+  }
+
+  @override
+  String get faqRecordSaleQ => 'How do I record a sale?';
+
+  @override
+  String get faqRecordSaleA =>
+      'Tap the + button, choose the outlet and product, set the quantity and any discount, then tap Submit. The sale counts toward your target straight away.';
+
+  @override
+  String get faqAddOutletQ =>
+      'My shop isn\'t in the outlet list. What do I do?';
+
+  @override
+  String get faqAddOutletA =>
+      'When choosing an outlet, tap \"Add new outlet\" and fill in the shop\'s details. It is assigned to you and appears for your admin as a new customer.';
+
+  @override
+  String get faqTargetQ => 'How is my target progress calculated?';
+
+  @override
+  String get faqTargetA =>
+      'Your monthly target is set by your admin. Achievement is your completed sales this month divided by the target. The daily amount needed spreads what\'s left over the remaining working days (the weekly holiday is not counted).';
+
+  @override
+  String get faqWrongSaleQ => 'I entered a sale by mistake. Can I delete it?';
+
+  @override
+  String get faqWrongSaleA =>
+      'Sales can\'t be edited or deleted from the app. Ask your Team Head or admin to cancel it; a cancelled sale no longer counts toward your totals.';
+
+  @override
+  String get faqNotificationsQ => 'I\'m not getting notifications.';
+
+  @override
+  String get faqNotificationsA =>
+      'Check that Push notifications is on under Settings, and that notifications are allowed for SalesysX in your phone\'s settings. You need to be signed in to receive them.';
+
+  @override
+  String get faqPasswordQ => 'I forgot my password.';
+
+  @override
+  String get faqPasswordA =>
+      'Ask your admin to reset it. They will give you a temporary password; sign in with it and change it under Settings > Change Password.';
+
+  @override
+  String get onboardingSalesTitle => 'Record sales in seconds';
+
+  @override
+  String get onboardingSalesBody =>
+      'Pick the outlet and product, set the quantity, and your sale is saved instantly.';
+
+  @override
+  String get onboardingTargetTitle => 'Know where you stand';
+
+  @override
+  String get onboardingTargetBody =>
+      'See your monthly target, achievement and the daily amount you need to stay on track.';
+
+  @override
+  String get onboardingAlertsTitle => 'Never miss an update';
+
+  @override
+  String get onboardingAlertsBody =>
+      'Get targets, reminders and announcements from your team as notifications.';
+
+  @override
+  String get termsDataItem1 =>
+      'Your account details: name, email, phone number and employee ID, provided by your employer.';
+
+  @override
+  String get termsDataItem2 =>
+      'Sales you record and outlets you add or visit, with their dates and amounts.';
+
+  @override
+  String get termsDataItem3 =>
+      'A device token used only to deliver notifications to this phone; it is removed when you sign out.';
+
+  @override
+  String get forgotPasswordHelp =>
+      'Passwords are managed by your company. Ask your Team Head or admin to reset it; they will give you a temporary password to sign in with.';
+
+  @override
+  String get discountAmountLabel => 'Discount (৳)';
 }

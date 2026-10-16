@@ -41,7 +41,6 @@ class WelcomeMobileView extends ConsumerWidget {
             // Spacer(),
             WelcomeActions(
               onLoginTap: () => context.push(RouteNames.login),
-              onRegisterTap: () => context.push(RouteNames.login),
             ),
           ],
         ),
@@ -75,7 +74,6 @@ class WelcomeTabView extends ConsumerWidget {
                 // Spacer(),
                 WelcomeActions(
                   onLoginTap: () => context.push(RouteNames.login),
-                  onRegisterTap: () => context.push(RouteNames.login),
                 ),
               ],
             ),

@@ -17,8 +17,12 @@ class WelcomeActions extends StatelessWidget {
     return Column(
       children: [
         PrimaryButton(label: context.l10n.login, onPressed: onLoginTap),
-        const SizedBox(height: AppSizes.md),
-        SecondaryButton(label: context.l10n.register, onPressed: onRegisterTap),
+        // Accounts are created by the admin; registration is only offered
+        // if a caller wires it up.
+        if (onRegisterTap != null) ...[
+          const SizedBox(height: AppSizes.md),
+          SecondaryButton(label: context.l10n.register, onPressed: onRegisterTap),
+        ],
       ],
     );
   }

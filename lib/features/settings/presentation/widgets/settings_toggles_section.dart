@@ -14,10 +14,6 @@ class SettingsTogglesSection extends StatelessWidget {
   final VoidCallback? onAppThemeTap;
   final bool pushNotifications;
   final ValueChanged<bool>? onPushNotificationsChanged;
-  final bool emailNotifications;
-  final ValueChanged<bool>? onEmailNotificationsChanged;
-  final bool smsAlerts;
-  final ValueChanged<bool>? onSmsAlertsChanged;
 
   const SettingsTogglesSection({
     super.key,
@@ -27,10 +23,6 @@ class SettingsTogglesSection extends StatelessWidget {
     this.onAppThemeTap,
     this.pushNotifications = false,
     this.onPushNotificationsChanged,
-    this.emailNotifications = false,
-    this.onEmailNotificationsChanged,
-    this.smsAlerts = false,
-    this.onSmsAlertsChanged,
   });
 
   @override
@@ -61,16 +53,6 @@ class SettingsTogglesSection extends StatelessWidget {
               title: context.l10n.pushNotifications,
               switchValue: pushNotifications,
               onSwitchChanged: onPushNotificationsChanged,
-            ),
-            SettingsTile(
-              title: context.l10n.emailNotifications,
-              switchValue: emailNotifications,
-              onSwitchChanged: onEmailNotificationsChanged,
-            ),
-            SettingsTile(
-              title: context.l10n.smsAlerts,
-              switchValue: smsAlerts,
-              onSwitchChanged: onSmsAlertsChanged,
             ),
           ],
         ),

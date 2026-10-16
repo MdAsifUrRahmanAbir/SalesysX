@@ -185,6 +185,11 @@ class FirebaseClient {
 
   dynamic serverTimestamp() => FieldValue.serverTimestamp();
 
+  /// Adds [values] to an array field without duplicating them.
+  dynamic arrayUnion(List<Object?> values) => FieldValue.arrayUnion(values);
+
+  dynamic arrayRemove(List<Object?> values) => FieldValue.arrayRemove(values);
+
   /// Groups several writes into one atomic commit — e.g. logging a sale
   /// *and* incrementing that salesman's target progress in one go.
   Future<void> runBatch(void Function(FirebaseBatchScope batch) build) async {

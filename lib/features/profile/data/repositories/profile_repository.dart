@@ -34,7 +34,7 @@ class ProfileRepository {
       FirestoreCollections.sales,
       filters: [FirestoreFilter('salesmanEmail', FirestoreOp.isEqualTo, salesmanEmail)],
     );
-    return docs.map(SaleModel.fromMap).toList();
+    return SaleModel.completedFrom(docs);
   }
 
   Future<List<OutletModel>> getAssignedOutlets(String salesmanEmail) async {

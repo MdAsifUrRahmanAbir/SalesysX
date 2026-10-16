@@ -38,6 +38,12 @@ class NewSaleEntryState {
 
   final List<TodaysSaleEntry> todaysEntries;
 
+  /// Company setting: the salesman may change the unit price.
+  final bool allowPriceEdit;
+
+  /// The edited unit price; null means the product's list price.
+  final double? priceOverride;
+
   const NewSaleEntryState({
     this.isLoading = false,
     this.isSubmitting = false,
@@ -50,6 +56,8 @@ class NewSaleEntryState {
     this.quantity = 1,
     this.discount = 0,
     this.todaysEntries = const [],
+    this.allowPriceEdit = false,
+    this.priceOverride,
   });
 
   OutletModel? get selectedOutlet {
@@ -68,7 +76,7 @@ class NewSaleEntryState {
 
   String get outletName => selectedOutlet?.name ?? '';
   String? get productName => selectedProduct?.name;
-  double get unitPrice => selectedProduct?.unitPrice ?? 0;
+  double get unitPrice => (allowPriceEdit ? priceOverride : null) ?? selectedProduct?.unitPrice ?? 0;
 
   List<String> get categories => ['All', ...{for (final p in products) p.category}];
 
@@ -90,6 +98,9 @@ class NewSaleEntryState {
     int? quantity,
     double? discount,
     List<TodaysSaleEntry>? todaysEntries,
+    bool? allowPriceEdit,
+    double? priceOverride,
+    bool clearPriceOverride = false,
   }) {
     return NewSaleEntryState(
       isLoading: isLoading ?? this.isLoading,
@@ -103,6 +114,8 @@ class NewSaleEntryState {
       quantity: quantity ?? this.quantity,
       discount: discount ?? this.discount,
       todaysEntries: todaysEntries ?? this.todaysEntries,
+      allowPriceEdit: allowPriceEdit ?? this.allowPriceEdit,
+      priceOverride: clearPriceOverride ? null : (priceOverride ?? this.priceOverride),
     );
   }
 }

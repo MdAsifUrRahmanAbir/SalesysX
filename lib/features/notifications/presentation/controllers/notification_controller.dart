@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/session/auth_session_controller.dart';
@@ -5,30 +7,35 @@ import '../../../../core/utils/error_mapper.dart';
 import '../../data/repositories/notification_repository.dart';
 import '../states/notifications_state.dart';
 
+/// Live notifications for the signed-in user — new pushes appear (and the
+/// unread badge updates) without a manual refresh.
 class NotificationController extends Notifier<NotificationsState> {
   NotificationRepository get _repository => ref.read(notificationRepositoryProvider);
+  StreamSubscription<dynamic>? _subscription;
+
+  String? get _email => ref.read(authSessionControllerProvider).user?.id;
 
   @override
   NotificationsState build() {
-    Future.microtask(_load);
+    ref.onDispose(() => _subscription?.cancel());
+    Future.microtask(_listen);
     return const NotificationsState(isNotificationsLoading: true);
   }
 
-  Future<void> refresh() => _load();
+  Future<void> refresh() async => _listen();
 
-  Future<void> _load() async {
-    state = state.copyWith(isNotificationsLoading: true, errorMessage: null);
-    try {
-      final user = ref.read(authSessionControllerProvider).user;
-      if (user == null) {
-        state = state.copyWith(isNotificationsLoading: false, errorMessage: 'Not signed in.');
-        return;
-      }
-      final items = await _repository.getForUser(user.id);
-      state = state.copyWith(isNotificationsLoading: false, items: items);
-    } catch (e) {
-      state = state.copyWith(isNotificationsLoading: false, errorMessage: getErrorMessage(e));
+  void _listen() {
+    _subscription?.cancel();
+    final email = _email;
+    if (email == null) {
+      state = state.copyWith(isNotificationsLoading: false, errorMessage: 'Not signed in.');
+      return;
     }
+    state = state.copyWith(isNotificationsLoading: state.items.isEmpty, errorMessage: null);
+    _subscription = _repository.watchForUser(email).listen(
+      (items) => state = state.copyWith(isNotificationsLoading: false, items: items),
+      onError: (Object e) => state = state.copyWith(isNotificationsLoading: false, errorMessage: getErrorMessage(e)),
+    );
   }
 
   void selectFilter(String filter) {
@@ -36,24 +43,22 @@ class NotificationController extends Notifier<NotificationsState> {
   }
 
   Future<void> markRead(String id) async {
+    final email = _email;
     final target = state.items.where((n) => n.id == id);
-    if (target.isEmpty || target.first.isRead) return;
+    if (email == null || target.isEmpty || target.first.isRead) return;
     try {
-      await _repository.markAsRead(id);
-      state = state.copyWith(
-        items: [for (final n in state.items) n.id == id ? n.copyWith(isRead: true) : n],
-      );
+      await _repository.markAsRead(target.first, email);
     } catch (_) {
-      // Best-effort — leave the item unread in local state on failure.
+      // Best-effort — the live stream keeps showing it as unread.
     }
   }
 
   Future<bool> markAllAsRead() async {
-    final unreadIds = state.items.where((n) => !n.isRead).map((n) => n.id).toList();
-    if (unreadIds.isEmpty) return true;
+    final email = _email;
+    final unread = state.items.where((n) => !n.isRead).toList();
+    if (email == null || unread.isEmpty) return true;
     try {
-      await _repository.markAllAsRead(unreadIds);
-      state = state.copyWith(items: [for (final n in state.items) n.copyWith(isRead: true)]);
+      await _repository.markAllAsRead(unread, email);
       return true;
     } catch (_) {
       return false;

@@ -35,9 +35,9 @@ class TermsPrivacyContent extends StatelessWidget {
         const SizedBox(height: AppSizes.sm + AppSizes.xs),
         _sectionBody(context.l10n.termsSection2Body, context),
         const SizedBox(height: AppSizes.sm),
-        const NumberedListItem(number: '01', text: 'Secure system telemetry and active diagnostic profiles.'),
-        const NumberedListItem(number: '02', text: 'Encrypted performance packets for secure cluster analytics.'),
-        const NumberedListItem(number: '03', text: 'OAuth validation tokens for authenticated third-party connections.'),
+        NumberedListItem(number: '01', text: context.l10n.termsDataItem1),
+        NumberedListItem(number: '02', text: context.l10n.termsDataItem2),
+        NumberedListItem(number: '03', text: context.l10n.termsDataItem3),
         const SizedBox(height: AppSizes.md),
 
         _sectionTitle(context.l10n.termsSection3Title, context),

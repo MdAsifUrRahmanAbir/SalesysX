@@ -48,7 +48,7 @@ class TeamSalesListMobileView extends ConsumerWidget {
                                       AppSizes.xxl * 2,
                                     ),
                                     itemCount: state.rows.length,
-                                    separatorBuilder: (_, __) => SizedBox(height: AppSizes.sm),
+                                    separatorBuilder: (_, _) => SizedBox(height: AppSizes.sm),
                                     itemBuilder: (context, index) => TeamSaleRowTile(row: state.rows[index]),
                                   ),
                                 ),

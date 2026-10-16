@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/widgets/common/primary_input_field.dart';
 import '../../../../core/widgets/common/password_input_field.dart';
-import '../../../../core/widgets/common/primary_checkbox.dart';
 import '../../../../core/widgets/common/link_button.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../controllers/login_controller.dart';
@@ -26,7 +25,6 @@ class LoginForm extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = ref.watch(loginFormControllerProvider.notifier);
-    final state = ref.watch(loginFormControllerProvider);
 
     return Form(
       key: controller.formKey,
@@ -49,16 +47,11 @@ class LoginForm extends ConsumerWidget {
             validator: controller.validatePassword,
           ),
           const SizedBox(height: AppSizes.xs),
+          // Sessions always persist (Firebase Auth), so there is no
+          // remember-me option.
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Expanded(
-                child: PrimaryCheckbox(
-                  value: state.rememberMe,
-                  label: context.l10n.rememberMe,
-                  onChanged: (value) =>
-                      controller.setRememberMe(value ?? false),
-                ),
-              ),
               LinkButton(
                 label: context.l10n.forgotPassword,
                 fontSize: AppSizes.fontSm,

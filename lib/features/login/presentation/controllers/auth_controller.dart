@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/auth/auth_service.dart';
 import '../../../../core/constants/user_role.dart';
 import '../../../../core/locale/l10n_provider.dart';
 import '../../../../core/session/auth_session_controller.dart';
@@ -17,7 +18,9 @@ class AuthController extends Notifier<AsyncValue<void>> {
     try {
       final user = await _repository.signIn(email: email, password: password);
 
-      if (user.role == UserRole.admin) {
+      // Super Admin, Admin and Manager work in the Web Admin Panel only.
+      if (user.role.isPanelRole) {
+        await ref.read(authServiceProvider).signOut();
         state = AsyncValue.error(AuthFailure(ref.read(l10nProvider).adminUseWebPanel), StackTrace.current);
         return false;
       }
@@ -29,7 +32,8 @@ class AuthController extends Notifier<AsyncValue<void>> {
       state = AsyncValue.error(e, st);
       return false;
     }
-  }}
+  }
+}
 
 final authControllerProvider =
 NotifierProvider<AuthController, AsyncValue<void>>(AuthController.new);

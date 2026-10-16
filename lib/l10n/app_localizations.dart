@@ -147,13 +147,13 @@ abstract class AppLocalizations {
   /// No description provided for @welcomeToApp.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Advance POS Sales'**
+  /// **'Welcome to SalesysX'**
   String get welcomeToApp;
 
   /// No description provided for @welcomeToAppSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Scan products, search inventory, view stock reports, and invoice history with ease.'**
+  /// **'Record sales, manage your outlets and track your monthly target, all in one place.'**
   String get welcomeToAppSubtitle;
 
   /// No description provided for @signIn.
@@ -177,7 +177,7 @@ abstract class AppLocalizations {
   /// No description provided for @emailHint.
   ///
   /// In en, this message translates to:
-  /// **'admin@enterprise.com'**
+  /// **'name@company.com'**
   String get emailHint;
 
   /// No description provided for @password.
@@ -189,7 +189,7 @@ abstract class AppLocalizations {
   /// No description provided for @passwordHint.
   ///
   /// In en, this message translates to:
-  /// **'secret_password'**
+  /// **'Enter your password'**
   String get passwordHint;
 
   /// No description provided for @rememberMe.
@@ -573,85 +573,85 @@ abstract class AppLocalizations {
   /// No description provided for @termsLastUpdated.
   ///
   /// In en, this message translates to:
-  /// **'Last updated: January 15, 2026'**
+  /// **'Last updated: October 16, 2026'**
   String get termsLastUpdated;
 
   /// No description provided for @termsSection1Title.
   ///
   /// In en, this message translates to:
-  /// **'1. Introduction'**
+  /// **'1. About SalesysX'**
   String get termsSection1Title;
 
   /// No description provided for @termsSection1Body.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to EnterpriseSuite. By accessing, deploying, or utilizing our cloud platform and integrated services, you agree to be bound by these unified terms. Please read this agreement carefully.'**
+  /// **'SalesysX is provided by your employer for recording field sales and tracking targets. By signing in you agree to use it only for your work and to keep your password private.'**
   String get termsSection1Body;
 
   /// No description provided for @termsSection2Title.
   ///
   /// In en, this message translates to:
-  /// **'2. Data Collection'**
+  /// **'2. Data we collect'**
   String get termsSection2Title;
 
   /// No description provided for @termsSection2Body.
   ///
   /// In en, this message translates to:
-  /// **'To provision high-performance node servers, maintain container security, and optimize query latency, our system architecture collects secure operational metadata:'**
+  /// **'To run the app, SalesysX stores:'**
   String get termsSection2Body;
 
   /// No description provided for @termsSection3Title.
   ///
   /// In en, this message translates to:
-  /// **'3. Usage Rights'**
+  /// **'3. Who can see it'**
   String get termsSection3Title;
 
   /// No description provided for @termsSection3Body.
   ///
   /// In en, this message translates to:
-  /// **'EnterpriseSuite grants you a restricted, non-exclusive, revocable license to access our platform solely for authorized business operations. All dashboard templates, metadata pipelines, and user provisioning are governed by your subscription agreement tiers.'**
+  /// **'Your Team Head and your company\'s administrators can see your profile, sales and outlets. Colleagues may see team totals and rankings. Your data is not sold or shared with advertisers.'**
   String get termsSection3Body;
 
   /// No description provided for @termsSection4Title.
   ///
   /// In en, this message translates to:
-  /// **'4. Privacy'**
+  /// **'4. Security and retention'**
   String get termsSection4Title;
 
   /// No description provided for @termsSection4Body.
   ///
   /// In en, this message translates to:
-  /// **'We operate on a zero-trust architecture. All client properties, custom parameters, database schema descriptions, and system integrations remain your proprietary data. EnterpriseSuite does not sell, lease, or monetize organizational usage patterns.'**
+  /// **'Data is stored in Google Firebase with access limited by your role. Sales records are kept for your company\'s reporting; if you leave, your administrator deactivates your account instead of deleting its history.'**
   String get termsSection4Body;
 
   /// No description provided for @termsSection5Title.
   ///
   /// In en, this message translates to:
-  /// **'5. Contact Us'**
+  /// **'5. Contact'**
   String get termsSection5Title;
 
   /// No description provided for @termsSection5Body.
   ///
   /// In en, this message translates to:
-  /// **'For policy concerns, data extraction requests, or server security auditing parameters, please contact our specialized compliance division:'**
+  /// **'For questions about your data or to request a copy or correction, contact your company administrator.'**
   String get termsSection5Body;
 
   /// No description provided for @termsContactName.
   ///
   /// In en, this message translates to:
-  /// **'EnterpriseSuite Compliance'**
+  /// **'Your company administrator'**
   String get termsContactName;
 
   /// No description provided for @termsContactEmail.
   ///
   /// In en, this message translates to:
-  /// **'Email: legal@enterprisesuite.com'**
+  /// **'Reach them through your Team Head or the Help & Support page.'**
   String get termsContactEmail;
 
   /// No description provided for @termsContactSla.
   ///
   /// In en, this message translates to:
-  /// **'Response SLA: Within 2 business days'**
+  /// **'Account changes are made from the SalesysX Admin Panel.'**
   String get termsContactSla;
 
   /// No description provided for @helpSupportTitle.
@@ -1687,7 +1687,7 @@ abstract class AppLocalizations {
   /// No description provided for @tooManyAttempts.
   ///
   /// In en, this message translates to:
-  /// **'Too many attempts. Please wait and try again.'**
+  /// **'Too many attempts. Please wait a few minutes and try again.'**
   String get tooManyAttempts;
 
   /// No description provided for @networkErrorMessage.
@@ -1743,6 +1743,210 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You will need to sign in again to access your account.'**
   String get logoutConfirmMessage;
+
+  /// No description provided for @sessionExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please sign in again.'**
+  String get sessionExpired;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t reach the server. Check your internet connection.'**
+  String get networkError;
+
+  /// No description provided for @passwordTooWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is too weak. Use at least 8 characters.'**
+  String get passwordTooWeak;
+
+  /// No description provided for @serverUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The server couldn\'t complete this request. Please try again.'**
+  String get serverUnavailable;
+
+  /// No description provided for @pushPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are blocked. Allow them for SalesysX in your phone settings.'**
+  String get pushPermissionDenied;
+
+  /// No description provided for @unitPriceInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a unit price greater than zero.'**
+  String get unitPriceInvalid;
+
+  /// No description provided for @unitPriceEditable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit price'**
+  String get unitPriceEditable;
+
+  /// No description provided for @couldNotOpenApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open an app for this.'**
+  String get couldNotOpenApp;
+
+  /// No description provided for @noFaqMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'No questions match your search.'**
+  String get noFaqMatches;
+
+  /// No description provided for @contactAdminHint.
+  ///
+  /// In en, this message translates to:
+  /// **'For account, password or target questions, contact your company\'s SalesysX administrator.'**
+  String get contactAdminHint;
+
+  /// No description provided for @yourTeamHead.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Team Head: {name}'**
+  String yourTeamHead(String name);
+
+  /// No description provided for @faqRecordSaleQ.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I record a sale?'**
+  String get faqRecordSaleQ;
+
+  /// No description provided for @faqRecordSaleA.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the + button, choose the outlet and product, set the quantity and any discount, then tap Submit. The sale counts toward your target straight away.'**
+  String get faqRecordSaleA;
+
+  /// No description provided for @faqAddOutletQ.
+  ///
+  /// In en, this message translates to:
+  /// **'My shop isn\'t in the outlet list. What do I do?'**
+  String get faqAddOutletQ;
+
+  /// No description provided for @faqAddOutletA.
+  ///
+  /// In en, this message translates to:
+  /// **'When choosing an outlet, tap \"Add new outlet\" and fill in the shop\'s details. It is assigned to you and appears for your admin as a new customer.'**
+  String get faqAddOutletA;
+
+  /// No description provided for @faqTargetQ.
+  ///
+  /// In en, this message translates to:
+  /// **'How is my target progress calculated?'**
+  String get faqTargetQ;
+
+  /// No description provided for @faqTargetA.
+  ///
+  /// In en, this message translates to:
+  /// **'Your monthly target is set by your admin. Achievement is your completed sales this month divided by the target. The daily amount needed spreads what\'s left over the remaining working days (the weekly holiday is not counted).'**
+  String get faqTargetA;
+
+  /// No description provided for @faqWrongSaleQ.
+  ///
+  /// In en, this message translates to:
+  /// **'I entered a sale by mistake. Can I delete it?'**
+  String get faqWrongSaleQ;
+
+  /// No description provided for @faqWrongSaleA.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales can\'t be edited or deleted from the app. Ask your Team Head or admin to cancel it; a cancelled sale no longer counts toward your totals.'**
+  String get faqWrongSaleA;
+
+  /// No description provided for @faqNotificationsQ.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m not getting notifications.'**
+  String get faqNotificationsQ;
+
+  /// No description provided for @faqNotificationsA.
+  ///
+  /// In en, this message translates to:
+  /// **'Check that Push notifications is on under Settings, and that notifications are allowed for SalesysX in your phone\'s settings. You need to be signed in to receive them.'**
+  String get faqNotificationsA;
+
+  /// No description provided for @faqPasswordQ.
+  ///
+  /// In en, this message translates to:
+  /// **'I forgot my password.'**
+  String get faqPasswordQ;
+
+  /// No description provided for @faqPasswordA.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask your admin to reset it. They will give you a temporary password; sign in with it and change it under Settings > Change Password.'**
+  String get faqPasswordA;
+
+  /// No description provided for @onboardingSalesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Record sales in seconds'**
+  String get onboardingSalesTitle;
+
+  /// No description provided for @onboardingSalesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the outlet and product, set the quantity, and your sale is saved instantly.'**
+  String get onboardingSalesBody;
+
+  /// No description provided for @onboardingTargetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Know where you stand'**
+  String get onboardingTargetTitle;
+
+  /// No description provided for @onboardingTargetBody.
+  ///
+  /// In en, this message translates to:
+  /// **'See your monthly target, achievement and the daily amount you need to stay on track.'**
+  String get onboardingTargetBody;
+
+  /// No description provided for @onboardingAlertsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Never miss an update'**
+  String get onboardingAlertsTitle;
+
+  /// No description provided for @onboardingAlertsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get targets, reminders and announcements from your team as notifications.'**
+  String get onboardingAlertsBody;
+
+  /// No description provided for @termsDataItem1.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account details: name, email, phone number and employee ID, provided by your employer.'**
+  String get termsDataItem1;
+
+  /// No description provided for @termsDataItem2.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales you record and outlets you add or visit, with their dates and amounts.'**
+  String get termsDataItem2;
+
+  /// No description provided for @termsDataItem3.
+  ///
+  /// In en, this message translates to:
+  /// **'A device token used only to deliver notifications to this phone; it is removed when you sign out.'**
+  String get termsDataItem3;
+
+  /// No description provided for @forgotPasswordHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords are managed by your company. Ask your Team Head or admin to reset it; they will give you a temporary password to sign in with.'**
+  String get forgotPasswordHelp;
+
+  /// No description provided for @discountAmountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Discount (৳)'**
+  String get discountAmountLabel;
 }
 
 class _AppLocalizationsDelegate

@@ -8,6 +8,8 @@ import 'package:salesysx/features/target_performance/presentation/controllers/ta
 import 'package:salesysx/features/team_overview/presentation/controllers/team_overview_controller.dart';
 import 'package:salesysx/features/team_reports/presentation/controllers/team_reports_controller.dart';
 import 'package:salesysx/features/team_sales_list/presentation/controllers/team_sales_list_controller.dart';
+import '../../../../core/company/company_settings.dart';
+import '../../../../core/locale/l10n_provider.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/utils/error_mapper.dart';
@@ -21,16 +23,21 @@ NotifierProvider.autoDispose<NewSaleEntryController, NewSaleEntryState>(
 
 class NewSaleEntryController extends Notifier<NewSaleEntryState> {
   late final TextEditingController discountController;
+  late final TextEditingController unitPriceController;
 
   NewSaleEntryRepository get _repository => ref.read(newSaleEntryRepositoryProvider);
 
   @override
   NewSaleEntryState build() {
     discountController = TextEditingController(text: '0');
-    ref.onDispose(discountController.dispose);
+    unitPriceController = TextEditingController();
+    ref.onDispose(() {
+      discountController.dispose();
+      unitPriceController.dispose();
+    });
 
     Future.microtask(_load);
-    return const NewSaleEntryState(isLoading: true);
+    return NewSaleEntryState(isLoading: true, allowPriceEdit: ref.read(companySettingsProvider).allowPriceEdit);
   }
 
   Future<void> refresh() => _load();
@@ -97,8 +104,18 @@ class NewSaleEntryController extends Notifier<NewSaleEntryState> {
   }
 
   void selectProduct(String productId) {
-    state = state.copyWith(selectedProductId: productId);
+    state = state.copyWith(selectedProductId: productId, clearPriceOverride: true);
+    unitPriceController.text = _formatPrice(state.selectedProduct?.unitPrice ?? 0);
   }
+
+  /// Only used when the company allows price editing.
+  void setUnitPrice(String value) {
+    final price = double.tryParse(value.trim());
+    state = price == null ? state.copyWith(clearPriceOverride: true) : state.copyWith(priceOverride: price);
+  }
+
+  static String _formatPrice(double price) =>
+      price == price.roundToDouble() ? price.toStringAsFixed(0) : price.toStringAsFixed(2);
 
   void selectCategory(String category) {
     state = state.copyWith(selectedCategory: category);
@@ -136,7 +153,11 @@ class NewSaleEntryController extends Notifier<NewSaleEntryState> {
       state = state.copyWith(errorMessage: 'Please select a product.');
       return false;
     }
-    final subtotal = state.quantity * product.unitPrice;
+    if (state.unitPrice <= 0) {
+      state = state.copyWith(errorMessage: ref.read(l10nProvider).unitPriceInvalid);
+      return false;
+    }
+    final subtotal = state.quantity * state.unitPrice;
     if (state.discount > subtotal) {
       state = state.copyWith(errorMessage: 'Discount cannot exceed the line subtotal.');
       return false;
@@ -150,6 +171,7 @@ class NewSaleEntryController extends Notifier<NewSaleEntryState> {
         outlet: outlet,
         product: product,
         quantity: state.quantity,
+        unitPrice: state.unitPrice,
         discount: state.discount,
       );
 
@@ -168,7 +190,9 @@ class NewSaleEntryController extends Notifier<NewSaleEntryState> {
         quantity: 1,
         discount: 0,
         todaysEntries: state.todaysEntries,
+        allowPriceEdit: state.allowPriceEdit,
       );
+      unitPriceController.clear();
 
       // Invalidate every dashboard that could be showing this salesman's
       // numbers — harmless no-op for whichever ones aren't currently

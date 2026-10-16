@@ -4,18 +4,16 @@ import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import 'package:salesysx/core/locale/app_localizations_x.dart';
 
-/// App version label, plus destructive Log Out / Delete Account
-/// actions at the bottom of the settings list.
+/// App version label and the Log Out action at the bottom of the
+/// settings list.
 class SettingsFooterActions extends StatelessWidget {
   final String versionLabel;
   final VoidCallback? onLogOutTap;
-  final VoidCallback? onDeleteAccountTap;
 
   const SettingsFooterActions({
     super.key,
     required this.versionLabel,
     this.onLogOutTap,
-    this.onDeleteAccountTap,
   });
 
   @override
@@ -44,28 +42,6 @@ class SettingsFooterActions extends StatelessWidget {
             ),
             child: Text(
               context.l10n.logOut,
-              style: TextStyle(
-                fontSize: AppSizes.fontMd,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: AppSizes.sm + AppSizes.xs),
-        SizedBox(
-          width: double.infinity,
-          height: AppSizes.xl + AppSizes.md,
-          child: OutlinedButton(
-            onPressed: onDeleteAccountTap,
-            style: OutlinedButton.styleFrom(
-              foregroundColor: AppColors.error,
-              side: const BorderSide(color: AppColors.error),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppSizes.radiusSm),
-              ),
-            ),
-            child: Text(
-              context.l10n.deleteAccount,
               style: TextStyle(
                 fontSize: AppSizes.fontMd,
                 fontWeight: FontWeight.w600,

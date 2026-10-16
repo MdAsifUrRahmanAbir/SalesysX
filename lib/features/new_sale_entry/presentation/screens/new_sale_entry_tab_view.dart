@@ -89,6 +89,14 @@ class NewSaleEntryTabView extends ConsumerWidget {
                                     ),
                                   ),
                                   SizedBox(height: AppSizes.md),
+                                  if (state.allowPriceEdit && state.selectedProduct != null) ...[
+                                    DiscountInputField(
+                                      label: context.l10n.unitPriceEditable,
+                                      controller: controller.unitPriceController,
+                                      onChanged: controller.setUnitPrice,
+                                    ),
+                                    SizedBox(height: AppSizes.md),
+                                  ],
                                   Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [

@@ -44,7 +44,7 @@ class TeamReportsRepository {
       FirestoreCollections.sales,
       filters: [FirestoreFilter('teamId', FirestoreOp.isEqualTo, teamId)],
     );
-    return docs.map(SaleModel.fromMap).toList();
+    return SaleModel.completedFrom(docs);
   }
 
   Future<List<TargetModel>> getTargetsForTeam(String teamId) async {

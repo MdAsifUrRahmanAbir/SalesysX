@@ -55,7 +55,7 @@ class OutletsCustomersRepository {
       FirestoreCollections.sales,
       filters: [FirestoreFilter('outletId', FirestoreOp.isEqualTo, outletId)],
     );
-    final sales = docs.map(SaleModel.fromMap).toList()..sort((a, b) => b.date.compareTo(a.date));
+    final sales = SaleModel.completedFrom(docs)..sort((a, b) => b.date.compareTo(a.date));
     return sales;
   }
 }

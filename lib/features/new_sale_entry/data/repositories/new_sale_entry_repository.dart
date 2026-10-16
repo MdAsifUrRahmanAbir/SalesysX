@@ -27,7 +27,7 @@ class NewSaleEntryRepository {
       FirestoreCollections.products,
       filters: [FirestoreFilter('active', FirestoreOp.isEqualTo, true)],
     );
-    return docs.map(ProductModel.fromMap).toList();
+    return docs.map(ProductModel.fromMap).where((p) => p.active).toList()..sort((a, b) => a.name.compareTo(b.name));
   }
 
   /// All of this salesman's sales — filtered to today client-side, same
@@ -37,7 +37,7 @@ class NewSaleEntryRepository {
       FirestoreCollections.sales,
       filters: [FirestoreFilter('salesmanEmail', FirestoreOp.isEqualTo, salesmanEmail)],
     );
-    return docs.map(SaleModel.fromMap).toList();
+    return SaleModel.completedFrom(docs);
   }
 
   /// Adds the sale and updates the outlet's `lastVisit`/`lastOrderAmount`
@@ -48,22 +48,28 @@ class NewSaleEntryRepository {
     required OutletModel outlet,
     required ProductModel product,
     required int quantity,
+    required double unitPrice,
     required double discount,
   }) async {
-    final amount = (quantity * product.unitPrice) - discount;
+    final amount = (quantity * unitPrice) - discount;
     final now = DateTime.now();
     await _client.runBatch((batch) {
       batch.add(FirestoreCollections.sales, {
         'salesmanEmail': salesmanEmail,
         'teamId': teamId,
         'outletId': outlet.id,
+        'outletName': outlet.name,
+        'productId': product.id,
         'productName': product.name,
         'category': product.category,
         'quantity': quantity,
-        'unitPrice': product.unitPrice,
+        'unitPrice': unitPrice,
+        'listPrice': product.unitPrice,
         'discount': discount,
         'amount': amount,
         'date': now.toIso8601String(),
+        'status': 'COMPLETED',
+        'createdAt': now.toIso8601String(),
       });
       batch.update('${FirestoreCollections.outlets}/${outlet.id}', {
         'lastVisit': now.toIso8601String(),

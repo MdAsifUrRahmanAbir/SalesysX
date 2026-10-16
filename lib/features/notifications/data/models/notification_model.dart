@@ -39,17 +39,23 @@ class NotificationModel {
     required this.createdAt,
   });
 
-  factory NotificationModel.fromMap(Map<String, dynamic> map) {
+  /// [viewer] is the signed-in email: read state is per user (`readBy`),
+  /// so a broadcast to 'all' is unread for everyone until each opens it.
+  factory NotificationModel.fromMap(Map<String, dynamic> map, {required String viewer}) {
+    final targetEmail = map['targetEmail'] as String? ?? 'all';
+    final readBy = map['readBy'] as List<dynamic>? ?? const [];
     return NotificationModel(
       id: map['id'] as String,
       title: map['title'] as String? ?? '',
       message: map['message'] as String? ?? '',
       type: NotificationTypeParsing.fromString(map['type'] as String?),
-      targetEmail: map['targetEmail'] as String? ?? 'all',
-      isRead: map['isRead'] as bool? ?? false,
+      targetEmail: targetEmail,
+      isRead: readBy.contains(viewer) || (targetEmail == viewer && (map['isRead'] as bool? ?? false)),
       createdAt: DateTime.tryParse(map['createdAt'] as String? ?? '') ?? DateTime.now(),
     );
   }
+
+  bool get isBroadcast => targetEmail == 'all';
 
   NotificationModel copyWith({bool? isRead}) {
     return NotificationModel(

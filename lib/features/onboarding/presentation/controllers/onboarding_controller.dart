@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/locale/l10n_provider.dart';
 import '../../data/models/onboarding_model.dart';
 
 /// Onboarding slide content. Update titles/descriptions/imagePaths here
@@ -7,24 +8,22 @@ import '../../data/models/onboarding_model.dart';
 class OnboardingController extends Notifier<List<OnboardingModel>> {
   @override
   List<OnboardingModel> build() {
-    return const [
+    final l10n = ref.watch(l10nProvider);
+    return [
       OnboardingModel(
-        title: 'Analyze Your Performance',
-        description:
-            'High-density data metrics and operational insights tailored specifically for growing global enterprises.',
-        imagePath: 'assets/images/onboarding_analytics.png',
+        title: l10n.onboardingSalesTitle,
+        description: l10n.onboardingSalesBody,
+        imagePath: 'assets/images/onboard.png',
       ),
       OnboardingModel(
-        title: 'Manage Inventory in Real Time',
-        description:
-            'Track stock levels, transfers, and reorder points across every warehouse from one screen.',
-        imagePath: 'assets/images/onboarding_inventory.png',
+        title: l10n.onboardingTargetTitle,
+        description: l10n.onboardingTargetBody,
+        imagePath: 'assets/images/welcome.png',
       ),
       OnboardingModel(
-        title: 'Move Faster, Every Day',
-        description:
-            'Streamlined workflows help your whole team close orders and tasks without the busywork.',
-        imagePath: 'assets/images/onboarding_speed.png',
+        title: l10n.onboardingAlertsTitle,
+        description: l10n.onboardingAlertsBody,
+        imagePath: 'assets/logo/logo.png',
       ),
     ];
   }

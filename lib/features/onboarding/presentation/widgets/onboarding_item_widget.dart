@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/custom_card.dart';
@@ -25,19 +26,21 @@ class OnboardingItemWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(AppSizes.radiusSm),
                 child: AspectRatio(
                   aspectRatio: 287 / 180,
-                  child: Image.asset(
-                    data.imagePath,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, _, _) => Container(
-                      color: context.appColors.background,
-                      alignment: Alignment.center,
-                      child: Icon(
-                        Icons.image_outlined,
-                        color: context.appColors.textHint,
-                        size: AppSizes.iconLg,
-                      ),
-                    ),
-                  ),
+                  child: data.imagePath.endsWith('.svg')
+                      ? SvgPicture.asset(data.imagePath, fit: BoxFit.contain)
+                      : Image.asset(
+                          data.imagePath,
+                          fit: BoxFit.contain,
+                          errorBuilder: (_, _, _) => Container(
+                            color: context.appColors.background,
+                            alignment: Alignment.center,
+                            child: Icon(
+                              Icons.image_outlined,
+                              color: context.appColors.textHint,
+                              size: AppSizes.iconLg,
+                            ),
+                          ),
+                        ),
                 ),
               ),
               const SizedBox(height: AppSizes.lg),

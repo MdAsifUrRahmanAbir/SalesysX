@@ -1,36 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/firestore_collections.dart';
-import '../../../../core/locale/l10n_provider.dart';
-import '../../../../core/network/firebase_client.dart';
-import '../../../../core/utils/password_hasher.dart';
-import '../../../../l10n/app_localizations.dart';
+import '../../../../core/auth/auth_service.dart';
 
-final changePasswordRepositoryProvider = Provider<ChangePasswordRepository>((
-  ref,
-) {
-  return ChangePasswordRepository(ref.watch(firebaseClientProvider), ref.watch(l10nProvider));
+final changePasswordRepositoryProvider = Provider<ChangePasswordRepository>((ref) {
+  return ChangePasswordRepository(ref.watch(authServiceProvider));
 });
 
+/// The password lives in Firebase Auth; [email] is kept for the caller's
+/// convenience but the signed-in user is always the one changed.
 class ChangePasswordRepository {
-  final FirebaseClient _client;
-  final AppLocalizations _l10n;
-  ChangePasswordRepository(this._client, this._l10n);
+  final AuthService _auth;
+  ChangePasswordRepository(this._auth);
 
   Future<void> changePassword({
     required String email,
     required String currentPassword,
     required String newPassword,
-  }) async {
-    final data = await _client.getDocument(FirestoreCollections.userDoc(email));
-    final storedHash = data?['passwordHash'] as String?;
-    if (storedHash == null || storedHash != PasswordHasher.hash(currentPassword)) {
-      throw ChangePasswordFailure(_l10n.currentPasswordIncorrect);
-    }
-
-    await _client.updateDocument(FirestoreCollections.userDoc(email), {
-      'passwordHash': PasswordHasher.hash(newPassword),
-    });
+  }) {
+    return _auth.changePassword(currentPassword: currentPassword, newPassword: newPassword);
   }
 }
 

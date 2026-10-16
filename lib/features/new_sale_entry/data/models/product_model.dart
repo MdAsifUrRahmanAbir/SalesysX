@@ -19,7 +19,8 @@ class ProductModel {
       name: map['name'] as String? ?? '',
       category: map['category'] as String? ?? '',
       unitPrice: (map['unitPrice'] as num?)?.toDouble() ?? 0,
-      active: map['active'] as bool? ?? true,
+      // The Admin Panel writes both `status` and `active`.
+      active: (map['active'] as bool? ?? true) && (map['status'] as String? ?? 'active') == 'active',
     );
   }
 }

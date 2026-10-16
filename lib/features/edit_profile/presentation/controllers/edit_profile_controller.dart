@@ -66,7 +66,7 @@ class EditProfileController extends Notifier<EditProfileState> {
         name: nameController.text.trim(),
         phone: phoneController.text.trim(),
       );
-      await ref.read(authSessionControllerProvider.notifier).restoreSession();
+      await ref.read(authSessionControllerProvider.notifier).reload();
       state = state.copyWith(isSaving: false);
       onSave({'name': nameController.text.trim(), 'phone': phoneController.text.trim()});
     } catch (e) {

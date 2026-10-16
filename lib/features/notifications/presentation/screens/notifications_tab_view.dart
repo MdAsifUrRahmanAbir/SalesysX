@@ -7,7 +7,6 @@ import '../../../../core/widgets/common/custom_filter_bar.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/empty_state.dart';
 import '../../../../core/widgets/utility/error_state.dart';
-import '../../../../core/widgets/utility/info_tip_banner.dart';
 import '../../data/models/notification_model.dart';
 import '../controllers/notification_controller.dart';
 import '../widgets/notification_tile.dart';
@@ -60,8 +59,6 @@ class NotificationsTabView extends ConsumerWidget {
                                       : '${context.l10n.filterUnread} (${state.unreadCount})',
                                   onSelected: controller.selectFilter,
                                 ),
-                                const SizedBox(height: AppSizes.md),
-                                InfoTipBanner(text: context.l10n.notificationsTip),
                                 const SizedBox(height: AppSizes.md),
                                 if (state.filteredItems.isEmpty)
                                   const EmptyState(title: 'No notifications')

@@ -247,3 +247,19 @@ Team Head
 Salesmen
 - Email: karim@salesysx.demo — Abdul Karim
 - Email: rahim@salesysx.demo — Abdur Rahim    
+- ![img.png](img.png)
+
+  ┌─────────────┬──────────────────────────┬─────────────────────────────┐                                                               │.gitignore                                                                            +8
+  │    Role     │          Email           │      Where to sign in       │                                                               │firebase.json                                                                     +91 -1
+  ├─────────────┼──────────────────────────┼─────────────────────────────┤                                                               │lib/core/constants/firestore_collections.dart                                      +9 -1
+  │ Super Admin │ superadmin@salesysx.demo │ Admin panel                 │                                                               │lib/core/constants/user_role.dart                                                 +30 -2
+  ├─────────────┼──────────────────────────┼─────────────────────────────┤                                                               │lib/core/network/connectivity_service.dart                                            +5
+  │ Admin       │ admin@salesysx.demo      │ Admin panel (emulator only) │                                                               │lib/core/network/firebase_client.dart                                                 +6
+  ├─────────────┼──────────────────────────┼─────────────────────────────┤                                                               │lib/core/seed/demo_data_seeder.dart                                                 -255
+  │ Manager     │ manager@salesysx.demo    │ Admin panel (emulator only) │                                                               │lib/core/session/auth_session_controller.dart                                    +26 -12
+  ├─────────────┼──────────────────────────┼─────────────────────────────┤                                                               │↓ 42 more below (opt+↓ to scroll) · 166 not shown                                        
+  │ Team Head   │ head@salesysx.demo       │ Mobile app                  │                                                               │                                                                                         
+  ├─────────────┼──────────────────────────┼─────────────────────────────┤                                                               │────────────────────────────────────────────────────────────────────────────────────────
+  │ Salesman    │ rahim@salesysx.demo      │ Mobile app                  │                                                               │.gitignore                                                                       [ ask ]
+  ├─────────────┼──────────────────────────┼─────────────────────────────┤                                                               │────────────────────────────────────────────────────────────────────────────────────────
+  │ Salesman    │ karim@salesysx.demo      │ Mobile app                

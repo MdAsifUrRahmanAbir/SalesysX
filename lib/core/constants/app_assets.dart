@@ -7,8 +7,8 @@ class AppAssets {
   static const String warningSVG = 'assets/clip/warning.svg';
   static const String wifi = 'assets/clip/wifi.svg';
 
-  static const String onboardSVG = 'assets/clip/onboard.svg';
-  static const String welcome = 'assets/clip/welcome.svg';
+  static const String onboardSVG = 'assets/images/onboard.png';
+  static const String welcome = 'assets/images/welcome.png';
 
   static const String aa = '';
 

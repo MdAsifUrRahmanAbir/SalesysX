@@ -9,6 +9,7 @@ import '../../../../core/widgets/utility/custom_snackbar.dart';
 import '../../../../routes/route_names.dart';
 import '../controllers/auth_controller.dart';
 import '../widgets/login_header.dart';
+import '../widgets/forgot_password_help.dart';
 import '../widgets/login_form.dart';
 import 'package:salesysx/core/locale/app_localizations_x.dart';
 
@@ -54,7 +55,7 @@ class LoginTabView extends ConsumerWidget {
                                 if (!context.mounted || !success) return;
                                 context.go(RouteNames.mainShell);
                               },
-                              onForgotPassword: () {},
+                              onForgotPassword: () => showForgotPasswordHelp(context),
                             ),
                           ],
                         ),

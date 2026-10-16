@@ -24,8 +24,8 @@ class LoginController extends Notifier<LoginFormState> {
 
   @override
   LoginFormState build() {
-    emailController = TextEditingController(text: "head@salesysx.demo");
-    passwordController = TextEditingController(text: "12345678");
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
 
     ref.onDispose(() {
       emailController.dispose();

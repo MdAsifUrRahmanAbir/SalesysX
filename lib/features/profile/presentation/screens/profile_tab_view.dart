@@ -46,7 +46,7 @@ class ProfileTabView extends ConsumerWidget {
                   avatarInitials: state.avatarInitials,
                   employeeId: state.employeeId,
                   roleLabel: switch (state.role) {
-                    UserRole.admin => context.l10n.roleAdmin,
+                    UserRole.superAdmin || UserRole.admin || UserRole.manager => context.l10n.roleAdmin,
                     UserRole.teamHead => context.l10n.roleTeamHead,
                     UserRole.salesman => context.l10n.profileRoleSalesman,
                   },

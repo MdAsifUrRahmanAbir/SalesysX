@@ -25,7 +25,7 @@ class OutletStatusFilterChips extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: options.length,
-        separatorBuilder: (_, __) => SizedBox(width: AppSizes.xs),
+        separatorBuilder: (_, _) => SizedBox(width: AppSizes.xs),
         itemBuilder: (context, index) {
           final option = options[index];
           final isSelected = option == selected;

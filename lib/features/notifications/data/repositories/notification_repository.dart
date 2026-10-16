@@ -12,27 +12,37 @@ class NotificationRepository {
   final FirebaseClient _client;
   NotificationRepository(this._client);
 
-  /// `whereIn` on a single field — still no composite index needed.
-  Future<List<NotificationModel>> getForUser(String email) async {
-    final docs = await _client.getCollection(
-      FirestoreCollections.notifications,
-      filters: [FirestoreFilter('targetEmail', FirestoreOp.whereIn, [email, 'all'])],
-    );
-    final items = docs.map(NotificationModel.fromMap).toList()
-      ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    return items;
+  /// Live list of this user's notifications plus company-wide ones,
+  /// newest first. `whereIn` on a single field — no composite index.
+  Stream<List<NotificationModel>> watchForUser(String email) {
+    return _client
+        .streamCollection(
+          FirestoreCollections.notifications,
+          filters: [FirestoreFilter('targetEmail', FirestoreOp.whereIn, [email, 'all'])],
+        )
+        .map((docs) => [for (final d in docs) NotificationModel.fromMap(d, viewer: email)]
+          ..sort((a, b) => b.createdAt.compareTo(a.createdAt)));
   }
 
-  Future<void> markAsRead(String id) {
-    return _client.updateDocument('${FirestoreCollections.notifications}/$id', {'isRead': true});
+  Future<void> markAsRead(NotificationModel item, String email) {
+    return _client.updateDocument('${FirestoreCollections.notifications}/${item.id}', _readFields(item, email));
   }
 
-  Future<void> markAllAsRead(List<String> ids) async {
-    if (ids.isEmpty) return;
-    await _client.runBatch((batch) {
-      for (final id in ids) {
-        batch.update('${FirestoreCollections.notifications}/$id', {'isRead': true});
-      }
-    });
+  Future<void> markAllAsRead(List<NotificationModel> items, String email) async {
+    for (var i = 0; i < items.length; i += 450) {
+      final chunk = items.skip(i).take(450);
+      await _client.runBatch((batch) {
+        for (final item in chunk) {
+          batch.update('${FirestoreCollections.notifications}/${item.id}', _readFields(item, email));
+        }
+      });
+    }
   }
+
+  /// Only `readBy` (and `isRead` on a personal notification) may change —
+  /// see firestore.rules.
+  Map<String, dynamic> _readFields(NotificationModel item, String email) => {
+    'readBy': _client.arrayUnion([email]),
+    if (!item.isBroadcast) 'isRead': true,
+  };
 }

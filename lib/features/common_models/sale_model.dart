@@ -11,6 +11,10 @@ class SaleModel {
   final double amount;
   final DateTime date;
 
+  /// COMPLETED or CANCELLED (set from the Admin Panel). Older records
+  /// without a status are completed.
+  final String status;
+
   const SaleModel({
     required this.id,
     required this.salesmanEmail,
@@ -23,7 +27,15 @@ class SaleModel {
     required this.discount,
     required this.amount,
     required this.date,
+    this.status = 'COMPLETED',
   });
+
+  bool get isCancelled => status == 'CANCELLED';
+
+  /// Maps query results, leaving out cancelled sales — they must never
+  /// count toward totals, targets or rankings.
+  static List<SaleModel> completedFrom(List<Map<String, dynamic>> docs) =>
+      [for (final d in docs) SaleModel.fromMap(d)].where((s) => !s.isCancelled).toList();
 
   factory SaleModel.fromMap(Map<String, dynamic> map) {
     return SaleModel(
@@ -38,6 +50,7 @@ class SaleModel {
       discount: (map['discount'] as num?)?.toDouble() ?? 0,
       amount: (map['amount'] as num?)?.toDouble() ?? 0,
       date: DateTime.tryParse(map['date'] as String? ?? '') ?? DateTime.now(),
+      status: (map['status'] as String? ?? 'COMPLETED').toUpperCase(),
     );
   }
 
@@ -52,5 +65,6 @@ class SaleModel {
     'discount': discount,
     'amount': amount,
     'date': date.toIso8601String(),
+    'status': status,
   };
 }

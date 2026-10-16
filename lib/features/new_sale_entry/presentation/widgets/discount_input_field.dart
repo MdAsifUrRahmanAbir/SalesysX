@@ -3,17 +3,22 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
 import 'package:salesysx/core/locale/app_localizations_x.dart';
-/// Labeled discount amount text field. Plain `TextField` rather than the
+/// Labeled taka amount text field — the discount, or the unit price when
+/// the company allows price editing. Plain `TextField` rather than the
 /// core `PrimaryInputField` — see assumptions note.
 class DiscountInputField extends StatelessWidget {
   const DiscountInputField({
     super.key,
     required this.controller,
     this.onChanged,
+    this.label,
   });
 
   final TextEditingController controller;
   final ValueChanged<String>? onChanged;
+
+  /// Defaults to the discount label.
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class DiscountInputField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          context.l10n.discountLabel(1),
+          label ?? context.l10n.discountAmountLabel,
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,

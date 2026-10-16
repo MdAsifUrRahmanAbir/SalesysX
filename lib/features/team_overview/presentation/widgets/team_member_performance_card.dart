@@ -22,7 +22,6 @@ class TeamMemberPerformanceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isGood = member.status == PerformanceStatus.good;
-    final statusColor = isGood ? AppColors.success : AppColors.warning;
     final barColor = isGood ? AppColors.primary : AppColors.warning;
     final avatarColor =
     member.isOnline ? AppColors.primary : context.appColors.textHint;
@@ -94,7 +93,7 @@ class TeamMemberPerformanceCard extends StatelessWidget {
                             ),
                             Text(
                               switch (member.role) {
-                                UserRole.admin => context.l10n.roleAdmin,
+                                UserRole.superAdmin || UserRole.admin || UserRole.manager => context.l10n.roleAdmin,
                                 UserRole.teamHead => context.l10n.roleTeamHead,
                                 UserRole.salesman => context.l10n.profileRoleSalesman,
                               },

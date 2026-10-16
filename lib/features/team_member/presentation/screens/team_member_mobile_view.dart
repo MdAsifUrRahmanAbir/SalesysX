@@ -26,7 +26,7 @@ class TeamMemberMobileView extends ConsumerWidget {
 
   String _roleLabel(BuildContext context, UserRole role, String employeeId) {
     final roleText = switch (role) {
-      UserRole.admin => context.l10n.roleAdmin,
+      UserRole.superAdmin || UserRole.admin || UserRole.manager => context.l10n.roleAdmin,
       UserRole.teamHead => context.l10n.roleTeamHead,
       UserRole.salesman => context.l10n.profileRoleSalesman,
     };

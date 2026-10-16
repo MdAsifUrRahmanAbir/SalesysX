@@ -32,6 +32,6 @@ class SalesmanHomeRepository {
       FirestoreCollections.sales,
       filters: [FirestoreFilter('salesmanEmail', FirestoreOp.isEqualTo, salesmanEmail)],
     );
-    return docs.map(SaleModel.fromMap).toList();
+    return SaleModel.completedFrom(docs);
   }
 }

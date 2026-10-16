@@ -4,7 +4,7 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
 import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Top greeting row for the salesman home dashboard: avatar with initials,
-/// a two-line "Assalamu Alaikum, <Name>" greeting, and a notification bell.
+/// a two-line `Assalamu Alaikum, <Name>` greeting, and a notification bell.
 ///
 /// NOTE: uses a plain [CircleAvatar] rather than the core `AppAvatar`
 /// widget — its real constructor doesn't take `initials`/`borderColor`/

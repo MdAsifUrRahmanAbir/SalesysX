@@ -37,7 +37,7 @@ class CategoryFilterChips extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
-            separatorBuilder: (_, __) => SizedBox(width: AppSizes.xs),
+            separatorBuilder: (_, _) => SizedBox(width: AppSizes.xs),
             itemBuilder: (context, index) {
               final category = categories[index];
               final isSelected = category == selected;
