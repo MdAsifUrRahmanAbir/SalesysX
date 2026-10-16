@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import 'profile_stat_card.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Row of three [ProfileStatCard]s: this month's sales, active outlet
 /// count, and today's completed sales.
@@ -14,16 +14,16 @@ class ProfileStatsRow extends StatelessWidget {
     required this.monthlyTargetShortLabel,
     required this.activeOutletCount,
     required this.salesTodayCompleted,
-    this.middleLabel = AppStrings.customersLabel,
-    this.middleSubtitle = AppStrings.activeOutlets,
+    this.middleLabel,
+    this.middleSubtitle,
   });
 
   final String monthlyAchievedShortLabel;
   final String monthlyTargetShortLabel;
   final int activeOutletCount;
   final int salesTodayCompleted;
-  final String middleLabel;
-  final String middleSubtitle;
+  final String? middleLabel;
+  final String? middleSubtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -31,28 +31,28 @@ class ProfileStatsRow extends StatelessWidget {
       children: [
         Expanded(
           child: ProfileStatCard(
-            label: AppStrings.thisMonthLabel,
+            label: context.l10n.thisMonthLabel,
             value: monthlyAchievedShortLabel,
             valueColor: AppColors.primary,
-            subtitle: '${AppStrings.targetShort} $monthlyTargetShortLabel',
+            subtitle: '${context.l10n.targetShort} $monthlyTargetShortLabel',
           ),
         ),
         SizedBox(width: AppSizes.sm),
         Expanded(
           child: ProfileStatCard(
-            label: middleLabel,
+            label: middleLabel ?? context.l10n.customersLabel,
             value: '$activeOutletCount',
             valueColor: AppColors.success,
-            subtitle: middleSubtitle,
+            subtitle: middleSubtitle ?? context.l10n.activeOutlets,
           ),
         ),
         SizedBox(width: AppSizes.sm),
         Expanded(
           child: ProfileStatCard(
-            label: AppStrings.salesTodayLabel,
+            label: context.l10n.salesTodayLabel,
             value: '$salesTodayCompleted',
             valueColor: AppColors.info,
-            subtitle: AppStrings.completed,
+            subtitle: context.l10n.completed,
           ),
         ),
       ],

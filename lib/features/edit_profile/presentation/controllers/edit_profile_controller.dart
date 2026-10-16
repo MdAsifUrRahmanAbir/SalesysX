@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/locale/l10n_provider.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/error_mapper.dart';
 import '../../data/repositories/edit_profile_repository.dart';
@@ -46,7 +46,7 @@ class EditProfileController extends Notifier<EditProfileState> {
 
   String? validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return AppStrings.fullNameRequired;
+      return ref.read(l10nProvider).fullNameRequired;
     }
     return null;
   }

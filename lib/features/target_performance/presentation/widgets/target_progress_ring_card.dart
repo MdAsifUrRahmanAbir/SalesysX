@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Monthly target ring card: achieved-percentage ring next to target /
 /// achieved / remaining figures.
@@ -63,7 +63,7 @@ class TargetProgressRingCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      AppStrings.achievedLabel,
+                      context.l10n.achievedLabel,
                       style: TextStyle(
                         color: AppColors.textHint,
                         fontSize: AppSizes.fontXs,
@@ -82,7 +82,7 @@ class TargetProgressRingCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  AppStrings.monthlyTarget,
+                  context.l10n.monthlyTarget,
                   style: TextStyle(
                     color: AppColors.textHint,
                     fontSize: AppSizes.fontXs,
@@ -101,13 +101,13 @@ class TargetProgressRingCard extends StatelessWidget {
                 Row(
                   children: [
                     _FigureColumn(
-                      label: AppStrings.achieved,
+                      label: context.l10n.achieved,
                       value: CurrencyFormatter.format(achieved),
                       valueColor: AppColors.success,
                     ),
                     SizedBox(width: AppSizes.sm),
                     _FigureColumn(
-                      label: AppStrings.remaining,
+                      label: context.l10n.remaining,
                       value: CurrencyFormatter.format(remaining),
                       valueColor: AppColors.error,
                     ),

@@ -688,6 +688,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileRoleSalesman => 'Salesman';
 
   @override
+  String get roleAdmin => 'Admin';
+
+  @override
+  String get roleTeamHead => 'Team Head';
+
+  @override
+  String get rolePrefix => 'Role:';
+
+  @override
   String get employeeIdPrefix => 'ID:';
 
   @override

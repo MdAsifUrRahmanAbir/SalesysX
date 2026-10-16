@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/password_input_field.dart';
 import '../../../../core/widgets/common/password_strength_meter.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../controllers/change_password_controller.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class ChangePasswordForm extends ConsumerWidget {
   final void Function(String currentPassword, String newPassword) onSave;
@@ -28,7 +28,7 @@ class ChangePasswordForm extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PasswordInputField(
-            label: AppStrings.currentPassword,
+            label: context.l10n.currentPassword,
             controller: controller.currentPasswordController,
             validator: controller.validateCurrentPassword,
           ),
@@ -36,7 +36,7 @@ class ChangePasswordForm extends ConsumerWidget {
           const SizedBox(height: AppSizes.lg),
 
           PasswordInputField(
-            label: AppStrings.newPassword,
+            label: context.l10n.newPassword,
             controller: controller.newPasswordController,
             validator: controller.validateNewPassword,
             onChanged: controller.onNewPasswordChanged,
@@ -45,7 +45,7 @@ class ChangePasswordForm extends ConsumerWidget {
           const SizedBox(height: AppSizes.lg),
 
           PasswordInputField(
-            label: AppStrings.confirmPassword,
+            label: context.l10n.confirmPassword,
             controller: controller.confirmPasswordController,
             validator: controller.validateConfirmPassword,
           ),
@@ -57,7 +57,7 @@ class ChangePasswordForm extends ConsumerWidget {
           const SizedBox(height: AppSizes.lg),
 
           PrimaryButton(
-            label: AppStrings.saveChanges,
+            label: context.l10n.saveChanges,
             loading: state.isSaving,
             onPressed: () {
               controller.submit(onSave);

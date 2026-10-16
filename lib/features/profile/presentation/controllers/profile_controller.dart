@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/constants/user_role.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/error_mapper.dart';
@@ -58,7 +57,7 @@ class ProfileController extends Notifier<ProfileState> {
         name: user.name,
         avatarInitials: _initialsOf(user.name),
         employeeId: user.employeeId,
-        roleLabel: user.role.label,
+        role: user.role,
         isTeamHead: user.role == UserRole.teamHead,
         team: teamName,
         division: '',
@@ -68,8 +67,6 @@ class ProfileController extends Notifier<ProfileState> {
         monthlyTargetShortLabel: _shortLabel(monthlyTarget),
         activeOutletCount: outlets.length,
         salesTodayCompleted: salesTodayCompleted,
-        middleStatLabel: AppStrings.customersLabel,
-        middleStatSubtitle: AppStrings.activeOutlets,
       );
     } catch (e) {
       state = state.copyWith(isLoading: false, errorMessage: getErrorMessage(e));

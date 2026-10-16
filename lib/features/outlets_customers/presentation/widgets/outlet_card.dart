@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
 import '../states/outlets_customers_state.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Outlet/customer summary card: status dot + name + status badge,
 /// divider, then owner / area / last-visit / last-order-amount rows.
@@ -27,10 +27,10 @@ class OutletCard extends StatelessWidget {
     OutletCustomerStatus.potential => AppColors.warning,
   };
 
-  String get _badgeText => switch (outlet.status) {
-    OutletCustomerStatus.active => AppStrings.filterActive,
-    OutletCustomerStatus.newCustomer => AppStrings.filterNew,
-    OutletCustomerStatus.potential => AppStrings.filterPotential,
+  String _badgeText(BuildContext context) => switch (outlet.status) {
+    OutletCustomerStatus.active => context.l10n.filterActive,
+    OutletCustomerStatus.newCustomer => context.l10n.filterNew,
+    OutletCustomerStatus.potential => context.l10n.filterPotential,
   };
 
   @override
@@ -69,7 +69,7 @@ class OutletCard extends StatelessWidget {
                   ],
                 ),
                 StatusBadge(
-                  text: _badgeText,
+                  text: _badgeText(context),
                   type: _badgeType,
                   shape: StatusBadgeShape.square,
                   compact: true,
@@ -79,21 +79,21 @@ class OutletCard extends StatelessWidget {
             SizedBox(height: AppSizes.sm),
             Divider(height: 1, color: AppColors.border),
             SizedBox(height: AppSizes.sm),
-            _DetailRow(label: AppStrings.ownerLabel, value: outlet.owner),
+            _DetailRow(label: context.l10n.ownerLabel, value: outlet.owner),
             SizedBox(height: AppSizes.xs),
             _DetailRow(
-              label: AppStrings.areaRouteLabel,
+              label: context.l10n.areaRouteLabel,
               value: outlet.areaRoute,
             ),
             SizedBox(height: AppSizes.xs),
             _DetailRow(
-              label: AppStrings.lastVisitLabel,
+              label: context.l10n.lastVisitLabel,
               value: outlet.lastVisit,
               valueColor: AppColors.textSecondary,
             ),
             SizedBox(height: AppSizes.xs),
             _DetailRow(
-              label: AppStrings.lastOrderAmountLabel,
+              label: context.l10n.lastOrderAmountLabel,
               value: CurrencyFormatter.format(outlet.lastOrderAmount),
               valueColor: AppColors.primary,
               valueWeight: FontWeight.w700,

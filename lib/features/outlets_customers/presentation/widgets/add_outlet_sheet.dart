@@ -4,12 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:salesysx/features/common_models/outlet_model.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/error_mapper.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../../../../core/widgets/common/primary_input_field.dart';
 import '../../data/repositories/outlets_customers_repository.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Form to add a brand-new sales point/shop directly from the app —
 /// the "freedom feature": salesmen and team heads no longer have to
@@ -88,35 +88,35 @@ class _AddOutletSheetState extends ConsumerState<AddOutletSheet> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(AppStrings.addOutletTitle, style: Theme.of(context).textTheme.titleLarge),
+            Text(context.l10n.addOutletTitle, style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: AppSizes.md),
             PrimaryInputField(
-              label: AppStrings.outletNameLabel,
+              label: context.l10n.outletNameLabel,
               controller: _nameController,
               validator: _required,
             ),
             SizedBox(height: AppSizes.md),
             PrimaryInputField(
-              label: AppStrings.ownerNameLabel,
+              label: context.l10n.ownerNameLabel,
               controller: _ownerController,
               validator: _required,
             ),
             SizedBox(height: AppSizes.md),
             PrimaryInputField(
-              label: AppStrings.phoneLabel,
+              label: context.l10n.phoneLabel,
               controller: _phoneController,
               keyboardType: TextInputType.phone,
               validator: _required,
             ),
             SizedBox(height: AppSizes.md),
             PrimaryInputField(
-              label: AppStrings.addressFieldLabel,
+              label: context.l10n.addressFieldLabel,
               controller: _addressController,
               validator: _required,
             ),
             SizedBox(height: AppSizes.md),
             PrimaryInputField(
-              label: AppStrings.areaRouteFieldLabel,
+              label: context.l10n.areaRouteFieldLabel,
               controller: _areaController,
             ),
             if (_error != null) ...[
@@ -125,7 +125,7 @@ class _AddOutletSheetState extends ConsumerState<AddOutletSheet> {
             ],
             SizedBox(height: AppSizes.lg),
             PrimaryButton(
-              label: AppStrings.addOutletAction,
+              label: context.l10n.addOutletAction,
               loading: _isSaving,
               onPressed: _submit,
             ),

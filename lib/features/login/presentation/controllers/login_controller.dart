@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/locale/l10n_provider.dart';
 
 class LoginFormState {
   final bool rememberMe;
@@ -40,13 +40,13 @@ class LoginController extends Notifier<LoginFormState> {
   }
 
   String? validateEmail(String? value) {
-    if (value == null || value.trim().isEmpty) return AppStrings.emailRequired;
-    if (!value.contains('@')) return AppStrings.emailInvalid;
+    if (value == null || value.trim().isEmpty) return ref.read(l10nProvider).emailRequired;
+    if (!value.contains('@')) return ref.read(l10nProvider).emailInvalid;
     return null;
   }
 
   String? validatePassword(String? value) {
-    if (value == null || value.isEmpty) return AppStrings.passwordRequired;
+    if (value == null || value.isEmpty) return ref.read(l10nProvider).passwordRequired;
     return null;
   }
 

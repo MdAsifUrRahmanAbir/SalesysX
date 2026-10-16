@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/custom_step_indicator.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../../../../routes/route_names.dart';
@@ -11,6 +10,7 @@ import '../widgets/onboarding_top_bar.dart';
 import '../widgets/onboarding_item_widget.dart';
 
 import '../../../../core/utils/responsive.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class OnboardingScreen extends ConsumerWidget {
   const OnboardingScreen({super.key});
@@ -95,7 +95,7 @@ class _OnboardingMobileViewState extends ConsumerState<OnboardingMobileView> {
           Padding(
             padding: const EdgeInsets.all(AppSizes.lg),
             child: PrimaryButton(
-              label: isLastSlide ? AppStrings.getStarted : AppStrings.next,
+              label: isLastSlide ? context.l10n.getStarted : context.l10n.next,
               onPressed: () {
                 if (isLastSlide) {
                   _finish();
@@ -180,7 +180,7 @@ class _OnboardingTabViewState extends ConsumerState<OnboardingTabView> {
               Padding(
                 padding: const EdgeInsets.all(AppSizes.xl),
                 child: PrimaryButton(
-                  label: isLastSlide ? AppStrings.getStarted : AppStrings.next,
+                  label: isLastSlide ? context.l10n.getStarted : context.l10n.next,
                   onPressed: () {
                     if (isLastSlide) {
                       _finish();

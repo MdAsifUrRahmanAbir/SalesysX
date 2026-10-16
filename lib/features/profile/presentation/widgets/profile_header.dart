@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Profile page header: large avatar, name, role badge + employee ID,
 /// and team/division line.
@@ -18,7 +18,7 @@ class ProfileHeader extends StatelessWidget {
     required this.employeeId,
     required this.team,
     required this.division,
-    this.roleLabel = AppStrings.profileRoleSalesman,
+    this.roleLabel,
   });
 
   final String name;
@@ -26,7 +26,7 @@ class ProfileHeader extends StatelessWidget {
   final String employeeId;
   final String team;
   final String division;
-  final String roleLabel;
+  final String? roleLabel;
 
   static const double _avatarSize = 80;
 
@@ -74,14 +74,14 @@ class ProfileHeader extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               StatusBadge(
-                text: roleLabel,
+                text: roleLabel ?? context.l10n.profileRoleSalesman,
                 type: StatusBadgeType.primary,
                 shape: StatusBadgeShape.square,
                 compact: true,
               ),
               SizedBox(width: AppSizes.xs),
               Text(
-                '${AppStrings.employeeIdPrefix} $employeeId',
+                '${context.l10n.employeeIdPrefix} $employeeId',
                 style: TextStyle(
                   color: AppColors.textHint,
                   fontSize: AppSizes.fontSm,
@@ -92,7 +92,7 @@ class ProfileHeader extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.xs),
           Text(
-            AppStrings.teamAndDivision(team, division),
+            division.isEmpty ? team : context.l10n.teamAndDivision(team, division),
             style: TextStyle(
               color: AppColors.textSecondary,
               fontSize: AppSizes.fontSm,

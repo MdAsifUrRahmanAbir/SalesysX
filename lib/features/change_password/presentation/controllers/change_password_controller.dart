@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/locale/l10n_provider.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/error_mapper.dart';
 import '../../../../core/widgets/common/password_strength_meter.dart';
@@ -79,7 +79,7 @@ class ChangePasswordController extends Notifier<ChangePasswordState> {
 
   String? validateCurrentPassword(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.currentPasswordRequired;
+      return ref.read(l10nProvider).currentPasswordRequired;
     }
 
     return null;
@@ -87,11 +87,11 @@ class ChangePasswordController extends Notifier<ChangePasswordState> {
 
   String? validateNewPassword(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.passwordRequired;
+      return ref.read(l10nProvider).passwordRequired;
     }
 
     if (value == currentPasswordController.text) {
-      return AppStrings.newPasswordSameAsCurrent;
+      return ref.read(l10nProvider).newPasswordSameAsCurrent;
     }
 
     return null;
@@ -99,11 +99,11 @@ class ChangePasswordController extends Notifier<ChangePasswordState> {
 
   String? validateConfirmPassword(String? value) {
     if (value == null || value.isEmpty) {
-      return AppStrings.confirmPasswordRequired;
+      return ref.read(l10nProvider).confirmPasswordRequired;
     }
 
     if (value != newPasswordController.text) {
-      return AppStrings.passwordsDoNotMatch;
+      return ref.read(l10nProvider).passwordsDoNotMatch;
     }
 
     return null;

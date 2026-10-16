@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/constants/user_role.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
 import '../states/team_overview_state.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// One team member's performance card: avatar + name/online-dot/role,
 /// an achieved-percent badge, a target/achieved/today's-sale row, and a
@@ -92,7 +93,11 @@ class TeamMemberPerformanceCard extends StatelessWidget {
                               ],
                             ),
                             Text(
-                              member.role,
+                              switch (member.role) {
+                                UserRole.admin => context.l10n.roleAdmin,
+                                UserRole.teamHead => context.l10n.roleTeamHead,
+                                UserRole.salesman => context.l10n.profileRoleSalesman,
+                              },
                               style: TextStyle(
                                 color: context.appColors.textSecondary,
                                 fontSize: AppSizes.fontXs,
@@ -118,19 +123,19 @@ class TeamMemberPerformanceCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _FigureColumn(
-                  label: AppStrings.targetCapsLabel,
+                  label: context.l10n.targetCapsLabel,
                   value: CurrencyFormatter.format(member.target),
                   valueColor: context.appColors.textPrimary,
                   alignEnd: false,
                 ),
                 _FigureColumn(
-                  label: AppStrings.achievedLabel,
+                  label: context.l10n.achievedLabel,
                   value: CurrencyFormatter.format(member.achieved),
                   valueColor: AppColors.primaryDark,
                   alignEnd: false,
                 ),
                 _FigureColumn(
-                  label: AppStrings.todaysSaleCapsLabel,
+                  label: context.l10n.todaysSaleCapsLabel,
                   value: CurrencyFormatter.format(member.todaySale),
                   valueColor: context.appColors.textPrimary,
                   alignEnd: true,

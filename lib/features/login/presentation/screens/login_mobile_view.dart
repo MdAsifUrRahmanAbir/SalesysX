@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/error_mapper.dart';
 import '../../../../core/widgets/common/custom_app_bar.dart';
 import '../../../../core/widgets/common/custom_card.dart';
@@ -11,6 +10,7 @@ import '../../../../routes/route_names.dart';
 import '../controllers/auth_controller.dart';
 import '../widgets/login_header.dart';
 import '../widgets/login_form.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class LoginMobileView extends ConsumerWidget {
   const LoginMobileView({super.key});
@@ -28,7 +28,7 @@ class LoginMobileView extends ConsumerWidget {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(title: AppStrings.signIn),
+          CustomAppBar(title: context.l10n.signIn),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(AppSizes.lg),

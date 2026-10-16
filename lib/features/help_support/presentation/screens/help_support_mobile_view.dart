@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/app_header_bar.dart';
 import '../../../../core/widgets/common/search_field.dart';
 import '../../../../core/widgets/common/secondary_button.dart';
 import '../widgets/faq_item.dart';
 import '../widgets/contact_support_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class HelpSupportMobileView extends ConsumerWidget {
   const HelpSupportMobileView({super.key});
@@ -15,8 +15,8 @@ class HelpSupportMobileView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        const AppHeaderBar(
-          title: AppStrings.helpSupportTitle,
+        AppHeaderBar(
+          title: context.l10n.helpSupportTitle,
           backStyle: HeaderBackStyle.chevron,
         ),
         Expanded(
@@ -26,7 +26,7 @@ class HelpSupportMobileView extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SearchField(
-                  hintText: AppStrings.searchFaqsHint,
+                  hintText: context.l10n.searchFaqsHint,
                   onChanged: (query) {
                     // TODO: filter FAQ list once helpSupportControllerProvider
                     // and features/help_support/data/repositories exist.
@@ -34,7 +34,7 @@ class HelpSupportMobileView extends ConsumerWidget {
                 ),
                 const SizedBox(height: AppSizes.lg),
                  Text(
-                  AppStrings.faqSectionTitle,
+                  context.l10n.faqSectionTitle,
                   style: TextStyle(fontSize: AppSizes.fontMd, fontWeight: FontWeight.w700, color: Color(0xFF0F172A)),
                 ),
                 const SizedBox(height: AppSizes.sm + AppSizes.xs),
@@ -73,21 +73,21 @@ class HelpSupportMobileView extends ConsumerWidget {
                 ),
                 const SizedBox(height: AppSizes.lg),
                 SecondaryButton(
-                  label: AppStrings.submitTicket,
+                  label: context.l10n.submitTicket,
                   onPressed: () {
                     // TODO: navigate to a ticket-submission flow once that route exists
                   },
                 ),
                 const SizedBox(height: AppSizes.lg),
                  Text(
-                  AppStrings.contactSupportTitle,
+                  context.l10n.contactSupportTitle,
                   style: TextStyle(fontSize: AppSizes.fontMd, fontWeight: FontWeight.w700, color: Color(0xFF0F172A)),
                 ),
                 const SizedBox(height: AppSizes.sm + AppSizes.xs),
                 ContactSupportTile(
                   icon: Icons.chat_bubble_outline_rounded,
-                  title: AppStrings.liveChat,
-                  actionLabel: AppStrings.chatNow,
+                  title: context.l10n.liveChat,
+                  actionLabel: context.l10n.chatNow,
                   onTap: () {
                     // TODO: launch live chat flow
                   },
@@ -95,7 +95,7 @@ class HelpSupportMobileView extends ConsumerWidget {
                 const SizedBox(height: AppSizes.sm + AppSizes.xs),
                 ContactSupportTile(
                   icon: Icons.mail_outline_rounded,
-                  title: AppStrings.emailContact,
+                  title: context.l10n.emailContact,
                   actionLabel: 'support@enterprise.com',
                   onTap: () {
                     // TODO: launch mail composer via url_launcher
@@ -104,7 +104,7 @@ class HelpSupportMobileView extends ConsumerWidget {
                 const SizedBox(height: AppSizes.sm + AppSizes.xs),
                 ContactSupportTile(
                   icon: Icons.call_outlined,
-                  title: AppStrings.callContact,
+                  title: context.l10n.callContact,
                   actionLabel: '+1-800-555-0100',
                   onTap: () {
                     // TODO: launch dialer via url_launcher

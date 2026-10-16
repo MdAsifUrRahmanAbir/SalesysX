@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Page header for the New Sale Entry screen: back button, title, and a
 /// trailing help icon. Plain row rather than a core app-bar widget — see
 /// assumptions note; promote to `AppHeaderBar`/`CustomAppBar` once its
@@ -45,7 +44,7 @@ class NewSaleEntryHeader extends StatelessWidget {
               // ),
               // SizedBox(width: AppSizes.xs),
               Text(
-                AppStrings.newSaleEntryTitle,
+                context.l10n.newSaleEntryTitle,
                 style: TextStyle(
                   color: AppColors.textPrimary,
                   fontSize: AppSizes.fontXl,

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Bottom action row — outlined Call / Message actions plus a filled
 /// "Full Report" primary action, in the accent (teal) color this
 /// screen uses instead of the app's default purple primary.
@@ -22,9 +21,9 @@ class TeamMemberActionBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: _OutlinedAction(icon: Icons.call_outlined, label: AppStrings.call, onTap: onCallTap)),
+        Expanded(child: _OutlinedAction(icon: Icons.call_outlined, label: context.l10n.call, onTap: onCallTap)),
         const SizedBox(width: AppSizes.sm),
-        Expanded(child: _OutlinedAction(icon: Icons.chat_bubble_outline_rounded, label: AppStrings.message, onTap: onMessageTap)),
+        Expanded(child: _OutlinedAction(icon: Icons.chat_bubble_outline_rounded, label: context.l10n.message, onTap: onMessageTap)),
         const SizedBox(width: AppSizes.sm),
         Expanded(
           child: SizedBox(
@@ -38,7 +37,7 @@ class TeamMemberActionBar extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.radiusSm)),
                 textStyle: const TextStyle(fontSize: AppSizes.fontSm, fontWeight: FontWeight.w700),
               ),
-              child: Text(AppStrings.fullReport),
+              child: Text(context.l10n.fullReport),
             ),
           ),
         ),

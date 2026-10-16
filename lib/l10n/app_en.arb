@@ -352,6 +352,9 @@
     }
   },
   "profileRoleSalesman": "Salesman",
+  "roleAdmin": "Admin",
+  "roleTeamHead": "Team Head",
+  "rolePrefix": "Role:",
   "employeeIdPrefix": "ID:",
   "thisMonthLabel": "THIS MONTH",
   "customersLabel": "CUSTOMERS",

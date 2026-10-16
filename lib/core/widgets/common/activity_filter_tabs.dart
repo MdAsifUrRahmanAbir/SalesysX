@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/utility/custom_filter_bar.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Today / This Week / This Month filter for the activity feed.
 class ActivityFilterTabs extends StatelessWidget {
@@ -15,9 +15,9 @@ class ActivityFilterTabs extends StatelessWidget {
       filters: const ['today', 'week', 'month'],
       selectedFilters: {selected},
       labelBuilder: (f) => switch (f) {
-        'today' => AppStrings.filterToday,
-        'week' => AppStrings.filterThisWeek,
-        _ => AppStrings.filterThisMonth,
+        'today' => context.l10n.filterToday,
+        'week' => context.l10n.filterThisWeek,
+        _ => context.l10n.filterThisMonth,
       },
       onSelected: onChanged,
     );

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import 'profile_menu_item.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Vertical stack of the profile page's menu rows. Every role gets the
 /// same personal rows (My Sales Report, My Achievement); a Team Head
@@ -37,52 +37,52 @@ class ProfileMenuSection extends StatelessWidget {
       children: [
         ProfileMenuItem(
           icon: Icons.bar_chart_rounded,
-          title: AppStrings.mySalesReportTitle,
-          subtitle: AppStrings.mySalesReportSubtitle,
+          title: context.l10n.mySalesReportTitle,
+          subtitle: context.l10n.mySalesReportSubtitle,
           onTap: onSalesReportTap,
         ),
         SizedBox(height: AppSizes.sm),
         ProfileMenuItem(
           icon: Icons.trending_up_rounded,
-          title: AppStrings.myAchievementTitle,
-          subtitle: AppStrings.myAchievementSubtitle,
+          title: context.l10n.myAchievementTitle,
+          subtitle: context.l10n.myAchievementSubtitle,
           onTap: onAchievementTap,
         ),
         SizedBox(height: AppSizes.sm),
         if (isTeamHead) ...[
           ProfileMenuItem(
             icon: Icons.dashboard_outlined,
-            title: AppStrings.teamDashboardMenuTitle,
-            subtitle: AppStrings.teamDashboardMenuSubtitle,
+            title: context.l10n.teamDashboardMenuTitle,
+            subtitle: context.l10n.teamDashboardMenuSubtitle,
             onTap: onTeamDashboardTap,
           ),
           SizedBox(height: AppSizes.sm),
           ProfileMenuItem(
             icon: Icons.receipt_long_outlined,
-            title: AppStrings.teamSalesLogMenuTitle,
-            subtitle: AppStrings.teamSalesLogMenuSubtitle,
+            title: context.l10n.teamSalesLogMenuTitle,
+            subtitle: context.l10n.teamSalesLogMenuSubtitle,
             onTap: onTeamSalesLogTap,
           ),
           SizedBox(height: AppSizes.sm),
           ProfileMenuItem(
             icon: Icons.leaderboard_outlined,
-            title: AppStrings.teamReportsMenuTitle,
-            subtitle: AppStrings.teamReportsMenuSubtitle,
+            title: context.l10n.teamReportsMenuTitle,
+            subtitle: context.l10n.teamReportsMenuSubtitle,
             onTap: onTeamReportsTap,
           ),
           SizedBox(height: AppSizes.sm),
         ],
         ProfileMenuItem(
           icon: Icons.settings_outlined,
-          title: AppStrings.settingsTitle,
-          subtitle: AppStrings.settingsSubtitle,
+          title: context.l10n.settingsTitle,
+          subtitle: context.l10n.settingsSubtitle,
           onTap: onSettingsTap,
         ),
         SizedBox(height: AppSizes.sm),
         ProfileMenuItem(
           icon: Icons.logout_rounded,
-          title: AppStrings.logoutTitle,
-          subtitle: AppStrings.logoutSubtitle,
+          title: context.l10n.logoutTitle,
+          subtitle: context.l10n.logoutSubtitle,
           onTap: onLogoutTap,
           isDestructive: true,
         ),

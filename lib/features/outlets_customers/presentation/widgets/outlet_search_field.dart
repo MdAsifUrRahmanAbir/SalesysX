@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Search field for outlets/owner names. Plain `TextField` rather than
 /// the core `SearchField` — see assumptions note.
 class OutletSearchField extends StatelessWidget {
@@ -27,7 +26,7 @@ class OutletSearchField extends StatelessWidget {
         fontWeight: FontWeight.w400,
       ),
       decoration: InputDecoration(
-        hintText: AppStrings.searchOutletsPlaceholder,
+        hintText: context.l10n.searchOutletsPlaceholder,
         hintStyle: TextStyle(
           color: AppColors.textHint,
           fontSize: AppSizes.fontSm,

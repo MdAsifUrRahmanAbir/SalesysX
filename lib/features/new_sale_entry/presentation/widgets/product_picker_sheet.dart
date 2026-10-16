@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/common/custom_list_tile.dart';
 import '../../../../core/widgets/utility/empty_state.dart';
 import '../../data/models/product_model.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Bottom-sheet list of active products, already filtered to the
 /// selected category by the caller.
@@ -21,7 +21,7 @@ class ProductPickerSheet extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppStrings.selectProduct, style: Theme.of(context).textTheme.titleLarge),
+        Text(context.l10n.selectProduct, style: Theme.of(context).textTheme.titleLarge),
         SizedBox(height: AppSizes.sm),
         if (products.isEmpty)
           const EmptyState(title: 'No products in this category')

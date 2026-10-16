@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Team target & performance summary card: title + "X% Reached" badge,
 /// total target / achieved figures, a linear progress bar, and a
@@ -39,7 +39,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppStrings.teamTargetAndPerformance,
+                context.l10n.teamTargetAndPerformance,
                 style: TextStyle(
                   color: context.appColors.textHint,
                   fontSize: AppSizes.fontXs,
@@ -47,7 +47,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                 ),
               ),
               StatusBadge(
-                text: AppStrings.percentReached((achievedPercent * 100).round()),
+                text: context.l10n.percentReached((achievedPercent * 100).round()),
                 type: StatusBadgeType.primary,
                 shape: StatusBadgeShape.square,
                 compact: true,
@@ -63,7 +63,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    AppStrings.totalTargetLabel,
+                    context.l10n.totalTargetLabel,
                     style: TextStyle(
                       color: context.appColors.textHint,
                       fontSize: AppSizes.fontXs,
@@ -85,7 +85,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    AppStrings.achievedLabel,
+                    context.l10n.achievedLabel,
                     style: TextStyle(
                       color: context.appColors.textHint,
                       fontSize: AppSizes.fontXs,
@@ -124,7 +124,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        AppStrings.totalMembersLabel,
+                        context.l10n.totalMembersLabel,
                         style: TextStyle(
                           color: context.appColors.textHint,
                           fontSize: AppSizes.fontXs,
@@ -132,7 +132,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        AppStrings.representativesCount(totalMembers),
+                        context.l10n.representativesCount(totalMembers),
                         style: TextStyle(
                           color: context.appColors.textPrimary,
                           fontSize: AppSizes.fontMd,
@@ -149,7 +149,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        AppStrings.activeTodayLabel,
+                        context.l10n.activeTodayLabel,
                         style: TextStyle(
                           color: context.appColors.textHint,
                           fontSize: AppSizes.fontXs,
@@ -168,7 +168,7 @@ class TeamTargetSummaryCard extends StatelessWidget {
                           ),
                           SizedBox(width: AppSizes.xs),
                           Text(
-                            AppStrings.onlineCountLabel(onlineCount),
+                            context.l10n.onlineCountLabel(onlineCount),
                             style: TextStyle(
                               color: context.appColors.textPrimary,
                               fontSize: AppSizes.fontMd,

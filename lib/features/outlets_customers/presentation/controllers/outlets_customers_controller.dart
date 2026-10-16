@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:salesysx/features/common_models/outlet_model.dart';
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/locale/l10n_provider.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/utils/error_mapper.dart';
@@ -62,7 +62,7 @@ class OutletsCustomersController extends Notifier<OutletsCustomersState> {
       phone: outlet.phone,
       address: outlet.address,
       areaRoute: outlet.areaRoute,
-      lastVisit: outlet.lastVisit == null ? AppStrings.notVisitedYet : DateFormatter.shortDate(outlet.lastVisit!),
+      lastVisit: outlet.lastVisit == null ? ref.read(l10nProvider).notVisitedYet : DateFormatter.shortDate(outlet.lastVisit!),
       lastOrderAmount: outlet.lastOrderAmount,
     );
   }

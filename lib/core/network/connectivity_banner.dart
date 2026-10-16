@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:salesysx/core/constants/app_colors.dart';
 import 'package:salesysx/core/constants/app_sizes.dart';
-import 'package:salesysx/core/constants/app_strings.dart';
-
 import 'connectivity_provider.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Floating rounded "toast" pinned near the bottom of the screen, shown on
 /// every screen in the app whenever [connectivityStatusProvider] is
@@ -47,13 +46,13 @@ class ConnectivityBanner extends ConsumerWidget {
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.wifi_off_rounded, size: AppSizes.iconSm, color: AppColors.textWhite),
-                    SizedBox(width: AppSizes.sm),
+                  children: [
+                    const Icon(Icons.wifi_off_rounded, size: AppSizes.iconSm, color: AppColors.textWhite),
+                    const SizedBox(width: AppSizes.sm),
                     Flexible(
                       child: Text(
-                        AppStrings.noInternetBannerMessage,
-                        style: TextStyle(
+                        context.l10n.noInternetBannerMessage,
+                        style: const TextStyle(
                           color: AppColors.textWhite,
                           fontSize: AppSizes.fontSm,
                           fontWeight: FontWeight.w600,

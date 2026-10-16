@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Top greeting row for the salesman home dashboard: avatar with initials,
 /// a two-line "Assalamu Alaikum, <Name>" greeting, and a notification bell.
 ///
@@ -52,7 +51,7 @@ class SalesmanGreetingHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  AppStrings.salesmanGreeting,
+                  context.l10n.salesmanGreeting,
                   style: TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: AppSizes.fontSm,

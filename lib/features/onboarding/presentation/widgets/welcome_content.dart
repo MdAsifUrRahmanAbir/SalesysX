@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/hero_image_banner.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Hero illustration + title + subtitle shown on the welcome screen.
 class WelcomeContent extends StatelessWidget {
@@ -20,7 +20,7 @@ class WelcomeContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.xl),
         Text(
-          AppStrings.welcomeToApp,
+          context.l10n.welcomeToApp,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: AppSizes.fontDisplay,
@@ -30,7 +30,7 @@ class WelcomeContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.sm),
         Text(
-          AppStrings.welcomeToAppSubtitle,
+          context.l10n.welcomeToAppSubtitle,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: AppSizes.fontMd,

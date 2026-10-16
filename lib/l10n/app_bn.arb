@@ -352,6 +352,9 @@
     }
   },
   "profileRoleSalesman": "সেলসম্যান",
+  "roleAdmin": "অ্যাডমিন",
+  "roleTeamHead": "টিম হেড",
+  "rolePrefix": "ভূমিকা:",
   "employeeIdPrefix": "আইডি:",
   "thisMonthLabel": "এই মাস",
   "customersLabel": "গ্রাহক",

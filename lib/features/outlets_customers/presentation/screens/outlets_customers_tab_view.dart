@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/utility/custom_bottom_sheet.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/custom_snackbar.dart';
@@ -16,6 +15,7 @@ import '../widgets/outlet_list.dart';
 import '../widgets/outlet_search_field.dart';
 import '../widgets/outlet_status_filter_chips.dart';
 import '../widgets/outlets_customers_header.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class OutletsCustomersTabView extends ConsumerWidget {
   const OutletsCustomersTabView({super.key});
@@ -44,7 +44,7 @@ class OutletsCustomersTabView extends ConsumerWidget {
                 child: AddOutletSheet(
                   onCreated: (_) {
                     controller.refresh();
-                    CustomSnackBar.show(context, AppStrings.outletAddedSuccess);
+                    CustomSnackBar.show(context, context.l10n.outletAddedSuccess);
                   },
                 ),
               ),

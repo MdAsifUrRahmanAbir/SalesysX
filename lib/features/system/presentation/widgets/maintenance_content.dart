@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/app_svg_icon.dart';
 import '../../../../core/widgets/common/status_badge.dart';
 import '../../../../core/widgets/common/secondary_button.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Toolbox icon mark, title/subtitle, an ETA pill, and a "Notify Me
 /// When Ready" outlined action. Purely presentational — the ETA
@@ -33,13 +33,13 @@ class MaintenanceContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.xl),
          Text(
-          AppStrings.maintenanceTitle,
+          context.l10n.maintenanceTitle,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: AppSizes.fontXxl, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
         ),
         const SizedBox(height: AppSizes.sm + AppSizes.xs),
          Text(
-          AppStrings.maintenanceSubtitle,
+          context.l10n.maintenanceSubtitle,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: AppSizes.fontMd, color: context.appColors.textSecondary, height: 1.5),
         ),
@@ -47,7 +47,7 @@ class MaintenanceContent extends StatelessWidget {
         StatusBadge(text: etaLabel, type: StatusBadgeType.success),
         const SizedBox(height: AppSizes.xl),
         SecondaryButton(
-          label: AppStrings.notifyMeWhenReady,
+          label: context.l10n.notifyMeWhenReady,
           onPressed: onNotifyMe,
         ),
       ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/widgets/common/app_header_bar.dart';
 import '../../../../core/widgets/common/custom_filter_bar.dart';
@@ -12,6 +11,7 @@ import '../../../../core/widgets/utility/info_tip_banner.dart';
 import '../../data/models/notification_model.dart';
 import '../controllers/notification_controller.dart';
 import '../widgets/notification_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class NotificationsTabView extends ConsumerWidget {
   const NotificationsTabView({super.key});
@@ -32,8 +32,8 @@ class NotificationsTabView extends ConsumerWidget {
     return Column(
       children: [
         AppHeaderBar(
-          title: AppStrings.notificationsTitle,
-          trailingLabel: AppStrings.markAllAsRead,
+          title: context.l10n.notificationsTitle,
+          trailingLabel: context.l10n.markAllAsRead,
           backStyle: HeaderBackStyle.chevron,
           onTrailingTap: controller.markAllAsRead,
         ),
@@ -56,12 +56,12 @@ class NotificationsTabView extends ConsumerWidget {
                                   filters: const ['all', 'unread'],
                                   selectedFilters: {state.selectedFilter},
                                   labelBuilder: (filter) => filter == 'all'
-                                      ? '${AppStrings.filterAll} (${state.items.length})'
-                                      : '${AppStrings.filterUnread} (${state.unreadCount})',
+                                      ? '${context.l10n.filterAll} (${state.items.length})'
+                                      : '${context.l10n.filterUnread} (${state.unreadCount})',
                                   onSelected: controller.selectFilter,
                                 ),
                                 const SizedBox(height: AppSizes.md),
-                                const InfoTipBanner(text: AppStrings.notificationsTip),
+                                InfoTipBanner(text: context.l10n.notificationsTip),
                                 const SizedBox(height: AppSizes.md),
                                 if (state.filteredItems.isEmpty)
                                   const EmptyState(title: 'No notifications')

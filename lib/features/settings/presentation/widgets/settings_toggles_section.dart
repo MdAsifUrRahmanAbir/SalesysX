@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/settings_group.dart';
 import '../../../../core/widgets/common/settings_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Appearance and Notifications groups — toggles and a picker row.
 /// Purely presentational: reports changes up via the callbacks, does
@@ -39,15 +39,15 @@ class SettingsTogglesSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SettingsGroup(
-          label: AppStrings.appearanceSection,
+          label: context.l10n.appearanceSection,
           children: [
             SettingsTile(
-              title: AppStrings.darkMode,
+              title: context.l10n.darkMode,
               switchValue: darkMode,
               onSwitchChanged: onDarkModeChanged,
             ),
             SettingsTile(
-              title: AppStrings.appTheme,
+              title: context.l10n.appTheme,
               value: appThemeValue,
               onTap: onAppThemeTap,
             ),
@@ -55,20 +55,20 @@ class SettingsTogglesSection extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.lg),
         SettingsGroup(
-          label: AppStrings.notificationsSection,
+          label: context.l10n.notificationsSection,
           children: [
             SettingsTile(
-              title: AppStrings.pushNotifications,
+              title: context.l10n.pushNotifications,
               switchValue: pushNotifications,
               onSwitchChanged: onPushNotificationsChanged,
             ),
             SettingsTile(
-              title: AppStrings.emailNotifications,
+              title: context.l10n.emailNotifications,
               switchValue: emailNotifications,
               onSwitchChanged: onEmailNotificationsChanged,
             ),
             SettingsTile(
-              title: AppStrings.smsAlerts,
+              title: context.l10n.smsAlerts,
               switchValue: smsAlerts,
               onSwitchChanged: onSmsAlertsChanged,
             ),

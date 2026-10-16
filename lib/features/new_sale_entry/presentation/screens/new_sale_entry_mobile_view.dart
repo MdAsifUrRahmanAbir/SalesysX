@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/utility/custom_bottom_sheet.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/custom_shimmer.dart';
@@ -23,6 +22,7 @@ import '../widgets/product_selector_field.dart';
 import '../widgets/quantity_stepper_field.dart';
 import '../widgets/submit_sale_entry_button.dart';
 import '../widgets/todays_entries_section.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class NewSaleEntryMobileView extends ConsumerWidget {
   const NewSaleEntryMobileView({super.key});
@@ -42,7 +42,7 @@ class NewSaleEntryMobileView extends ConsumerWidget {
               onBack: () => context.pop(),
               onHelpTap: () => CustomBottomSheet.show<void>(
                 context,
-                child: Text(AppStrings.saleEntryHelpText),
+                child: Text(context.l10n.saleEntryHelpText),
               ),
             ),
             Expanded(
@@ -123,7 +123,7 @@ class NewSaleEntryMobileView extends ConsumerWidget {
                                   final success = await controller.submitSaleEntry();
                                   if (!context.mounted) return;
                                   if (success) {
-                                    CustomSnackBar.show(context, AppStrings.saleRecordedSuccess);
+                                    CustomSnackBar.show(context, context.l10n.saleRecordedSuccess);
                                   } else {
                                     final latest = ref.read(newSaleEntryControllerProvider);
                                     if (latest.errorMessage != null) {

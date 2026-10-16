@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/custom_card.dart';
 import '../../../../core/widgets/common/primary_input_field.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../controllers/edit_profile_controller.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class EditProfileForm extends ConsumerWidget {
   final bool showSaveButton;
@@ -30,7 +30,7 @@ class EditProfileForm extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PrimaryInputField(
-              label: AppStrings.fullName,
+              label: context.l10n.fullName,
               controller: controller.nameController,
               validator: controller.validateName,
             ),
@@ -38,7 +38,7 @@ class EditProfileForm extends ConsumerWidget {
             const SizedBox(height: AppSizes.md),
 
             PrimaryInputField(
-              label: AppStrings.emailAddress,
+              label: context.l10n.emailAddress,
               controller: controller.emailController,
               keyboardType: TextInputType.emailAddress,
               enabled: false,
@@ -47,7 +47,7 @@ class EditProfileForm extends ConsumerWidget {
             const SizedBox(height: AppSizes.md),
 
             PrimaryInputField(
-              label: AppStrings.phoneNumber,
+              label: context.l10n.phoneNumber,
               controller: controller.phoneController,
               keyboardType: TextInputType.phone,
             ),
@@ -56,7 +56,7 @@ class EditProfileForm extends ConsumerWidget {
               const SizedBox(height: AppSizes.lg),
 
               PrimaryButton(
-                label: AppStrings.saveChanges,
+                label: context.l10n.saveChanges,
                 loading: isSaving,
                 onPressed: () {
                   controller.submit(onSave);

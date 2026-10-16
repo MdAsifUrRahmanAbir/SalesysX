@@ -691,6 +691,15 @@ class AppLocalizationsUr extends AppLocalizations {
   String get profileRoleSalesman => 'سیلز مین';
 
   @override
+  String get roleAdmin => 'ایڈمن';
+
+  @override
+  String get roleTeamHead => 'ٹیم ہیڈ';
+
+  @override
+  String get rolePrefix => 'کردار:';
+
+  @override
   String get employeeIdPrefix => 'آئی ڈی:';
 
   @override

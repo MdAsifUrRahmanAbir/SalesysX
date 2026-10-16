@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/theme_controller.dart';
 import '../../../../core/widgets/common/settings_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Cycles System → Light → Dark on tap, shown as a SettingsTile with the
 /// current mode as its trailing value.
 class ThemeSelector extends ConsumerWidget {
   const ThemeSelector({super.key});
 
-  String _label(ThemeMode mode) => switch (mode) {
-    ThemeMode.system => AppStrings.themeSystem,
-    ThemeMode.light => AppStrings.themeLight,
-    ThemeMode.dark => AppStrings.themeDark,
+  String _label(BuildContext context, ThemeMode mode) => switch (mode) {
+    ThemeMode.system => context.l10n.themeSystem,
+    ThemeMode.light => context.l10n.themeLight,
+    ThemeMode.dark => context.l10n.themeDark,
   };
 
   @override
@@ -23,8 +23,8 @@ class ThemeSelector extends ConsumerWidget {
 
     return SettingsTile(
       icon: Icons.dark_mode_outlined,
-      title: AppStrings.appearance,
-      value: _label(mode),
+      title: context.l10n.appearance,
+      value: _label(context, mode),
       trailing: SettingsTileTrailing.chevron,
       onTap: () {
         final next = switch (mode) {

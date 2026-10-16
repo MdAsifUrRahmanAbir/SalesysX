@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../../core/constants/user_role.dart';
 import '../../../../core/widgets/common/status_badge.dart';
 
 @immutable
@@ -21,7 +22,8 @@ class TeamMemberState {
 
   final String name;
   final String initials;
-  final String roleLabel;
+  final UserRole role;
+  final String employeeId;
   final String email;
   final String phone;
 
@@ -39,7 +41,8 @@ class TeamMemberState {
     this.errorMessage,
     this.name = '',
     this.initials = '',
-    this.roleLabel = '',
+    this.role = UserRole.salesman,
+    this.employeeId = '',
     this.email = '',
     this.phone = '',
     this.monthlyTarget = 0,
@@ -63,7 +66,8 @@ class TeamMemberState {
     String? errorMessage,
     String? name,
     String? initials,
-    String? roleLabel,
+    UserRole? role,
+    String? employeeId,
     String? email,
     String? phone,
     double? monthlyTarget,
@@ -78,7 +82,8 @@ class TeamMemberState {
       errorMessage: errorMessage,
       name: name ?? this.name,
       initials: initials ?? this.initials,
-      roleLabel: roleLabel ?? this.roleLabel,
+      role: role ?? this.role,
+      employeeId: employeeId ?? this.employeeId,
       email: email ?? this.email,
       phone: phone ?? this.phone,
       monthlyTarget: monthlyTarget ?? this.monthlyTarget,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// App version label, plus destructive Log Out / Delete Account
 /// actions at the bottom of the settings list.
@@ -43,7 +43,7 @@ class SettingsFooterActions extends StatelessWidget {
               ),
             ),
             child: Text(
-              AppStrings.logOut,
+              context.l10n.logOut,
               style: TextStyle(
                 fontSize: AppSizes.fontMd,
                 fontWeight: FontWeight.w600,
@@ -65,7 +65,7 @@ class SettingsFooterActions extends StatelessWidget {
               ),
             ),
             child: Text(
-              AppStrings.deleteAccount,
+              context.l10n.deleteAccount,
               style: TextStyle(
                 fontSize: AppSizes.fontMd,
                 fontWeight: FontWeight.w600,

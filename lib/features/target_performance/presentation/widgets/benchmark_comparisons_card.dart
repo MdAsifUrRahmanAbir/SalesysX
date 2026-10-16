@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Benchmark comparisons card: period progress / expected achievement /
 /// required daily sales rows, a divider, and a working-days-left warning
@@ -32,7 +32,7 @@ class BenchmarkComparisonsCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            AppStrings.benchmarkComparisons,
+            context.l10n.benchmarkComparisons,
             style: TextStyle(
               color: AppColors.textPrimary,
               fontSize: AppSizes.fontSm,
@@ -41,19 +41,19 @@ class BenchmarkComparisonsCard extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.sm),
           _BenchmarkRow(
-            label: AppStrings.periodProgress,
+            label: context.l10n.periodProgress,
             value: '${periodProgressPercent.round()}%',
             valueColor: AppColors.textPrimary,
           ),
           SizedBox(height: AppSizes.xs),
           _BenchmarkRow(
-            label: AppStrings.expectedAchievement,
+            label: context.l10n.expectedAchievement,
             value: '${expectedAchievementPercent.round()}%',
             valueColor: AppColors.warning,
           ),
           SizedBox(height: AppSizes.xs),
           _BenchmarkRow(
-            label: AppStrings.requiredDailySales,
+            label: context.l10n.requiredDailySales,
             value: CurrencyFormatter.format(requiredDailySales),
             valueColor: AppColors.error,
           ),
@@ -61,7 +61,7 @@ class BenchmarkComparisonsCard extends StatelessWidget {
           Divider(height: 1, color: AppColors.border),
           SizedBox(height: AppSizes.sm),
           Text(
-            AppStrings.workingDaysLeftWarning(workingDaysLeft),
+            context.l10n.workingDaysLeftWarning(workingDaysLeft),
             style: TextStyle(
               color: AppColors.warning,
               fontSize: AppSizes.fontXs,

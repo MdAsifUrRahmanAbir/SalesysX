@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// "Member Performance" title with a "View All Reports" link.
 class MemberPerformanceSectionHeader extends StatelessWidget {
@@ -17,7 +17,7 @@ class MemberPerformanceSectionHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          AppStrings.memberPerformanceTitle,
+          context.l10n.memberPerformanceTitle,
           style: TextStyle(
             color: context.appColors.textPrimary,
             fontSize: AppSizes.fontMd,
@@ -27,7 +27,7 @@ class MemberPerformanceSectionHeader extends StatelessWidget {
         InkWell(
           onTap: onViewAllTap,
           child: Text(
-            AppStrings.viewAllReports,
+            context.l10n.viewAllReports,
             style: TextStyle(
               color: AppColors.primary,
               fontSize: AppSizes.fontXs,

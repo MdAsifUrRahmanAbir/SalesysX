@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Labeled quantity stepper ("-", count, "+"). No numeric-stepper core
 /// widget appears in the documented core/widgets list, so this is local.
 class QuantityStepperField extends StatelessWidget {
@@ -25,7 +24,7 @@ class QuantityStepperField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.quantityUnits,
+          context.l10n.quantityUnits,
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,

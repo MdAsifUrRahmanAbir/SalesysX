@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/status_badge.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Top bar for the team-member detail screen — a plain back chevron,
 /// the member's name as the title, and a compact risk-status badge
@@ -12,14 +12,14 @@ import '../../../../core/widgets/common/status_badge.dart';
 /// slot here must hold a [StatusBadge] widget, not just an icon/label.
 class TeamMemberDetailAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String memberName;
-  final String riskLabel;
+  final String? riskLabel;
   final StatusBadgeType riskType;
   final VoidCallback? onBackTap;
 
   const TeamMemberDetailAppBar({
     super.key,
     required this.memberName,
-    this.riskLabel = AppStrings.atRiskLabel,
+    this.riskLabel,
     this.riskType = StatusBadgeType.error,
     this.onBackTap,
   });
@@ -53,7 +53,7 @@ class TeamMemberDetailAppBar extends StatelessWidget implements PreferredSizeWid
             ),
           ),
           const SizedBox(width: AppSizes.sm),
-          StatusBadge(text: riskLabel, type: riskType, shape: StatusBadgeShape.square, compact: true),
+          StatusBadge(text: riskLabel ?? context.l10n.atRiskLabel, type: riskType, shape: StatusBadgeShape.square, compact: true),
         ],
       ),
     );

@@ -1354,6 +1354,24 @@ abstract class AppLocalizations {
   /// **'Salesman'**
   String get profileRoleSalesman;
 
+  /// No description provided for @roleAdmin.
+  ///
+  /// In en, this message translates to:
+  /// **'Admin'**
+  String get roleAdmin;
+
+  /// No description provided for @roleTeamHead.
+  ///
+  /// In en, this message translates to:
+  /// **'Team Head'**
+  String get roleTeamHead;
+
+  /// No description provided for @rolePrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Role:'**
+  String get rolePrefix;
+
   /// No description provided for @employeeIdPrefix.
   ///
   /// In en, this message translates to:

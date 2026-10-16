@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// App name + tagline shown below the [SplashLogo].
 class SplashBrandText extends StatelessWidget {
@@ -12,7 +12,7 @@ class SplashBrandText extends StatelessWidget {
     return Column(
       children: [
         Text(
-          AppStrings.appName,
+          context.l10n.appName,
           style: TextStyle(
             fontSize: AppSizes.fontDisplay,
             fontWeight: FontWeight.w700,
@@ -21,7 +21,7 @@ class SplashBrandText extends StatelessWidget {
         ),
         SizedBox(height: AppSizes.xs),
         Text(
-          AppStrings.appTagline,
+          context.l10n.appTagline,
           style: TextStyle(
             fontSize: AppSizes.fontMd,
             color: context.appColors.textSecondary,

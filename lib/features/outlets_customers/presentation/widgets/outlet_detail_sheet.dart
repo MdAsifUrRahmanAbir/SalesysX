@@ -7,7 +7,6 @@ import 'package:salesysx/features/common_models/sale_model.dart';
 import 'package:salesysx/routes/route_names.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/common/custom_list_tile.dart';
@@ -16,6 +15,7 @@ import '../../../../core/widgets/common/status_badge.dart';
 import '../../../../core/widgets/utility/custom_shimmer.dart';
 import '../../data/repositories/outlets_customers_repository.dart';
 import '../states/outlets_customers_state.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Outlet detail sheet: contact info, recent sales to this outlet, and a
 /// "Record Sale" shortcut that preselects the outlet. Opened via
@@ -33,10 +33,10 @@ class OutletDetailSheet extends ConsumerWidget {
     OutletCustomerStatus.potential => StatusBadgeType.warning,
   };
 
-  String get _badgeText => switch (outlet.status) {
-    OutletCustomerStatus.active => AppStrings.filterActive,
-    OutletCustomerStatus.newCustomer => AppStrings.filterNew,
-    OutletCustomerStatus.potential => AppStrings.filterPotential,
+  String _badgeText(BuildContext context) => switch (outlet.status) {
+    OutletCustomerStatus.active => context.l10n.filterActive,
+    OutletCustomerStatus.newCustomer => context.l10n.filterNew,
+    OutletCustomerStatus.potential => context.l10n.filterPotential,
   };
 
   @override
@@ -59,23 +59,23 @@ class OutletDetailSheet extends ConsumerWidget {
                   ),
                 ),
               ),
-              StatusBadge(text: _badgeText, type: _badgeType, shape: StatusBadgeShape.square, compact: true),
+              StatusBadge(text: _badgeText(context), type: _badgeType, shape: StatusBadgeShape.square, compact: true),
             ],
           ),
           SizedBox(height: AppSizes.md),
-          _InfoRow(label: AppStrings.ownerLabel, value: outlet.owner),
+          _InfoRow(label: context.l10n.ownerLabel, value: outlet.owner),
           SizedBox(height: AppSizes.xs),
-          _InfoRow(label: AppStrings.areaRouteLabel, value: outlet.areaRoute),
+          _InfoRow(label: context.l10n.areaRouteLabel, value: outlet.areaRoute),
           SizedBox(height: AppSizes.xs),
-          _InfoRow(label: AppStrings.addressLabel, value: outlet.address.isEmpty ? '-' : outlet.address),
+          _InfoRow(label: context.l10n.addressLabel, value: outlet.address.isEmpty ? '-' : outlet.address),
           SizedBox(height: AppSizes.xs),
           if (outlet.phone.isEmpty)
-            _InfoRow(label: AppStrings.phoneLabel, value: '-')
+            _InfoRow(label: context.l10n.phoneLabel, value: '-')
           else
             InkWell(
               onTap: () => launchUrl(Uri(scheme: 'tel', path: outlet.phone)),
               child: _InfoRow(
-                label: AppStrings.phoneLabel,
+                label: context.l10n.phoneLabel,
                 value: outlet.phone,
                 valueColor: AppColors.primary,
                 trailingIcon: Icons.call_rounded,
@@ -85,7 +85,7 @@ class OutletDetailSheet extends ConsumerWidget {
           Divider(height: 1, color: AppColors.border),
           SizedBox(height: AppSizes.md),
           Text(
-            AppStrings.recentSalesTitle,
+            context.l10n.recentSalesTitle,
             style: TextStyle(fontSize: AppSizes.fontSm, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
           ),
           SizedBox(height: AppSizes.xs),
@@ -103,7 +103,7 @@ class OutletDetailSheet extends ConsumerWidget {
                 return Padding(
                   padding: EdgeInsets.symmetric(vertical: AppSizes.sm),
                   child: Text(
-                    AppStrings.noRecentSalesYet,
+                    context.l10n.noRecentSalesYet,
                     style: TextStyle(color: context.appColors.textSecondary, fontSize: AppSizes.fontSm),
                   ),
                 );
@@ -125,7 +125,7 @@ class OutletDetailSheet extends ConsumerWidget {
           ),
           SizedBox(height: AppSizes.lg),
           PrimaryButton(
-            label: AppStrings.recordSaleAction,
+            label: context.l10n.recordSaleAction,
             onPressed: () {
               Navigator.of(context).pop();
               context.push(RouteNames.new_sale_entry, extra: outlet.id);

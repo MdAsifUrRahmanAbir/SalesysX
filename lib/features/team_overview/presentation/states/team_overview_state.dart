@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../../core/constants/user_role.dart';
+
 enum PerformanceStatus { good, atRisk }
 
 @immutable
@@ -7,7 +9,7 @@ class TeamMemberPerformance {
   final String email;
   final String name;
   final String initials;
-  final String role;
+  final UserRole role;
   final bool isOnline;
   final double target;
   final double achieved;

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Page header: "Outlets & Customers" title plus a circular add-outlet
 /// button. Plain row rather than a core app-bar widget — see repeated
 /// assumptions note across other screens in this feature set.
@@ -24,7 +23,7 @@ class OutletsCustomersHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            AppStrings.outletsAndCustomersTitle,
+            context.l10n.outletsAndCustomersTitle,
             style: TextStyle(
               color: AppColors.textPrimary,
               fontSize: AppSizes.fontXl,

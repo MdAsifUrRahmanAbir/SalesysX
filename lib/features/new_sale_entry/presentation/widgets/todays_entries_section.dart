@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../states/new_sale_entry_state.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// "Today's Entries" list section: a title followed by one tile per
 /// completed sale entry.
@@ -20,7 +20,7 @@ class TodaysEntriesSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.todaysEntries,
+          context.l10n.todaysEntries,
           style: TextStyle(
             color: AppColors.textPrimary,
             fontSize: AppSizes.fontSm,
@@ -90,7 +90,7 @@ class _TodaysEntryTile extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        AppStrings.entryMetaLine(
+                        context.l10n.entryMetaLine(
                           entry.location,
                           entry.itemCount,
                           entry.time,

@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/constants/user_role.dart';
 import '../../../../core/widgets/utility/custom_alert_dialog.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/error_state.dart';
@@ -13,6 +13,7 @@ import '../controllers/profile_controller.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/profile_menu_section.dart';
 import '../widgets/profile_stats_row.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class ProfileTabView extends ConsumerWidget {
   const ProfileTabView({super.key});
@@ -44,7 +45,11 @@ class ProfileTabView extends ConsumerWidget {
                   name: state.name,
                   avatarInitials: state.avatarInitials,
                   employeeId: state.employeeId,
-                  roleLabel: state.roleLabel,
+                  roleLabel: switch (state.role) {
+                    UserRole.admin => context.l10n.roleAdmin,
+                    UserRole.teamHead => context.l10n.roleTeamHead,
+                    UserRole.salesman => context.l10n.profileRoleSalesman,
+                  },
                   team: state.team,
                   division: state.division,
                 ),
@@ -59,8 +64,6 @@ class ProfileTabView extends ConsumerWidget {
                         state.monthlyTargetShortLabel,
                         activeOutletCount: state.activeOutletCount,
                         salesTodayCompleted: state.salesTodayCompleted,
-                        middleLabel: state.middleStatLabel,
-                        middleSubtitle: state.middleStatSubtitle,
                       ),
                       SizedBox(height: AppSizes.lg),
                       ProfileMenuSection(
@@ -86,9 +89,9 @@ class ProfileTabView extends ConsumerWidget {
                         onLogoutTap: () async {
                           final confirmed = await CustomAlertDialog.confirm(
                             context,
-                            title: AppStrings.logoutConfirmTitle,
-                            message: AppStrings.logoutConfirmMessage,
-                            confirmText: AppStrings.logoutTitle,
+                            title: context.l10n.logoutConfirmTitle,
+                            message: context.l10n.logoutConfirmMessage,
+                            confirmText: context.l10n.logoutTitle,
                             destructive: true,
                           );
                           if (confirmed != true) return;

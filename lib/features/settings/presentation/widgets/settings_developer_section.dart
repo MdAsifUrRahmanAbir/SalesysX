@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/settings_group.dart';
 import '../../../../core/widgets/common/settings_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Dev-only group for refreshing the seeded Firestore demo data —
 /// kept here since `DemoDataSeeder` itself is documented as a
@@ -14,11 +14,11 @@ class SettingsDeveloperSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsGroup(
-      label: AppStrings.developerSection,
+      label: context.l10n.developerSection,
       children: [
         SettingsTile(
           icon: Icons.refresh_rounded,
-          title: AppStrings.resetDemoDataTitle,
+          title: context.l10n.resetDemoDataTitle,
           subtitle: 'Wipe and reseed Firestore with fresh dated demo data',
           trailing: SettingsTileTrailing.none,
           onTap: onResetDemoDataTap,

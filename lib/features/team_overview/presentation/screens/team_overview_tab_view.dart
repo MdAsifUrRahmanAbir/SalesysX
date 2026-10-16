@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import 'package:salesysx/routes/route_names.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/custom_snackbar.dart';
@@ -16,6 +15,7 @@ import '../widgets/member_performance_section_header.dart';
 import '../widgets/team_member_performance_card.dart';
 import '../widgets/team_overview_header.dart';
 import '../widgets/team_target_summary_card.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class TeamOverviewTabView extends ConsumerWidget {
   const TeamOverviewTabView({super.key});
@@ -85,7 +85,7 @@ class TeamOverviewTabView extends ConsumerWidget {
               right: AppSizes.md,
               bottom: AppSizes.lg,
               child: AddMemberFab(
-                onTap: () => CustomSnackBar.show(context, AppStrings.managedFromAdminPanel),
+                onTap: () => CustomSnackBar.show(context, context.l10n.managedFromAdminPanel),
               ),
             ),
           ],

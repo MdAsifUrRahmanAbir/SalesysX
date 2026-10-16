@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/app_svg_icon.dart';
 import '../../../../core/widgets/common/primary_button.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Icon mark, "404" code, title/subtitle, and a "Back to Home"
 /// button. Purely presentational — the navigation action is supplied
@@ -27,7 +27,7 @@ class NotFoundContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.xxl),
          Text(
-          AppStrings.notFoundCode,
+          context.l10n.notFoundCode,
           style: TextStyle(
             fontSize: AppSizes.fontDisplay * 2,
             fontWeight: FontWeight.w800,
@@ -37,19 +37,19 @@ class NotFoundContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.sm + AppSizes.xs),
          Text(
-          AppStrings.notFoundTitle,
+          context.l10n.notFoundTitle,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: AppSizes.fontXxl, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
         ),
         const SizedBox(height: AppSizes.sm),
          Text(
-          AppStrings.notFoundSubtitle,
+          context.l10n.notFoundSubtitle,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: AppSizes.fontMd, color: context.appColors.textSecondary, height: 1.5),
         ),
         const SizedBox(height: AppSizes.xxl),
         PrimaryButton(
-          label: AppStrings.backToHome,
+          label: context.l10n.backToHome,
           onPressed: onBackToHome,
         ),
       ],

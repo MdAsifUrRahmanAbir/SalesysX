@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Full-width submit CTA for the New Sale Entry form.
 class SubmitSaleEntryButton extends StatelessWidget {
@@ -12,7 +12,7 @@ class SubmitSaleEntryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PrimaryButton(
-      label: AppStrings.submitSaleEntry,
+      label: context.l10n.submitSaleEntry,
       onPressed: onPressed,
     );
   }

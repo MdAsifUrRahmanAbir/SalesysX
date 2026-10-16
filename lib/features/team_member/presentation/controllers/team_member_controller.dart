@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:salesysx/features/common_models/outlet_model.dart';
 import 'package:salesysx/features/common_models/sale_model.dart';
-import '../../../../core/constants/user_role.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/utils/error_mapper.dart';
@@ -68,7 +67,8 @@ class TeamMemberController extends Notifier<TeamMemberState> {
         isInitialLoading: false,
         name: member.name,
         initials: _initialsOf(member.name),
-        roleLabel: 'Role: ${member.role.label} • ${member.employeeId}',
+        role: member.role,
+        employeeId: member.employeeId,
         email: member.email,
         phone: member.phone,
         monthlyTarget: targetAmount,

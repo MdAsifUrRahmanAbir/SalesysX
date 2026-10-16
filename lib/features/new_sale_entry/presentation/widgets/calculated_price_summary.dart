@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Teal-tinted calculated-price summary: label, a plain-language
 /// breakdown ("N Units × price - discount"), and the resulting total.
@@ -23,7 +23,7 @@ class CalculatedPriceSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final breakdown = AppStrings.calculatedPriceBreakdown(
+    final breakdown = context.l10n.calculatedPriceBreakdown(
       quantity,
       CurrencyFormatter.format(unitPrice),
       CurrencyFormatter.format(discount),
@@ -46,7 +46,7 @@ class CalculatedPriceSummary extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  AppStrings.calculatedPriceLabel,
+                  context.l10n.calculatedPriceLabel,
                   style: TextStyle(
                     color: AppColors.primary,
                     fontSize: AppSizes.fontXs,

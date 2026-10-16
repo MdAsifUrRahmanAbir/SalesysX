@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/app_svg_icon.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../../../../core/widgets/common/secondary_button.dart';
 import 'technical_details_panel.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Warning icon mark, title/subtitle, a technical-details panel, and
 /// Retry/Report Issue actions. Purely presentational — [errorDetails]
@@ -36,13 +36,13 @@ class ErrorContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.xl),
          Text(
-          AppStrings.errorTitle,
+          context.l10n.errorTitle,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: AppSizes.fontXxl, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
         ),
         const SizedBox(height: AppSizes.sm + AppSizes.xs),
          Text(
-          AppStrings.errorSubtitle,
+          context.l10n.errorSubtitle,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: AppSizes.fontMd, color: context.appColors.textSecondary, height: 1.5),
         ),
@@ -50,12 +50,12 @@ class ErrorContent extends StatelessWidget {
         TechnicalDetailsPanel(details: errorDetails),
         const SizedBox(height: AppSizes.lg),
         PrimaryButton(
-          label: AppStrings.retry,
+          label: context.l10n.retry,
           onPressed: onRetry,
         ),
         const SizedBox(height: AppSizes.sm + AppSizes.xs),
         SecondaryButton(
-          label: AppStrings.reportIssue,
+          label: context.l10n.reportIssue,
           onPressed: onReportIssue,
         ),
       ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../../../../core/widgets/common/secondary_button.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Login (primary) + Register (secondary/outline) buttons at the
 /// bottom of the welcome screen.
@@ -16,9 +16,9 @@ class WelcomeActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        PrimaryButton(label: AppStrings.login, onPressed: onLoginTap),
+        PrimaryButton(label: context.l10n.login, onPressed: onLoginTap),
         const SizedBox(height: AppSizes.md),
-        SecondaryButton(label: AppStrings.register, onPressed: onRegisterTap),
+        SecondaryButton(label: context.l10n.register, onPressed: onRegisterTap),
       ],
     );
   }

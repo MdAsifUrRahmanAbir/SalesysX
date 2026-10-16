@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/app_svg_icon.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../../../../core/widgets/common/text_button.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Wifi-off icon mark, title/subtitle, a "Check Connection" primary
 /// action, and a "Work Offline" text link. Purely presentational —
@@ -33,7 +33,7 @@ class NoInternetContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.xl),
          Text(
-          AppStrings.noInternetTitle,
+          context.l10n.noInternetTitle,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: AppSizes.fontXxl,
@@ -43,7 +43,7 @@ class NoInternetContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.sm),
          Text(
-          AppStrings.noInternetSubtitle,
+          context.l10n.noInternetSubtitle,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: AppSizes.fontMd,
@@ -53,11 +53,11 @@ class NoInternetContent extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.xl),
         PrimaryButton(
-          label: AppStrings.checkConnection,
+          label: context.l10n.checkConnection,
           onPressed: onCheckConnection,
         ),
         const SizedBox(height: AppSizes.sm),
-        AppTextButton(label: AppStrings.workOffline, onPressed: onWorkOffline),
+        AppTextButton(label: context.l10n.workOffline, onPressed: onWorkOffline),
       ],
     );
   }

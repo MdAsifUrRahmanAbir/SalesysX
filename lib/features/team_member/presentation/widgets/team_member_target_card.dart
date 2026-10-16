@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/custom_card.dart';
 import '../../../../core/widgets/utility/donut_chart.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Monthly-target summary — a two-segment [DonutChart] showing percent
 /// achieved (reused rather than a bespoke progress-ring painter), plus
@@ -39,7 +39,7 @@ class TeamMemberTargetCard extends StatelessWidget {
               DonutSegment(value: remainingPercent, color: AppColors.accentLight),
             ],
             centerValue: '${achievedPercent.toStringAsFixed(0)}%',
-            centerLabel: AppStrings.achievedBadge,
+            centerLabel: context.l10n.achievedBadge,
           ),
           const SizedBox(width: AppSizes.lg),
           Expanded(
@@ -47,7 +47,7 @@ class TeamMemberTargetCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppStrings.monthlyTargetLabel,
+                  context.l10n.monthlyTargetLabel,
                   style: TextStyle(fontSize: AppSizes.fontXs, fontWeight: FontWeight.w600, color: context.appColors.textHint, letterSpacing: 0.4),
                 ),
                 const SizedBox(height: AppSizes.xs / 2),
@@ -58,9 +58,9 @@ class TeamMemberTargetCard extends StatelessWidget {
                 const SizedBox(height: AppSizes.sm),
                 Row(
                   children: [
-                    Expanded(child: _MiniStat(label: AppStrings.achievedLabel, value: achievedAmount, color: AppColors.success)),
+                    Expanded(child: _MiniStat(label: context.l10n.achievedLabel, value: achievedAmount, color: AppColors.success)),
                     const SizedBox(width: AppSizes.sm + AppSizes.xs),
-                    Expanded(child: _MiniStat(label: AppStrings.remainingLabel, value: remainingAmount, color: AppColors.error)),
+                    Expanded(child: _MiniStat(label: context.l10n.remainingLabel, value: remainingAmount, color: AppColors.error)),
                   ],
                 ),
               ],

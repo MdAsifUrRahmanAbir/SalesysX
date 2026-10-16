@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Tappable "Select Product" field with a chevron. Opens a product picker
 /// via [onTap]; actual picker UI/navigation is wired in the view layer.
 class ProductSelectorField extends StatelessWidget {
@@ -23,7 +22,7 @@ class ProductSelectorField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.selectProduct,
+          context.l10n.selectProduct,
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,
@@ -47,7 +46,7 @@ class ProductSelectorField extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    productName ?? AppStrings.selectProductPlaceholder,
+                    productName ?? context.l10n.selectProductPlaceholder,
                     style: TextStyle(
                       color: productName == null
                           ? AppColors.textHint

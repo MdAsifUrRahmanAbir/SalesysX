@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../../core/constants/user_role.dart';
+
 @immutable
 class ProfileState {
   final bool isLoading;
@@ -8,7 +10,7 @@ class ProfileState {
   final String name;
   final String avatarInitials;
   final String employeeId;
-  final String roleLabel;
+  final UserRole role;
   final bool isTeamHead;
   final String team;
   final String division;
@@ -20,8 +22,6 @@ class ProfileState {
 
   final int activeOutletCount;
   final int salesTodayCompleted;
-  final String middleStatLabel;
-  final String middleStatSubtitle;
 
   const ProfileState({
     this.isLoading = false,
@@ -29,7 +29,7 @@ class ProfileState {
     this.name = '',
     this.avatarInitials = '',
     this.employeeId = '',
-    this.roleLabel = '',
+    this.role = UserRole.salesman,
     this.isTeamHead = false,
     this.team = '',
     this.division = '',
@@ -39,8 +39,6 @@ class ProfileState {
     this.monthlyTargetShortLabel = '',
     this.activeOutletCount = 0,
     this.salesTodayCompleted = 0,
-    this.middleStatLabel = '',
-    this.middleStatSubtitle = '',
   });
 
   ProfileState copyWith({
@@ -49,7 +47,7 @@ class ProfileState {
     String? name,
     String? avatarInitials,
     String? employeeId,
-    String? roleLabel,
+    UserRole? role,
     bool? isTeamHead,
     String? team,
     String? division,
@@ -59,8 +57,6 @@ class ProfileState {
     String? monthlyTargetShortLabel,
     int? activeOutletCount,
     int? salesTodayCompleted,
-    String? middleStatLabel,
-    String? middleStatSubtitle,
   }) {
     return ProfileState(
       isLoading: isLoading ?? this.isLoading,
@@ -68,7 +64,7 @@ class ProfileState {
       name: name ?? this.name,
       avatarInitials: avatarInitials ?? this.avatarInitials,
       employeeId: employeeId ?? this.employeeId,
-      roleLabel: roleLabel ?? this.roleLabel,
+      role: role ?? this.role,
       isTeamHead: isTeamHead ?? this.isTeamHead,
       team: team ?? this.team,
       division: division ?? this.division,
@@ -80,8 +76,6 @@ class ProfileState {
       monthlyTargetShortLabel ?? this.monthlyTargetShortLabel,
       activeOutletCount: activeOutletCount ?? this.activeOutletCount,
       salesTodayCompleted: salesTodayCompleted ?? this.salesTodayCompleted,
-      middleStatLabel: middleStatLabel ?? this.middleStatLabel,
-      middleStatSubtitle: middleStatSubtitle ?? this.middleStatSubtitle,
     );
   }
 }

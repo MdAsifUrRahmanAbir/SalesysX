@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Daily run-rate breakdown card: header with a "days left" badge, target
 /// vs. current run-rate rows, and an on-track/off-track footer line.
@@ -50,7 +50,7 @@ class DailyRunRateCard extends StatelessWidget {
                   ),
                   SizedBox(width: AppSizes.xs),
                   Text(
-                    AppStrings.dailyRunRate,
+                    context.l10n.dailyRunRate,
                     style: TextStyle(
                       color: AppColors.textPrimary,
                       fontSize: AppSizes.fontSm,
@@ -60,7 +60,7 @@ class DailyRunRateCard extends StatelessWidget {
                 ],
               ),
               StatusBadge(
-                text: AppStrings.daysLeft(daysLeft),
+                text: context.l10n.daysLeft(daysLeft),
                 type: StatusBadgeType.primary,
                 shape: StatusBadgeShape.pill,
                 compact: true,
@@ -69,16 +69,16 @@ class DailyRunRateCard extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.sm),
           _RunRateRow(
-            label: AppStrings.targetRunRateRequired,
+            label: context.l10n.targetRunRateRequired,
             value:
-            '${CurrencyFormatter.format(targetRunRate)}${AppStrings.perDaySuffix}',
+            '${CurrencyFormatter.format(targetRunRate)}${context.l10n.perDaySuffix}',
             valueColor: AppColors.textPrimary,
           ),
           SizedBox(height: AppSizes.xs),
           _RunRateRow(
-            label: AppStrings.currentAvgRunRate,
+            label: context.l10n.currentAvgRunRate,
             value:
-            '${CurrencyFormatter.format(currentRunRate)}${AppStrings.perDaySuffix}',
+            '${CurrencyFormatter.format(currentRunRate)}${context.l10n.perDaySuffix}',
             valueColor: AppColors.success,
           ),
           SizedBox(height: AppSizes.sm),
@@ -95,8 +95,8 @@ class DailyRunRateCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   isOnTrack
-                      ? AppStrings.onTrackToAchieveTarget
-                      : AppStrings.offTrackForTarget,
+                      ? context.l10n.onTrackToAchieveTarget
+                      : context.l10n.offTrackForTarget,
                   style: TextStyle(
                     color: isOnTrack ? AppColors.success : AppColors.error,
                     fontSize: AppSizes.fontXs,

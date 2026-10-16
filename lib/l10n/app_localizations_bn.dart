@@ -690,6 +690,15 @@ class AppLocalizationsBn extends AppLocalizations {
   String get profileRoleSalesman => 'সেলসম্যান';
 
   @override
+  String get roleAdmin => 'অ্যাডমিন';
+
+  @override
+  String get roleTeamHead => 'টিম হেড';
+
+  @override
+  String get rolePrefix => 'ভূমিকা:';
+
+  @override
   String get employeeIdPrefix => 'আইডি:';
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Full-width CTA for starting a new sale entry from the salesman
 /// dashboard. Thin wrapper over [PrimaryButton] so icon + label + elevated
@@ -14,7 +14,7 @@ class CreateSaleEntryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PrimaryButton(
-      label: AppStrings.createNewSaleEntry,
+      label: context.l10n.createNewSaleEntry,
       icon: Icons.add_rounded,
       onPressed: onPressed,
     );

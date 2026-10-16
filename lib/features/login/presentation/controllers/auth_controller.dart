@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/constants/user_role.dart';
+import '../../../../core/locale/l10n_provider.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../data/repositories/login_repository.dart';
 
@@ -18,7 +18,7 @@ class AuthController extends Notifier<AsyncValue<void>> {
       final user = await _repository.signIn(email: email, password: password);
 
       if (user.role == UserRole.admin) {
-        state = AsyncValue.error(const AuthFailure(AppStrings.adminUseWebPanel), StackTrace.current);
+        state = AsyncValue.error(AuthFailure(ref.read(l10nProvider).adminUseWebPanel), StackTrace.current);
         return false;
       }
 

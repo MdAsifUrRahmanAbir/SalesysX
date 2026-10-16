@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Labeled discount amount text field. Plain `TextField` rather than the
 /// core `PrimaryInputField` — see assumptions note.
 class DiscountInputField extends StatelessWidget {
@@ -23,7 +22,7 @@ class DiscountInputField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.discountLabel(1),
+          context.l10n.discountLabel(1),
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,

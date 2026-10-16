@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/core_widgets.dart';
 import '../states/target_performance_state.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Weekly daily-sales bar chart: 7 bars, each with an amount label above
 /// and a day-initial label below. Highlighted bars (per data point) are
@@ -50,7 +50,7 @@ class DailyTrendBarChart extends StatelessWidget {
                 ),
               ),
               Text(
-                AppStrings.dailyTargetLabel(dailyTargetLabel),
+                context.l10n.dailyTargetLabel(dailyTargetLabel),
                 style: TextStyle(
                   color: AppColors.textHint,
                   fontSize: AppSizes.fontXs,

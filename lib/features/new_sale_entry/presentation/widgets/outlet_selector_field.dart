@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Tappable "Select Outlet" field with a location pin and chevron. Opens
 /// an outlet picker via [onTap]; actual picker UI/navigation is wired in
 /// the view layer.
@@ -24,7 +23,7 @@ class OutletSelectorField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.selectOutlet,
+          context.l10n.selectOutlet,
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,

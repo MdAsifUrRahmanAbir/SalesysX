@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/custom_app_bar.dart';
 import '../../../../core/widgets/common/custom_card.dart';
 import '../../../../core/widgets/utility/custom_snackbar.dart';
 import '../controllers/change_password_controller.dart';
 import '../widgets/change_password_form.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class ChangePasswordMobileView extends ConsumerWidget {
   const ChangePasswordMobileView({super.key});
@@ -23,7 +23,7 @@ class ChangePasswordMobileView extends ConsumerWidget {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(title: AppStrings.changePasswordTitle),
+          CustomAppBar(title: context.l10n.changePasswordTitle),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(AppSizes.lg),

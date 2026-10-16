@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
 import '../../../../core/widgets/utility/custom_shimmer.dart';
 import '../../../../core/widgets/utility/error_state.dart';
@@ -12,6 +11,7 @@ import '../widgets/benchmark_comparisons_card.dart';
 import '../widgets/daily_trend_bar_chart.dart';
 import '../widgets/target_performance_header.dart';
 import '../widgets/target_progress_ring_card.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class TargetPerformanceTabView extends ConsumerWidget {
   const TargetPerformanceTabView({super.key});
@@ -63,7 +63,7 @@ class TargetPerformanceTabView extends ConsumerWidget {
                                   ),
                                   SizedBox(height: AppSizes.lg),
                                   DailyTrendBarChart(
-                                    title: AppStrings.dailyTrendThisWeek,
+                                    title: context.l10n.dailyTrendThisWeek,
                                     dailyTargetLabel: state.dailyTargetLabel,
                                     points: state.dailyTrend,
                                   ),

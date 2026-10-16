@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Floating "New Sale" pill — lets a Team Head record a sale themselves,
 /// same as a Salesman, on top of their read-only team oversight list.
 class NewSaleFab extends StatelessWidget {
@@ -40,7 +39,7 @@ class NewSaleFab extends StatelessWidget {
               Icon(Icons.point_of_sale_rounded, size: AppSizes.iconSm, color: AppColors.textWhite),
               SizedBox(width: AppSizes.xs),
               Text(
-                AppStrings.newSaleAction,
+                context.l10n.newSaleAction,
                 style: TextStyle(
                   color: AppColors.textWhite,
                   fontSize: AppSizes.fontSm,

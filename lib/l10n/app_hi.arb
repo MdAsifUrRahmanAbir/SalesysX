@@ -352,6 +352,9 @@
     }
   },
   "profileRoleSalesman": "सेल्समैन",
+  "roleAdmin": "एडमिन",
+  "roleTeamHead": "टीम हेड",
+  "rolePrefix": "भूमिका:",
   "employeeIdPrefix": "आईडी:",
   "thisMonthLabel": "इस महीने",
   "customersLabel": "ग्राहक",

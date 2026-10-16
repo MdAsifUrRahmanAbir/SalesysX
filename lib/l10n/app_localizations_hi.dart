@@ -691,6 +691,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get profileRoleSalesman => 'सेल्समैन';
 
   @override
+  String get roleAdmin => 'एडमिन';
+
+  @override
+  String get roleTeamHead => 'टीम हेड';
+
+  @override
+  String get rolePrefix => 'भूमिका:';
+
+  @override
   String get employeeIdPrefix => 'आईडी:';
 
   @override

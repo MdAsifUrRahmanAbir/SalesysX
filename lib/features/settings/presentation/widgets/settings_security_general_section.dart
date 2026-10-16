@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/settings_group.dart';
 import '../../../../core/widgets/common/settings_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Security and General groups — a toggle plus several
 /// navigate-to-detail rows.
@@ -36,39 +36,39 @@ class SettingsSecurityGeneralSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SettingsGroup(
-          label: AppStrings.securitySection,
+          label: context.l10n.securitySection,
           children: [
             SettingsTile(
-              title: AppStrings.biometricAuth,
+              title: context.l10n.biometricAuth,
               switchValue: biometricAuth,
               onSwitchChanged: onBiometricAuthChanged,
             ),
             SettingsTile(
-              title: AppStrings.twoFactorAuth,
+              title: context.l10n.twoFactorAuth,
               onTap: onTwoFactorAuthTap,
             ),
             SettingsTile(
-              title: AppStrings.activeSessions,
+              title: context.l10n.activeSessions,
               onTap: onActiveSessionsTap,
             ),
           ],
         ),
         const SizedBox(height: AppSizes.lg),
         SettingsGroup(
-          label: AppStrings.generalSection,
+          label: context.l10n.generalSection,
           children: [
             SettingsTile(
-              title: AppStrings.language,
+              title: context.l10n.language,
               value: languageValue,
               onTap: onLanguageTap,
             ),
             SettingsTile(
-              title: AppStrings.region,
+              title: context.l10n.region,
               value: regionValue,
               onTap: onRegionTap,
             ),
             SettingsTile(
-              title: AppStrings.changePasswordTitle,
+              title: context.l10n.changePasswordTitle,
               // value: regionValue,
               onTap: onChangePssword,
             ),

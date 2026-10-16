@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Page header: a teal accent bar + "Team Sales" title — same shape as
 /// [TeamOverviewHeader] for visual consistency across the Team Head's tabs.
@@ -27,7 +27,7 @@ class TeamSalesListHeader extends StatelessWidget {
           ),
           SizedBox(width: AppSizes.xs),
           Text(
-            AppStrings.teamSalesTitle,
+            context.l10n.teamSalesTitle,
             style: TextStyle(
               color: context.appColors.textPrimary,
               fontSize: AppSizes.fontXl,

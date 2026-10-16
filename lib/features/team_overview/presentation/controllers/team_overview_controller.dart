@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constants/user_role.dart';
 import '../../../../core/session/auth_session_controller.dart';
 import '../../../../core/utils/error_mapper.dart';
 import '../../../../core/utils/working_days.dart';
@@ -69,7 +68,7 @@ class TeamOverviewController extends Notifier<TeamOverviewState> {
           email: member.id,
           name: member.name,
           initials: _initialsOf(member.name),
-          role: member.role.label,
+          role: member.role,
           isOnline: true, // no presence tracking exists in the data model
           target: targetAmount,
           achieved: achieved,

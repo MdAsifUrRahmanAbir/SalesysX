@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/app_header_bar.dart';
 import '../widgets/terms_privacy_content.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Same content as [TermsMobileView], centered in a fixed-width
 /// column for wider (tablet/web) viewports.
@@ -15,9 +15,9 @@ class TermsTabView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        const AppHeaderBar(
-          title: AppStrings.termsPrivacyTitle,
-          subtitle: AppStrings.termsLastUpdated,
+        AppHeaderBar(
+          title: context.l10n.termsPrivacyTitle,
+          subtitle: context.l10n.termsLastUpdated,
         ),
         Expanded(
           child: Center(

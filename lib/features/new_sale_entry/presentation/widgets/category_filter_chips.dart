@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Single-select horizontal category chip row ("All", "Beverage", ...).
 /// See assumptions note re: `CustomFilterBar<T>` being multi-select.
 class CategoryFilterChips extends StatelessWidget {
@@ -25,7 +24,7 @@ class CategoryFilterChips extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppStrings.selectCategory,
+          context.l10n.selectCategory,
           style: TextStyle(
             color: AppColors.textSecondary,
             fontSize: AppSizes.fontXs,

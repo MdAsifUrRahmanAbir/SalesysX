@@ -352,6 +352,9 @@
     }
   },
   "profileRoleSalesman": "سیلز مین",
+  "roleAdmin": "ایڈمن",
+  "roleTeamHead": "ٹیم ہیڈ",
+  "rolePrefix": "کردار:",
   "employeeIdPrefix": "آئی ڈی:",
   "thisMonthLabel": "اس مہینے",
   "customersLabel": "گاہک",

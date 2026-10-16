@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/core_widgets.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Two-up row of stat cards: "Today's Sales" (with a trend) and
 /// "Remaining" (neutral) for the salesman dashboard.
@@ -31,7 +31,7 @@ class SalesStatRow extends StatelessWidget {
     final changeSign = todaysSalesChangePercent >= 0 ? '+' : '';
     final trendLabel =
         '$changeSign${todaysSalesChangePercent.toStringAsFixed(0)}% '
-        '${AppStrings.fromYesterdaySuffix}';
+        '${context.l10n.fromYesterdaySuffix}';
 
     return Row(
       children: [
@@ -40,7 +40,7 @@ class SalesStatRow extends StatelessWidget {
             icon: Icons.bolt_rounded,
             iconBackgroundColor: AppColors.primaryLight,
             iconColor: AppColors.primary,
-            label: AppStrings.todaysSales,
+            label: context.l10n.todaysSales,
             value: CurrencyFormatter.format(todaysSales),
             footer: trendLabel,
             footerColor: todaysSalesChangePercent >= 0
@@ -54,9 +54,9 @@ class SalesStatRow extends StatelessWidget {
             icon: Icons.schedule_rounded,
             iconBackgroundColor: AppColors.warning.withValues(alpha: 0.12),
             iconColor: AppColors.warning,
-            label: AppStrings.remaining,
+            label: context.l10n.remaining,
             value: CurrencyFormatter.format(remaining),
-            footer: AppStrings.toReachTarget,
+            footer: context.l10n.toReachTarget,
             footerColor: AppColors.textHint,
           ),
         ),

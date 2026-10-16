@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
+import '../../../../core/constants/user_role.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/utility/custom_refresh_wrapper.dart';
@@ -19,9 +19,19 @@ import '../widgets/team_member_daily_stat_card.dart';
 import '../widgets/team_member_detail_app_bar.dart';
 import '../widgets/team_member_profile_card.dart';
 import '../widgets/team_member_target_card.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class TeamMemberMobileView extends ConsumerWidget {
   const TeamMemberMobileView({super.key});
+
+  String _roleLabel(BuildContext context, UserRole role, String employeeId) {
+    final roleText = switch (role) {
+      UserRole.admin => context.l10n.roleAdmin,
+      UserRole.teamHead => context.l10n.roleTeamHead,
+      UserRole.salesman => context.l10n.profileRoleSalesman,
+    };
+    return '${context.l10n.rolePrefix} $roleText • $employeeId';
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +42,7 @@ class TeamMemberMobileView extends ConsumerWidget {
     return Scaffold(
       appBar: TeamMemberDetailAppBar(
         memberName: state.name.isEmpty ? '...' : state.name,
-        riskLabel: state.isOnTrack ? AppStrings.statusOnTrack : AppStrings.atRiskLabel,
+        riskLabel: state.isOnTrack ? context.l10n.statusOnTrack : context.l10n.atRiskLabel,
         riskType: state.riskBadgeType,
       ),
       body: isFirstLoad
@@ -49,7 +59,7 @@ class TeamMemberMobileView extends ConsumerWidget {
                         TeamMemberProfileCard(
                           name: state.name,
                           initials: state.initials,
-                          roleLabel: state.roleLabel,
+                          roleLabel: _roleLabel(context, state.role, state.employeeId),
                           email: state.email,
                         ),
                         const SizedBox(height: AppSizes.lg),
@@ -64,9 +74,9 @@ class TeamMemberMobileView extends ConsumerWidget {
                           children: [
                             Expanded(
                               child: TeamMemberDailyStatCard(
-                                label: AppStrings.todaysTargetLabel,
+                                label: context.l10n.todaysTargetLabel,
                                 value: CurrencyFormatter.format(state.todaysTarget),
-                                note: AppStrings.dailyAssignment,
+                                note: context.l10n.dailyAssignment,
                                 valueColor: context.appColors.textPrimary,
                                 noteColor: context.appColors.textSecondary,
                               ),
@@ -74,7 +84,7 @@ class TeamMemberMobileView extends ConsumerWidget {
                             const SizedBox(width: AppSizes.sm + AppSizes.xs),
                             Expanded(
                               child: TeamMemberDailyStatCard(
-                                label: AppStrings.todaysSalesLabel,
+                                label: context.l10n.todaysSalesLabel,
                                 value: CurrencyFormatter.format(state.todaysSales),
                                 note: state.todaysGap > 0
                                     ? '${CurrencyFormatter.format(state.todaysGap)} deficit today'
@@ -91,7 +101,7 @@ class TeamMemberMobileView extends ConsumerWidget {
                         ),
                         const SizedBox(height: AppSizes.lg),
                         Text(
-                          AppStrings.recentSalesActivity,
+                          context.l10n.recentSalesActivity,
                           style: TextStyle(fontSize: AppSizes.fontSm, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
                         ),
                         const SizedBox(height: AppSizes.sm + AppSizes.xs),
@@ -122,7 +132,7 @@ class TeamMemberMobileView extends ConsumerWidget {
                 ? null
                 : () => launchUrl(Uri(scheme: 'sms', path: state.phone)),
             onFullReportTap: () =>
-                CustomSnackBar.show(context, AppStrings.reportsComingSoonTitle),
+                CustomSnackBar.show(context, context.l10n.reportsComingSoonTitle),
           ),
         ),
       ),

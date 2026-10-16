@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
 import '../../../../core/widgets/common/app_header_bar.dart';
 import '../../../../core/widgets/common/summary_card.dart';
@@ -14,6 +13,7 @@ import '../../../../core/widgets/utility/error_state.dart';
 import '../controllers/team_reports_controller.dart';
 import '../widgets/category_sales_bar.dart';
 import '../widgets/salesman_rank_tile.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 class TeamReportsMobileView extends ConsumerWidget {
   const TeamReportsMobileView({super.key});
@@ -29,7 +29,7 @@ class TeamReportsMobileView extends ConsumerWidget {
       child: SafeArea(
         child: Column(
           children: [
-            AppHeaderBar(title: AppStrings.teamReportsTitle),
+            AppHeaderBar(title: context.l10n.teamReportsTitle),
             Expanded(
               child: isFirstLoad
                   ? _buildShimmer()
@@ -44,14 +44,14 @@ class TeamReportsMobileView extends ConsumerWidget {
                                 children: [
                                   Expanded(
                                     child: SummaryCard(
-                                      label: AppStrings.totalTargetLabel,
+                                      label: context.l10n.totalTargetLabel,
                                       value: CurrencyFormatter.format(state.totalTarget),
                                     ),
                                   ),
                                   SizedBox(width: AppSizes.sm),
                                   Expanded(
                                     child: SummaryCard(
-                                      label: AppStrings.achievedLabel,
+                                      label: context.l10n.achievedLabel,
                                       value: CurrencyFormatter.format(state.totalAchieved),
                                     ),
                                   ),
@@ -66,7 +66,7 @@ class TeamReportsMobileView extends ConsumerWidget {
                               ),
                               SizedBox(height: AppSizes.lg),
                               Text(
-                                AppStrings.salesmanRankingTitle,
+                                context.l10n.salesmanRankingTitle,
                                 style: TextStyle(fontSize: AppSizes.fontMd, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
                               ),
                               SizedBox(height: AppSizes.sm),
@@ -79,7 +79,7 @@ class TeamReportsMobileView extends ConsumerWidget {
                                 ],
                               SizedBox(height: AppSizes.lg),
                               Text(
-                                AppStrings.salesByCategoryTitle,
+                                context.l10n.salesByCategoryTitle,
                                 style: TextStyle(fontSize: AppSizes.fontMd, fontWeight: FontWeight.w700, color: context.appColors.textPrimary),
                               ),
                               SizedBox(height: AppSizes.sm),

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
-
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 /// Floating "Add Member" pill, positioned absolutely within the view's
 /// own Stack (not `Scaffold.floatingActionButton`) — see assumptions
 /// note re: keeping `_screen.dart` an untouched thin wrapper.
@@ -42,7 +41,7 @@ class AddMemberFab extends StatelessWidget {
                   size: AppSizes.iconSm, color: AppColors.textWhite),
               SizedBox(width: AppSizes.xs),
               Text(
-                AppStrings.addMember,
+                context.l10n.addMember,
                 style: TextStyle(
                   color: AppColors.textWhite,
                   fontSize: AppSizes.fontSm,

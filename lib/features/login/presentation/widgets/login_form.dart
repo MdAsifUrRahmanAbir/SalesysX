@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/widgets/common/primary_input_field.dart';
 import '../../../../core/widgets/common/password_input_field.dart';
 import '../../../../core/widgets/common/primary_checkbox.dart';
 import '../../../../core/widgets/common/link_button.dart';
 import '../../../../core/widgets/common/primary_button.dart';
 import '../controllers/login_controller.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Email + password fields, "Remember me" / "Forgot password?" row, and
 /// the Sign In button.
@@ -34,8 +34,8 @@ class LoginForm extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PrimaryInputField(
-            label: AppStrings.emailAddress,
-            hint: AppStrings.emailHint,
+            label: context.l10n.emailAddress,
+            hint: context.l10n.emailHint,
             controller: controller.emailController,
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icon(Icons.mail_outline_rounded),
@@ -43,8 +43,8 @@ class LoginForm extends ConsumerWidget {
           ),
           const SizedBox(height: AppSizes.md),
           PasswordInputField(
-            label: AppStrings.password,
-            hint: AppStrings.passwordHint,
+            label: context.l10n.password,
+            hint: context.l10n.passwordHint,
             controller: controller.passwordController,
             validator: controller.validatePassword,
           ),
@@ -54,13 +54,13 @@ class LoginForm extends ConsumerWidget {
               Expanded(
                 child: PrimaryCheckbox(
                   value: state.rememberMe,
-                  label: AppStrings.rememberMe,
+                  label: context.l10n.rememberMe,
                   onChanged: (value) =>
                       controller.setRememberMe(value ?? false),
                 ),
               ),
               LinkButton(
-                label: AppStrings.forgotPassword,
+                label: context.l10n.forgotPassword,
                 fontSize: AppSizes.fontSm,
                 onPressed: onForgotPassword,
               ),
@@ -68,7 +68,7 @@ class LoginForm extends ConsumerWidget {
           ),
           const SizedBox(height: AppSizes.sm),
           PrimaryButton(
-            label: AppStrings.signIn,
+            label: context.l10n.signIn,
             loading: loading,
             onPressed: () => controller.submit(onSignIn),
           ),

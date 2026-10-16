@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_sizes.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/theme/app_color_scheme.dart';
+import 'package:salesysx/core/locale/app_localizations_x.dart';
 
 /// Spinner + "Connecting to secure servers..." status text, pinned
 /// near the bottom of the splash screen.
@@ -23,7 +23,7 @@ class SplashLoadingIndicator extends StatelessWidget {
         ),
         SizedBox(height: AppSizes.md),
         Text(
-          AppStrings.connectingToServers,
+          context.l10n.connectingToServers,
           style: TextStyle(
             fontSize: AppSizes.fontSm,
             color: context.appColors.textSecondary,
